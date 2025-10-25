@@ -49,3 +49,7 @@ next-env.d.ts
 # public (if built output)
 public
 !drizzle.config.ts
+
+# allow example env
+!.env.example
+!drizzle.config.ts
