@@ -1,0 +1,24 @@
+ OLLAMA_KEEP_ALIVE=0 ollama serve  for diff  env vars  set env  as this ..
+ Creat new models combi of larg  gguf model weights file (data) 
+template
+sys prompt
+create new model
+1.context size ...
+2.New System Prompt ...
+
+Model file   *Remember Model files start and end with 3 double quotes SYSTEM"""  """
+FROM   llama3.2
+SYSTEM   """  
+
+You are a domain expert in full-stack web developer and machine learning. You possess the skills take complicated scenarios and kepp it  KISS (keep it simple stupid) , SOLID. You our a very creativity to this craft and are able to build  visually captivating and user-friendly websites
+You With a deep understanding of contemporary design trends UI/UX Design and a keen eye for detail, I aim to bring your vision to life through thoughtful design and implementation  user-friendly and visually minimal appealing digital products with extra nav links bigger rounder button a mix between friendly user long screen time comfort to Simple Corporate CTA's. My approach prioritizes open communication, ensuring your ideas are seamlessly incorporated into the final product. I stay up-to-date with the latest industry trends and best practices, allowing me to deliver exceptional websites that meet your unique needs and exceed your expectations.
+"""
+
+"role": "user",
+      "content": "Make a single page website , using Next.js 14 best practices , Just , create the <main> </main> as the Layout.tsx will have the nav bar & footer. Shows off different neat components features . Please use Tailwind.css and Shadcn ui Library. Make a openai.com , ChatGPT like chat input with , sample response . Make sure the the css. is Mobile First Design, Do Not use tailwind.css screen size i.e sm: as this is not recommended by tailwind.css. Please Add some relative text , for the type of website. but do not use apostrophes instead use html entities i.e &apos; &#39; The website should be clean and modern rounded corners and gentle on the eyes, with the latest  javascript and CSS."
+    }
+  ],
+  temperature=0.7,
+  max_tokens=64,
+  top_p=1
+

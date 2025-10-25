@@ -1,0 +1,1 @@
+act as teacher , tutor , give me bullet points format K means Clustering and how it relate to scikit-learn

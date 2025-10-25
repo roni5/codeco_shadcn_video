@@ -1,0 +1,243 @@
+on Growth Leave the Tech to Us
+
+We handle all your web development needs using the latest technologies inAPPAIDesign.
+
+We ensure your website loads in under 1 seconds. Our advanced solution overcomes the limitations of No code, Wix, Shopify builder traps, "No tie-ins", no Strings Attached, you own the code. Say goodbye to outdated cPanel DIY set it up yourself, Embrace a new era of efficiency and effectiveness.
+
+Book a call
+AI Chat
+Effortless Online Presence
+
+We Handle the Complexities
+Our meticulous research and strategic planning align with your business goals, ensuring you engage and attract your target audience effectively.
+
+
+GET A QUOTE
+Comprehensive on Demand Digital Management
+REDEFINING WEB HOSTING
+Security-certified by The British Chartered Institute for IT, we deliver expert Software Development and tailored Managed Hosting, enhanced by AI capabilities. Our comprehensive IT Services spans from Enterprise websites to "Manually" setup of Business Email,DNS,Backups, Security, and Analytics. Leveraging innovative "Auto scaling" technologies. It's not about, what you did in the Past. It's about, What you do Next.
+Project 2
+SaaS AI Web Application
+A scalable Ai platform built with React, Node.js, and Postgres.
+
+React, Node.js, Postgres
+Custom Code
+Live Demo
+Project 1
+E-commerce Platform
+A feature-rich e-commerce solution built with React, Next.js, and Stripe.
+
+React, Next.js, Stripe
+Bespoke Code
+Live Demo
+Project 3
+Mobile App Development
+A cross-platform mobile app built with React Native and Firebase.
+
+React Native, Firebase
+Native Code
+Live Demo
+We deliver your vision and empower your success
+Your platform determines your business outcome and drives your business forward.
+How does it work?
+Our platform is dedicated to designing and delivering top-notch mobile and SaaS AI applications, ensuring your architecture is robust, scalable, and secure. Expand Your Reach and Connect with New Customers. We handle the technical complexities, so you can focus on your core strengths while we integrate powerful SEO and marketing strategies to drive your business growth.
+
+Boost Connectivity
+Imagine a world where all your technologies work together seamlessly, creating measurable business value. Our industry-leading library of solutions is designed to enhance collaboration and productivity across your organization.Trusted by
+We offer carefully curated, world-class solutions using a technique called progressive enhancement
+
+offline
+Animation
+Seamlessly optimized for all users, with or without JavaScript support.
+
+Online
+Development Process
+agile-graphic scene
+1. Plan
+Laying the Groundwork for Success.
+We kick off every project with a comprehensive tech analysis, diving deep into your unique needs. Our expert team crafts an integration roadmap and presumed architecture database, ensuring a solid foundation for your web platform.
+
+2. Design
+Bringing Your Vision to Life.
+Watch your ideas take shape as we develop UI content and assets tailored to your brand. We work with frameworks and languages that best suit your project, creating critical CTA forms and data structures that drive engagement and conversions.
+
+3. Build
+Crafting Cutting-Edge Solutions.
+Leveraging best practices and micro-server integration, we construct scalable applications that stand the test of time. Our collaborative approach ensures your vision is realized through cutting-edge technology and expert craftsmanship.
+
+4. Migrate
+Seamless Transition to Your New Platform.
+Say goodbye to migration headaches. We handle hosting, DNS configuration, email setup, and DevOps testing with precision. Our team ensures smooth API integrations and user onboarding, making the transition to your new platform effortless.
+
+4. Launch
+Perfecting Your Digital Presence.
+Before your site goes live, we conduct rigorous pro-level testing to squash any bugs. Whether you're launching a new tier or expanding your hosting capabilities, we're here to ensure a flawless delivery..
+
+WEB DEVELOPMENT ROADMAP
+TASK / PROCESS	Mon 12	Tue 13	Wed 14	Thu 15	Fri 16	Sat 17	Sun 18	Mon 19	Tue 20
+ANALYSIS	
+On-Site Meetings		AVERY DAVIS 75% Done		AARON LOEB 100% Done		NOAH... 45% Done
+Group Discussions	
+Documentation	
+DESIGN	
+Design Database		CHIDI EZE 45% Done	
+Lo-Fi Prototyping		DREW FEIG 29% Done		LORNA ... 100% Done
+Desktop App Design	
+TESTING	
+On-Site Meetings		NEIL TRAN 45% Done	
+Group Discussions		TEDDY YU 48% Done
+Technical Services
+Expert Email Setup | Database Setup
+
+Expert Email Setup
+5 Business Mailboxes for Seamless Communication
+
+Custom Domain Integration
+We configure your email to work flawlessly with your custom domain, reinforcing your brand’s professional image.
+
+Full DNS Configuration
+We handle DNS, MX, SPF, DKIM, and DMARC records for optimal email deliverability, ensuring your emails land in the inbox, not the spam folder.
+
+Mandatory Token-Based Unsubscribe
+We ensure compliance and ease of use with a token-based unsubscribe mechanism, safeguarding your newsletters and your recipients' preferences.
+
+Security First
+With SPF, DKIM, and DMARC setup, we prevent email spoofing and enhance your domain's reputation.
+
+Expert Support
+Our team manages every technical detail, allowing you to focus on growing your business.
+
+Only £75
+Buy Now
+Learn More
+Share
+Save
+Edit
+Expert Database Setup
+Comprehensive No-Code Database Setup Service
+
+Custom Integration
+Seamlessly integrate with PostgreSQL, MySQL, MongoDB, AWS RDS & Aurora, Google Cloud Firestore, and Azure SQL.
+
+AI Memory Tuning
+Optimize your database performance with advanced AI memory tuning for faster query processing and enhanced efficiency. Keep your users emails and newsletter's email within your organisation
+
+Scalable Solutions
+Containerized Deployment Leverage the power of containerization to ensure your database setups are portable, consistent, and easily deployable across multiple environments. This modern approach simplifies scaling and maintenance, reducing downtime and operational costs.
+
+Expert Support
+Our solutions grow with your needs, ensuring long-term scalability and support for your data infrastructure
+
+Only £150
+Buy Now
+Learn More
+Share
+Save
+Edit
+Professional App solutions
+Got Technical Skills
+
+Business Ready
+10 essential SEO pages for your Business, built with Astro or Nextjs
+
+Got The Time | Get a Web App not a Theme
+
+Shop Now
+Tailwind CSS
+Worlds Fastest Loading Web Sites
+No magic, no tricks—just simple pricing. Why are we the perfect fit for your needs? Whether you’re launching your first startup, tackling growing technology challenges, or managing enterprise-level workloads, we offer the multinational Telecom corporate experience, resources, and expertise to help you succeed.
+
+Let's Talk Quick Solutions
+We’ll set you up with an impressive online presence, using cutting-edge technologies like Next.js or the ultra-fast static version, Astro. Our package includes the 10 essential pages every website needsRobots.txt | Sitemap | About Us | Contact | Privacy Policy | Terms | Homepage | Products/Services | Error 404. This ensures comprehensive visibility and optimization for search engines (SEO) and Search Engine Results Pages (SERPs). We craft a practical, affordable online solution tailored to your unique business goals..*Database Not included*
+
+What's included
+Fully Responsive App
+10 Must Have Pages
+Download Zip file
+Contacts & Newsletter
+Pay once, own it forever
+
+£349
+GBP
+
+Shop Now
+Onboarding and FAQ available for free
+
+READY TO DEPLOY WITH A MODERN HOSTING PLATFORM ?
+100% AI AGILE INTERGRATION
+
+DESIGNED FOR SPEED
+PERFORMANCE
+Hosting Manager
+docker logo
+Choose the Worlds Fastest Loading Web Site for your Business
+No more DIY managing servers NO CODE just focus on building
+
+Boost Connectivity You're almost there!
+
+£19.99
+/per month
+CONTAINERIZED WEB APP
+
+EDGE INFRASTRUCTURE
+
+SUB-3-SECOND LOAD TIMES
+
+DNS CONFIGURATION
+
+EMAIL MANAGEMENT
+
+1x DEV/OPS CUSTOMIZATIONS
+
+Join Now
+£44.99
+/per month
+All OF THE LITE PLAN + DATABASE
+
+AUTHENTICATION & BLOG/ADMIN
+
+CONTENT MANAGEMENT SYSTEM (CMS)
+
+RATE LIMITS AND RECAPTCHA
+
+KUBERNETES AUTO SCALING
+
+AI CHAT INTERGRATION TUNING
+
+Join Now
+£99.99
+/per month
+ALL OF THE PRO PLAN + 24/7 SUPPORT
+
+CONTINOUS INTEGRATION CI/CD
+
+MICRO SERVICES SERVERLESS FN
+
+REVERSE PROXY MAMAGEMENT
+
+CDNs MAMAGEMENT
+
+DEV/OP SECURITY SCANNING
+
+Join Now
+View
+AC
+Dave Palmer
+CEO, Sprx.io
+
+The customer service I received was exceptional. The support team\n went above and beyond to address my concerns.
+
+View
+blokiot.com logo
+Steve Luck
+Product Manager, Blokiot.com
+
+I was impressed by the platform's ease of use and the team's\n responsiveness. It has been a game-changer for our business.
+
+View Site
+Securitscan.ai
+Rob Cooper
+CTO, Securitscan.ai
+
+The platform's robust features and scalability have been crucial\n for our growing business. I highly recommend it.
+

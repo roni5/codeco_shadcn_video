@@ -1,0 +1,1 @@
+How do I add up a row of British pound  £ amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called "Total".

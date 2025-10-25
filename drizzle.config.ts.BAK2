@@ -1,0 +1,182 @@
+import 'dotenv/config'
+import 'dotenv/config'
+import { defineConfig } from "drizzle-kit";
+
+export default defineConfig({
+	dialect: "postgresql",
+	schema: "./lib/schema.ts",
+	out: "./drizzle",
+	dbCredentials: {
+ url: process.env.DATABASE_URL!,
+		url: `postgresql://${process.env.DB_USER ?? "postgres"}:${process.env.DB_PASSWORD}@${process.env.DB_HOST ?? "localhost"}:${process.env.DB_PORT ?? 5432}/${process.env.DB_NAME}?sslmode=disable`,
+	},
+	strict: true,
+	verbose: true,
+});
+// import { defineConfig } from "drizzle-kit";
+
+// export default defineConfig({
+//   dialect: "postgresql",
+//   schema: "./lib/schema.ts",
+//   out: "./drizzle",
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     host: process.env.DB_HOST ?? "localhost",
+//     port: Number(process.env.DB_PORT ?? 5432),
+//     user: process.env.DB_USER ?? "postgres",
+//     password: process.env.DB_PASSWORD!,
+//     database: process.env.DB_NAME!,
+//     // SSL omitted for local development
+//   },
+//   strict: true,
+//   verbose: true,
+// });
+
+// export default defineConfig({
+//   dialect: "postgresql",
+//   schema: "./lib/schema.ts", // ✅ update to real path
+//   out: "./drizzle",
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     host: process.env.DB_HOST ?? "localhost",
+//     port: Number(process.env.DB_PORT ?? 5432),
+//     user: process.env.DB_USER ?? "postgres",
+//     password: process.env.DB_PASSWORD!,
+//     database: process.env.DB_NAME!,
+//     ssl:
+//       process.env.NODE_ENV === "production"
+//         ? { rejectUnauthorized: false }
+//         : false,
+//   },
+//   strict: true,
+//   verbose: true,
+// });
+
+// import { defineConfig } from "drizzle-kit";
+// import { loadEnvConfig } from "@next/env";
+
+// // Load environment variables
+// const projectDir = process.cwd();
+// loadEnvConfig(projectDir);
+
+// // SSL mode logic for production
+// let sslmode = "";
+// if (process.env.APP_ENV === "prod") {
+//   sslmode = "?sslmode=require";
+// }
+
+// export default defineConfig({
+//   dialect: "postgresql",
+//   schema: "./lib/schema.ts",
+//   out: "./drizzle",
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     host: process.env.DB_HOST ?? "localhost",
+//     port: Number(process.env.DB_PORT) ?? 5432,
+//     user: process.env.DB_USER ?? "ronimc",
+//     database: process.env.DB_NAME ?? "next_auth_drizzle",
+//     ssl: process.env.APP_ENV === "prod",
+//   },
+//   verbose: true,
+//   strict: true,
+// });
+// import { defineConfig } from "drizzle-kit";
+
+// export default defineConfig({
+//   dialect: "postgresql",
+//   schema: "./lib/schema.ts",
+//   out: "./drizzle",
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     host: process.env.DB_HOST ?? "localhost",
+//     port: Number(process.env.DB_PORT) ?? 5432,
+//     user: process.env.DB_USER ?? "postgres",
+//     password: process.env.DB_PASSWORD!,
+//     database: process.env.DB_NAME!,
+//     ssl: process.env.NODE_ENV === "production",
+//   },
+//   verbose: true,
+//   strict: true,
+// } satisfies Parameters<typeof defineConfig>[0]);
+
+// import { defineConfig } from "drizzle-kit";
+// import { loadEnvConfig } from "@next/env";
+
+// const projectDir = process.cwd();
+// loadEnvConfig(projectDir);
+
+// // SSL mode logic for production
+// let sslmode = "";
+// if (process.env.APP_ENV === "prod") {
+//   sslmode = "?sslmode=require";
+// }
+
+// export default defineConfig({
+//   dialect: "postgresql", // THIS WAS MISSING!
+//   schema: "./lib/db/schema.ts", // Adjust path to your schema
+//   out: "./drizzle",
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     url: `${process.env.POSTGRES_URL!}${sslmode}`,
+//   },
+// });
+// import appConfig from "./lib/config";
+// import { defineConfig } from "drizzle-kit";
+
+// import { loadEnvConfig } from "@next/env";
+
+// const projectDir = process.cwd();
+// loadEnvConfig(projectDir);
+
+// // Define the shape of your config
+// type AppConfig = {
+//   readonly APP_ENV: string;
+//   readonly POSTGRES_URL: string;
+//   readonly SSL_MODE: string;
+//   readonly FULL_POSTGRES_URL: string;
+// };
+
+// // SSL mode logic for production
+// let sslmode = "";
+// if (process.env.APP_ENV === "prod") {
+//   sslmode = "?sslmode=require";
+// }
+
+// // Use const assertion with satisfies for type safety and inference
+// const config = {
+//   APP_ENV: process.env.APP_ENV!,
+//   POSTGRES_URL: process.env.POSTGRES_URL!,
+//   SSL_MODE: sslmode,
+//   FULL_POSTGRES_URL: `${process.env.POSTGRES_URL!}${sslmode}`,
+// } as const satisfies AppConfig;
+
+// export default appConfig;
+
+// let sslmode = "";
+// if (config.APP_ENV === "prod") {
+//   sslmode = "?sslmode=require";
+// }
+
+// export default defineConfig({
+//   schema: "./lib/schema.ts",
+//   out: "./drizzle",
+//   dialect: "postgresql", // Changed from driver: "pg"
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     url: config.POSTGRES_URL + sslmode, // Changed from connectionString
+//   },
+//   verbose: true,
+//   strict: true,
+// });
+
+// export default defineConfig({
+//   schema: "./lib/schema.ts",
+//   out: "./drizzle",
+//   driver: "pg",
+//   dbCredentials: {
+ url: process.env.DATABASE_URL!,
+//     connectionString: config.POSTGRES_URL + sslmode,
+//   },
+//   verbose: true,
+//   strict: true,
+// });

@@ -1,0 +1,50 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules/
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# production builds
+/build/
+/dist/
+
+# Next.js
+/.next/
+/out/
+/vercel
+
+# testing & coverage
+/coverage/
+/.nyc_output
+
+# minified
+*.min.js
+*.min.css
+
+# config files
+*.config.js
+*.config.mjs
+*.config.ts
+tailwind.config.*
+postcss.config.*
+next.config.*
+
+# env files
+.env*
+.env*.local
+
+# debug & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# public (if built output)
+public
