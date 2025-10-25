@@ -48,3 +48,4 @@ next-env.d.ts
 
 # public (if built output)
 public
+!drizzle.config.ts
