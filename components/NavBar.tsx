@@ -27,40 +27,26 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navTextColor = isScrolled
-    ? 'text-slate-700 dark:text-slate-200'
-    : 'text-black dark:text-white'
+  const navTextColor = 'text-primary'
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-full overflow-x-hidden md:overflow-visible px-4 md:px-8 py-2',
-        isScrolled
-          ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-2'
-          : 'bg-transparent py-4'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-full overflow-x-hidden md:overflow-visible px-4 md:px-8',
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
       )}
     >
-      {/* FIXED: Added max-w-full and min-w-0 to container */}
       <div className="container flex items-center justify-between mx-auto max-w-full min-w-0">
-        {/* Logo - FIXED: Added flex-shrink-0 to prevent logo from shrinking */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-0.5 flex-shrink-0">
-          <span
-            className={cn(
-              'px-0 hidden md:block font-bold text-lg transition-colors duration-300',
-              isScrolled
-                ? 'text-sky-500 dark:text-white'
-                : 'text-pink-400 dark:text-white'
-            )}
-          >
+          <span className="px-0 hidden md:block font-bold text-lg">
             <Image
-              className="p-1  sm:p-2"
+              className="p-1 sm:p-2"
               src="/img/elephant-alone.svg"
               alt="logo"
               width={70}
@@ -68,10 +54,8 @@ export default function Navbar() {
               priority
             />
           </span>
-          <div className="w-28 h-8 rounded-md bg-gradient-to-r from-sky-300 to-pink-400  items-center justify-center hidden sm:flex">
-            <span className="text-white font-bold hidden sm:block ">
-              Codeco.tech
-            </span>
+          <div className="w-28 h-8 rounded-md bg-gradient-to-r from-primary to-secondary items-center justify-center hidden sm:flex">
+            <span className="text-white font-bold hidden sm:block">Codeco.tech</span>
           </div>
         </Link>
 
@@ -81,28 +65,26 @@ export default function Navbar() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className={cn('text-base font-medium', navTextColor)}
+                  className={cn(
+                    'text-base font-medium rounded-md border-2 border-white',
+                    navTextColor
+                  )}
                 >
                   Products
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
+
+                {/* Flyout: black background */}
+                <NavigationMenuContent className="bg-black text-white border border-white/20">
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
                     <li className="row-span-3">
                       <NavigationMenuLink asChild>
                         <Link
                           href="/"
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md  p-6 no-underline outline-none focus:shadow-md"
-                          style={{
-                            backgroundImage:
-                              'linear-gradient(120deg, var(--indigo-6), var(--crimson-5))',
-                          }}
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md p-6 no-underline outline-none focus:shadow-md bg-gradient-to-br from-primary to-secondary hover:opacity-90"
                         >
-                          <div className="mb-2 mt-4 text-lg font-medium text-white">
-                            Next.js 15
-                          </div>
+                          <div className="mb-2 mt-4 text-lg font-medium text-white">Next.js 15</div>
                           <p className="text-sm leading-tight text-white/90">
-                            The latest features of Next.js with server
-                            components and more.
+                            The latest features of Next.js with server components and more.
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -121,17 +103,19 @@ export default function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  <span className={cn('text-base font-medium', navTextColor)}>
-                    Resources
-                  </span>
+                <NavigationMenuTrigger
+                  className={cn(
+                    'text-base font-medium rounded-md border-2 border-white',
+                    navTextColor
+                  )}
+                >
+                  <span>Resources</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
+
+                {/* Flyout: black background */}
+                <NavigationMenuContent className="bg-black text-white border border-white/20">
                   <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
-                    <ListItem
-                      href="/resources/documentation"
-                      title="Documentation"
-                    >
+                    <ListItem href="/resources/documentation" title="Documentation">
                       Learn how to use our products
                     </ListItem>
                     <ListItem href="/resources/guides" title="Guides">
@@ -151,7 +135,11 @@ export default function Navbar() {
                 <NavigationMenuLink asChild>
                   <Link
                     href="/contact"
-                    className={cn(navigationMenuTriggerStyle(), navTextColor)}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'rounded-md border-2 border-white',
+                      navTextColor
+                    )}
                   >
                     Contact
                   </Link>
@@ -166,51 +154,36 @@ export default function Navbar() {
               href="/signin"
               className={cn(
                 buttonVariants({ variant: 'outline' }),
-                isScrolled
-                  ? 'text-slate-700 dark:text-slate-200'
-                  : 'text-black dark:text-white',
-                isScrolled
-                  ? 'hover:text-slate-900 dark:hover:text-slate-100'
-                  : 'hover:text-slate-700 dark:hover:text-slate-100',
-                'transition-colors duration-200'
+                'text-primary border-2 border-white'
               )}
             >
               <Mail className="mr-2 h-4 w-4 animate-wiggle" /> Sign In
             </Link>
+
             <span className="relative flex items-center justify-center">
               <Link
                 href="/get-started"
                 className={cn(
                   buttonVariants({ variant: 'default' }),
-                  'bg-linear-to-br from-sky-500 to-pink-400 shadow-xl hover:opacity-70'
+                  'bg-gradient-to-br from-primary to-secondary border-2 border-white shadow-xl hover:opacity-90'
                 )}
               >
                 Get Started
               </Link>
-
-              {/* Ping container in upper-right corner */}
               <span className="absolute -top-1 -right-1">
-                <span className="absolute inline-flex size-3 animate-ping duration-[3000ms] rounded-full bg-sky-400 opacity-75" />
-                <span className="relative inline-flex size-3 rounded-full bg-sky-500" />
+                <span className="absolute inline-flex size-3 animate-ping duration-[3000ms] rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex size-3 rounded-full bg-primary" />
               </span>
             </span>
           </div>
         </div>
 
-        {/* Mobile - FIXED: Added flex-shrink-0 to prevent shrinking */}
+        {/* Mobile (unchanged hover) */}
         <div className="flex md:hidden flex-shrink-0">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu
-                  className={cn(
-                    'h-6 w-6',
-                    // FIXED: Simplified color logic and removed conflicting styles
-                    isScrolled
-                      ? 'text-slate-700 dark:text-white'
-                      : 'text-black dark:text-white'
-                  )}
-                />
+              <Button variant="ghost" size="icon" className="border-2 border-white">
+                <Menu className="h-6 w-6 text-primary" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
@@ -220,82 +193,52 @@ export default function Navbar() {
               </VisuallyHidden>
               <div className="flex flex-col gap-6 pt-6 px-6">
                 <div className="flex flex-col space-y-3">
-                  <h2 className="text-lg font-semibold">Products</h2>
+                  <h2 className="text-lg font-semibold text-primary">Products</h2>
                   <div className="flex flex-col space-y-2 pl-2">
-                    <Link
-                      href="/products/framework"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/products/framework" className="text-sm text-primary hover:opacity-80">
                       Framework
                     </Link>
-                    <Link
-                      href="/products/components"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/products/components" className="text-sm text-primary hover:opacity-80">
                       Components
                     </Link>
-                    <Link
-                      href="/products/templates"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/products/templates" className="text-sm text-primary hover:opacity-80">
                       Templates
                     </Link>
                   </div>
                 </div>
 
                 <div className="flex flex-col space-y-3">
-                  <h2 className="text-lg font-semibold">Resources</h2>
+                  <h2 className="text-lg font-semibold text-primary">Resources</h2>
                   <div className="flex flex-col space-y-2 pl-2">
-                    <Link
-                      href="/resources/documentation"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/resources/documentation" className="text-sm text-primary hover:opacity-80">
                       Documentation
                     </Link>
-                    <Link
-                      href="/resources/guides"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/resources/guides" className="text-sm text-primary hover:opacity-80">
                       Guides
                     </Link>
-                    <Link
-                      href="/resources/examples"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/resources/examples" className="text-sm text-primary hover:opacity-80">
                       Examples
                     </Link>
-                    <Link
-                      href="/resources/blog"
-                      className="text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                    >
+                    <Link href="/resources/blog" className="text-sm text-primary hover:opacity-80">
                       Blog
                     </Link>
                   </div>
                 </div>
 
-                <Link
-                  href="/contact"
-                  className="text-lg font-semibold hover:text-indigo-600 dark:hover:text-indigo-400"
-                >
+                <Link href="/contact" className="text-lg font-semibold text-primary hover:opacity-80">
                   Contact
                 </Link>
 
                 <div className="flex flex-col gap-2 pt-4">
                   <Link
                     href="/signin"
-                    className={cn(
-                      buttonVariants({ variant: 'outline' }),
-                      'w-full'
-                    )}
+                    className={cn(buttonVariants({ variant: 'outline' }), 'w-full text-primary border-2 border-white')}
                   >
                     Sign In
                   </Link>
                   <Link
                     href="/get-started"
-                    className={cn(
-                      buttonVariants({ variant: 'default' }),
-                      'w-full'
-                    )}
+                    className={cn(buttonVariants({ variant: 'default' }), 'w-full bg-gradient-to-br from-primary to-secondary border-2 border-white hover:opacity-90')}
                   >
                     Get Started
                   </Link>
@@ -317,33 +260,23 @@ interface ListItemProps {
   [key: string]: any
 }
 
-function ListItem({
-  className = '',
-  title,
-  children,
-  href,
-  ...props
-}: ListItemProps) {
+function ListItem({ className = '', title, children, href, ...props }: ListItemProps) {
   return (
     <li>
       <NavigationMenuLink asChild>
         <Link
           href={href}
           className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800',
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
+            'text-white hover:bg-white/10', // readable on black flyout
             className
           )}
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-slate-600 dark:text-slate-400">
-            {children}
-          </p>
+          <p className="line-clamp-2 text-sm leading-snug text-white/80">{children}</p>
         </Link>
       </NavigationMenuLink>
     </li>
   )
 }
-
-
-

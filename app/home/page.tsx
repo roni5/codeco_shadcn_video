@@ -383,7 +383,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row gap-8 items-center">
             <div className="lg:w-1/2 order-2 lg:order-1">
               <Image
-                src="/img/home_side_cards.jpg"
+                src="/img/business-partners.jpg"
                 alt="Grow with Google Ads."
                 className="w-full"
                 width={1500}
