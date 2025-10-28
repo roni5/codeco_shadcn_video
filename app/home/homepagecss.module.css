@@ -42,15 +42,15 @@
   position: relative;
 }
 
-.colorBarIconGreen {
+.colorBarIconBlack {
   width: 60px;
   height: 4px;
-  background-color: #34a853;
+  background-color: #28292E;
   margin: 0 auto 24px;
 }
 
-.colorBarHighlightGreen {
-  color: #34a853;
+.colorBarHighlightBlack {
+  color: #28292E;
   font-weight: 700;
 }
 

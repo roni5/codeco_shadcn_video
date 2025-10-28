@@ -47,7 +47,7 @@ export default function Navbar() {
           <span className="px-0 hidden md:block font-bold text-lg">
             <Image
               className="p-1 sm:p-2"
-              src="/img/elephant-alone.svg"
+              src="/img/logo.svg"
               alt="logo"
               width={70}
               height={70}
