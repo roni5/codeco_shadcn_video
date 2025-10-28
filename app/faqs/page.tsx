@@ -1,73 +1,51 @@
-//'use client'
-
-import CalendarWithDropdownNav from '@/components/CalendarWithDropdownNav'
-import ChatBubble from '@/components/chatBubble'
-import ChatBubbleAudio from '@/components/chatBubbleAudio'
-import ChatBubbleUpload from '@/components/chatBubbleUpload'
-import DateRangepicker from '@/components/dateRangepicker'
-import { DayDropdown } from '@/components/daydrop'
-import ImageFigure from '@/components/imageFigure'
-import { InputTime } from '@/components/InputTime'
-import LaptopMockup from '@/components/LaptopMockup'
-import MockupMobile from '@/components/mockupMobile'
-import Stepper from '@/components/ProgressStepper'
+// app/onboarding/page.tsx
+//import { FaqsContent } from '@/app/components/Faqs'
+//import { Onboarding } from '@/components/Onboarding'
+import BackButton from '@/components/BackButton '
 import SEO from '@/components/seo'
-import TabletMockup from '@/components/TabletMockup'
-import TestCal from '@/components/testcal'
-import { DayPicker } from 'react-day-picker'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Faqs() {
-  // useEffect(() => {
-  //   const hash = window.location.hash;
-  //   if (hash) {
-  //     const element = document.querySelector(hash);
-  //     if (element) {
-  //       // Optionally, you can automatically open the accordion item
-  //       element.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   }
-  // }, []);
-
+export default function FaqsPage() {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 py-16 md:py-24  sm:px-6 lg:px-8">
       <SEO
         pageTitle="Faqspage"
         pageDescription="Any unanswered question you find here"
       />
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-3xl space-y-8">
-            <ChatBubble />
-            <DateRangepicker />
-            <InputTime />
-            <ImageFigure />
-            <Stepper />
-            <TestCal />
-            <CalendarWithDropdownNav />
-            <ChatBubbleUpload />
-            <ChatBubbleAudio />
-            <MockupMobile />
-            <LaptopMockup />
-            <div className="text-center" id="target">
-              <h1 className="text-5xl font-bold text-gradient-indigo-to-rose bg-clip-text">
-                Gradient Text
-              </h1>
-              <h2 className="text-1xl font-bold tracking-tighter sm:text-lg md:text-2xl text-gradient-indigo-to-rose">
-                Get Tasks Done Easily and Quickly
-              </h2>
-              <TabletMockup />
-            </div>
-            <div className="mb-2 font-semibold">
-              TaskFul connects you with skilled and reliable taskers in your
-              neighborhood. Post your task, choose a tasker, and get it done.
-              From home repairs to errands, we’ve got you covered. Sign up today
-              and experience the convenience!
-            </div>
-            <div className="mb-2 font-semibold">📝 Rules and policies</div>
-            <div className="h-5 w-5 transition-transform group-[.open]:rotate-180" />
-          </div>
-        </div>
-      </section>
+      <BackButton />
+      <h1 className="z-auto mb-1 text-center text-3xl font-bold text-primary  antialiased md:text-5xl lg:text-6xl ">
+        Faqs
+      </h1>
+      <Image
+        alt="Taskful.co.uk"
+        sizes="100%"
+        width={90}
+        height={90}
+        src="/img/icons/taskful-logo-small.svg"
+        className="w-full max-w-[170px] aspect-video h-auto object-contain mx-auto mb-3 mt-3 md:mb-5 md:mt-5"
+      />
+      <div className="flex items-center space-x-3 py-4 md:py-8 ">
+        <Link
+          href="/help"
+          className="subpixel-antialiased font-medium mt-4 py-2 px-4 rounded-md no-underline text-white bg-cyan-500  hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-700 focus:ring-offset-1 transition-colors duration-200"
+        >
+          Help Docs
+        </Link>
+        <Link
+          href="/guidelines"
+          className="subpixel-antialiased font-medium mt-4 py-2 prose font-semiBold px-4 rounded-md no-underline text-whit bg-cyan-500 text-white hover:bg-cyan-700  focus:outline-none focus:ring-2 focus:ring-cyan-700 focus:ring-offset-1 transition-colors duration-200"
+        >
+          Guidelines
+        </Link>
+        {/* <div className="flex items-center space-x-3 py-4 md:py-8">
+          <button className="inline-flex items-center justify-center px-7 py-3 min-h-[36px] bg-cyan-500 hover:bg-cyan-700 text-white text-sm font-semibold rounded border-0 cursor-pointer transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105">
+            Release payment
+          </button>
+        </div> */}
+      </div>
+      <FaqsContent />
+      <div className="h-20 md:h-32 lg:h-40"/>
     </div>
   )
 }

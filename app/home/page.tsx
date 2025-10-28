@@ -428,11 +428,11 @@ export default function HomePage() {
               <div className="lg:w-3/4 lg:ml-16">
                 <h3 className="text-3xl md:text-4xl font-bold mb-4">
                   Looking for enterprise{' '}
-                  <span className="text-blue-400">solutions?</span>
+                  <span className="text-primary">solutions?</span>
                 </h3>
                 <p className="text-xl mb-6">
                   Codeco.tech Platform offers enterprise-level solutions for{' '}
-                  <span className="text-blue-300 font-medium text-balance">
+                  <span className="text-secondary font-medium text-balance">
                     businesses{' '}
                   </span>
                   <span className="text-blue-300 font-medium text-balance">
@@ -441,7 +441,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/intl/en_uk/about/enterprise/"
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full"
+                  className="bg-primary hover:bg-sky-400 text-white font-medium py-3 px-6 rounded-full"
                 >
                   See solutions
                 </Link>

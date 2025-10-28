@@ -114,7 +114,7 @@ function ContactFormContent() {
       <GoogleTagManager gtmId="GTM-P6CXJTBT" />
       <div
         data-component="dialog"
-        className="mx-auto max-w-2xl text-center rounded-2xl border-b border-gray-300 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-primary lg:p-4 lg:dark:bg-zinc-800/30"
+        className="mx-auto max-w-2xl text-center rounded-2xl border-b border-gray-300 pb-6 pt-8 backdrop-blur-2xl drop-shadow-accent dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-primary lg:p-4 lg:dark:bg-zinc-800/30"
       >
         <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           Contact sales
@@ -181,7 +181,7 @@ function ContactFormContent() {
               className="mt-2"
             />
           </div>
-         
+
           <div className="sm:col-span-2">
             <Label htmlFor="message">Message</Label>
             <Textarea
