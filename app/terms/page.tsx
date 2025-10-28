@@ -1,5 +1,5 @@
 'use client'
-import BackButton from '@/components/BackButton ';
+
 import type { Metadata } from 'next';
 
 
@@ -8,9 +8,6 @@ export default function TermsPage() {
   return (
     <div className="relative mx-auto pt-24 pb-8 px-6">
       <div className="flex w-full flex-col border-opacity-50 prose text-pretty dark:prose-invert mx-3 p-4 antialiased space-y-4">
-        <span className="max-w-sm w-8 h-8 my-2 sm:my-4 py-2 sm:py-4">
-          <BackButton />
-        </span>
         <h1 className="text-3xl mx-auto my-12 md:text-5xl lg:text-6xl font-bold text-center text-codeco-blue mb-5 md:mb-10">
           Terms of Service
         </h1>
