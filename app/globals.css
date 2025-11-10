@@ -1,5 +1,46 @@
 @import "tailwindcss";
 
+
+
+/* single utilities layer with one set of keyframes and one animate utility */
+@layer utilities {
+  @keyframes parallax {
+    from {
+      transform: translate(0%, -50%);
+    }
+
+    to {
+      transform: translate(0%, 50%);
+    }
+  }
+
+  /* Fallback for browsers without animation-timeline */
+  @supports not (animation-timeline: scroll()) {
+    img {
+      transform: translate(0%, 0%) !important;
+    }
+  }
+
+  /* utility you can use in JSX */
+  .animate-parallax {
+    animation: parallax 30s linear both;
+  }
+}
+
+@keyframes parallax {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(50%);
+  }
+}
+
+.animate-parallax {
+  animation: parallax 30s linear infinite;
+}
+
 @theme {
   --color-primary: #3BA3D3;
   --color-primary-foreground: #FEFEFE;
