@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <div className="relative bg-gradient-to-br from-slate-900 to-indigo-950 overflow-hidden">
+    <div className="relative bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden">
       {/* Background pattern */}
       <div className="hidden lg:block absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('/img/grid.webp')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 bg-[url('/img/grid.webp')] bg-center mask-[linear-gradient(180deg,white,rgba(255,255,255,0))]" />
       </div>
       {/* Hero content */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -59,17 +59,18 @@ export default function Hero() {
           {/* Image/illustration section */}
           <div className="mt-16 lg:mt-0 lg:w-1/2">
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              <div className="relative aspect-[4/3] bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative aspect-4/3 bg-linear-to-tr from-indigo-500 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg
                     className="w-3/4 h-3/4 text-white opacity-80"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
+                    <title>icon2</title>
                     <path d="M12 2L2 19h20L12 2zm0 4l6.5 10h-13L12 6z" />
                   </svg>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
                     <div className="h-2 w-3/4 bg-white/50 rounded mb-2" />
@@ -91,12 +92,16 @@ export default function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <title>icon3</title>
           <path
             d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 82.5C840 90 960 105 1080 105C1200 105 1320 90 1380 82.5L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="#f9fafb"
           />
         </svg>
       </div>
+       <section className="mb-12 md:mb-20">
+
+       </section>
       <Bento />
       <ChatTrigger />
       {/* Wave effect */}
@@ -106,6 +111,7 @@ export default function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <title>icon</title>
           <path
             d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 82.5C840 90 960 105 1080 105C1200 105 1320 90 1380 82.5L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="white"

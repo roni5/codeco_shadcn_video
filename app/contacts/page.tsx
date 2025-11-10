@@ -158,13 +158,27 @@ function ContactsPage({ className, transition }: NewsProps) {
         width="1700"
         height="1708"
       />
-      <div className="bg-center mask-[linear-gradient(180deg,white,rgba(255,255,255,0))] border-b border-primary/10 pb-6 pt-8 backdrop-blur-2xl rounded-lg" />
-      <div className="relative bg-white px-4 py-8 md:pt-12 pb-6 md:pb-12 shadow-xl ring-1 ring-white/40 mx-auto w-full max-w-md md:max-w-lg rounded-lg z-30 mt-6">
+      <div className="w-full py-16 px-4 lg:py-8">
+        <div className="mx-auto max-w-md lg:max-w-xl">
+          <div className="text-center rounded-2xl border border-gray-300 px-6 py-6 bg-primary backdrop-blur-2xl drop-shadow-accent dark:border-neutral-800 lg:rounded-xl lg:px-8 lg:py-8">
+            <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              Contact Us
+            </h2>
+            <p className="mt-3 text-sm md:text-lg text-white">
+              We&apos;d love to hear from you.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="relative bg-white px-4 md:py-8 md:pt-12 pb-6 md:pb-12 shadow-xl ring-1 ring-white/40 mx-auto w-full max-w-md md:max-w-lg rounded-lg z-30 -mt-6 md:mt-6">
         <div className="mx-auto max-w-md ">
           <div className="mx-auto block max-w-md rounded-lg bg-white p-6 shadow-4">
             <form ref={formRef} action={formAction}>
               <div className="mb-6">
-                <label htmlFor="name" className="block mb-2 text-sm font-medium text-primary">
+                <label
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
                   Your name
                 </label>
                 <Input
@@ -178,12 +192,18 @@ function ContactsPage({ className, transition }: NewsProps) {
                 />
               </div>
 
-              {formState.status === 'field-errors' && formState.errors?.name && (
-                <p className="text-red-500 text-sm font-medium">{formState.errors.name}</p>
-              )}
+              {formState.status === 'field-errors' &&
+                formState.errors?.name && (
+                  <p className="text-red-500 text-sm font-medium">
+                    {formState.errors.name}
+                  </p>
+                )}
 
               <div className="mb-6">
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-primary">
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
                   Email address
                 </label>
                 <Input
@@ -198,12 +218,18 @@ function ContactsPage({ className, transition }: NewsProps) {
                 />
               </div>
 
-              {formState.status === 'field-errors' && formState.errors?.email && (
-                <p className="text-red-500 text-sm">{formState.errors.email}</p>
-              )}
+              {formState.status === 'field-errors' &&
+                formState.errors?.email && (
+                  <p className="text-red-500 text-sm">
+                    {formState.errors.email}
+                  </p>
+                )}
 
               <div className="mb-6">
-                <label htmlFor="subject" className="block mb-2 text-sm font-medium text-primary">
+                <label
+                  htmlFor="subject"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
                   Subject (Optional)
                 </label>
                 <Input
@@ -218,7 +244,10 @@ function ContactsPage({ className, transition }: NewsProps) {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="phone" className="block mb-2 text-sm font-medium text-primary">
+                <label
+                  htmlFor="phone"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
                   Phone (Optional)
                 </label>
                 <Input
@@ -233,7 +262,10 @@ function ContactsPage({ className, transition }: NewsProps) {
               </div>
 
               <div className="mb-6">
-                <Label htmlFor="message" className="block mb-2 text-sm font-medium text-primary">
+                <Label
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
                   Message
                 </Label>
                 <Textarea
@@ -248,9 +280,12 @@ function ContactsPage({ className, transition }: NewsProps) {
                 />
               </div>
 
-              {formState.status === 'field-errors' && formState.errors?.message && (
-                <p className="text-red-500 text-sm">{formState.errors.message}</p>
-              )}
+              {formState.status === 'field-errors' &&
+                formState.errors?.message && (
+                  <p className="text-red-500 text-sm">
+                    {formState.errors.message}
+                  </p>
+                )}
 
               {/* Checkbox removed per your earlier requirement */}
 

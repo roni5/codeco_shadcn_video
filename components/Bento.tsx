@@ -2,7 +2,7 @@ import { ImageWithFallback } from './ImageWithFallback'
 // bg-gradient-to-r from-indigo-600 to-pink-500
 export default function Bento() {
   return (
-    <div className="bg-gradient-to-tr from-sky-300 to-pink-300  rounded-lg -mt-8">
+    <div className="bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden  rounded-lg -mt-8 border-0">
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 opacity-90">
         <h2 className="block:hidden md:block text-center text-base/7 font-semibold text-white antialiased text-balance">
           {}
