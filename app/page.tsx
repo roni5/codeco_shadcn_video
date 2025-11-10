@@ -264,12 +264,12 @@ export default function HomePage() {
                   Looking for enterprise{' '}
                   <span className="text-primary">solutions?</span>
                 </h3>
-                <p className="text-xl mb-6">
-                  Codeco.tech Platform offers enterprise-level solutions for{' '}
-                  <span className="text-secondary font-medium text-balance">
-                    businesses{' '}
+                <p className="text-xl mb-6 font-medium ">
+                  Codeco.tech Platform offers enterprise-level solutions
+                  <span className="text-secondary ml-1 font-medium text-balance">
+                    for businesses{' '}
                   </span>
-                  <span className="text-blue-300 font-medium text-balance">
+                  <span className="text-secondary  font-medium text-balance">
                     who need real world App muscle.
                   </span>
                 </p>
@@ -287,7 +287,7 @@ export default function HomePage() {
       {/* Products */}
       <section className="mb-16 md:mb-32">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8 items-center mb-12"></div>
+          <div className="flex flex-col lg:flex-row gap-8 items-center mb-12" />
           <section className="mb-12 md:mb-20">
             <div className={styles.colorBar}>
               <div className="container mx-auto px-4">
@@ -399,7 +399,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link
             href="/intl/en_uk/about/analytics/"
-            className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+            className=" border-primary border-3 rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
           >
             <div className="mb-4 h-12" />
             <h4 className="text-xl font-bold mb-2">Analytics</h4>
@@ -423,7 +423,7 @@ export default function HomePage() {
 
           <Link
             href="/intl/en_uk/about/tag-manager/"
-            className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+            className=" border-primary border-3 rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
           >
             <div className="mb-4 h-12" />
             <h4 className="text-xl font-bold mb-2">Tag Manager</h4>
