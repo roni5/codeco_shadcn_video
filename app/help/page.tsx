@@ -10,203 +10,33 @@ export default function page() {
       <div className="max-w-4xl w-full bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-100">
         {/* Main Title */}
         <h1 className="flex justify-center items-center mb-3 font-bold text-2xl text-[#b0ccc4]">
-          🇨​🇴​🇩​🇪​🇨​🇴​.🇹​🇪​🇨​🇭​
+          <AnimatedRainbowText />
         </h1>
-        <p className="mb-3 font-bold text-2xl text-[#b0ccc4]">
-          T·a·s·k·f·u·l·.·c·o·.·u·k​
-        </p>
-        <blockquote className="hidden md:block  text-center text-2xl font-semibold text-gray-900 italic pr-2">
-          When you look &nbsp;
+       
+
+        <h2 className="text-2xl md:text-3xl font-bold text-pretty text-gray-700 mb-6">
+          Here are some key{' '}
           <span className="relative">
             <span
               className=" absolute -inset-1  -skew-y-3 bg-pink-500"
               aria-hidden="true"
             />
-            <span className="relative text-white">annoyed</span>
+            <span className="relative text-white">Reasons</span>
             {''}
           </span>
-          &nbsp;all the time, people think you're busy.
-        </blockquote>
-        <AnimatedRainbowText />
-
-        <section>
-          <form>
-            <fieldset>
-              <legend>Published status</legend>
-              <input
-                id="draft"
-                className="peer/draft"
-                type="radio"
-                name="status"
-                checked
-              />
-              <label
-                htmlFor="draft"
-                className="peer-checked/draft:text-sky-500"
-              >
-                Draft
-              </label>
-              <input
-                id="published"
-                className="peer/published"
-                type="radio"
-                name="status"
-              />
-              <label
-                htmlFor="published"
-                className="peer-checked/published:text-sky-500"
-              >
-                Published
-              </label>
-              <div className="hidden peer-checked/draft:block">
-                Drafts are only visible to administrators.
-              </div>
-              <div className="hidden peer-checked/published:block">
-                Your post will be publicly visible on your site.
-              </div>
-            </fieldset>
-            <fieldset aria-label="Choose a memory option">
-              <div className="flex items-center justify-between ">
-                <div>RAM</div>
-                <a href="#" className="text-blue-600 hover:text-blue-800">
-                  {' '}
-                  See performance specs{' '}
-                </a>
-              </div>
-              <div className="mt-4 grid grid-cols-6 gap-2 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
-                <label className="p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-transparent transition duration-200 ease-in-out">
-                  <input
-                    type="radio"
-                    name="memory-option"
-                    value="4 GB"
-                    className="sr-only"
-                  />
-                  <span>4 GB</span>
-                </label>
-                <label className="p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-transparent transition duration-200 ease-in-out">
-                  <input
-                    type="radio"
-                    name="memory-option"
-                    value="8 GB"
-                    className="sr-only"
-                  />
-                  <span>8 GB</span>
-                </label>
-                <label className="p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-transparent transition duration-200 ease-in-out">
-                  <input
-                    type="radio"
-                    name="memory-option"
-                    value="16 GB"
-                    className="sr-only"
-                  />
-                  <span>16 GB</span>
-                </label>
-                <label className="p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-transparent transition duration-200 ease-in-out">
-                  <input
-                    type="radio"
-                    name="memory-option"
-                    value="32 GB"
-                    className="sr-only"
-                  />
-                  <span>32 GB</span>
-                </label>
-                <label className="p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-transparent transition duration-200 ease-in-out">
-                  <input
-                    type="radio"
-                    name="memory-option"
-                    value="64 GB"
-                    className="sr-only"
-                  />
-                  <span>64 GB</span>
-                </label>
-                <label className="p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-transparent transition duration-200 ease-in-out">
-                  <input
-                    type="radio"
-                    name="memory-option"
-                    value="128 GB"
-                    className="sr-only"
-                    defaultChecked
-                  />
-                  <span>128 GB</span>
-                </label>
-              </div>
-            </fieldset>
-            <label>
-              <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">
-                Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                className="..."
-                placeholder="you@example.com"
-              />
-            </label>
-            <input
-              className="placeholder:text-gray-500 placeholder:italic ..."
-              placeholder="Search for anything..."
-              type="text"
-              name="search"
+          &nbsp;why fast language models are{' '}
+          <span className="relative inline-block pb-1">
+            crucial
+            <Image
+              src="/img/pink-squizzle.svg"
+              alt="Codeco Logo"
+              className="absolute -bottom-2 left-0 w-full h-auto"
+              width={100}
+              height={24}
+              priority
             />
-            <input
-              type="file"
-              className="file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100 dark:file:bg-violet-600 dark:file:text-violet-100 dark:hover:file:bg-violet-500 ..."
-            />
-            <label htmlFor="email">Email:</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="is-dirty peer"
-              required
-            />
-            <div className="peer-[.is-dirty]:peer-required:block hidden">
-              This field is required.
-            </div>
-            <label className="block">
-              <span className="...">Email</span>
-              <input type="email" className="peer ..." />
-              <p className="invisible peer-invalid:visible ...">
-                Please provide a valid email address.
-              </p>
-            </label>
-            <div className="flex  justify-center p-2 pointer-coarse:p-4 border border-gray-300 rounded-md text-center cursor-pointer transition duration-200 ease-in-out">
-              <button type="button" className="bg-indigo-500 ..." disabled>
-                <svg
-                  className="animate-spin motion-reduce:hidden "
-                  viewBox="0 0 24 24"
-                >
-                  <title>Processing...</title>
-                </svg>
-                {/* <Spinner /> */}
-                Processing...
-              </button>
-            </div>
-          </form>
-        </section>
-        <p className="text-lg md:text-xl leading-relaxed mb-6">
-          The importance of fast language models lies in their ability to
-          process and generate human-like language quickly, efficiently, and
-          accurately.
-        </p>
-
-        {/* Section Heading */}
-
-       
-        <h2 className="text-2xl md:text-3xl font-bold text-pretty text-gray-700 mb-6">
-  Here are some key reasons why fast language models are{' '}
-  <span className="relative inline-block pb-1">
-    crucial
-    <Image
-      src="/img/pink-squizzle.svg"
-      alt="Codeco Logo"
-      className="absolute -bottom-2 left-0 w-full h-auto"
-      width={100}
-      height={24}
-      priority
-    />
-  </span>
-</h2>
+          </span>
+        </h2>
         {/* Reasons List */}
         <ul className="space-y-6 mb-8">
           <li className="bg-blue-50 p-6 rounded-lg shadow-sm">

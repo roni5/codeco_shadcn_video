@@ -6,229 +6,338 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { GoogleTagManager, sendGTMEvent } from '@next/third-parties/google'
-import { Calendar, Clock3, MailWarning } from 'lucide-react'
-import { startTransition, useActionState, useEffect, useRef } from 'react'
+import { MailWarning } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import {
+  type HTMLAttributes,
+  startTransition,
+  useActionState,
+  useEffect,
+  useRef,
+  type useTransition,
+} from 'react'
+import { useFormStatus } from 'react-dom'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { toast } from 'sonner'
 import {
   type ContactFormState,
   createContact,
 } from '../actions/contact/contactAction'
-import PasswordField from '@/components/passwordField'
-import { DayDropdown } from '@/components/daydrop'
-import TestCal from '@/components/testcal'
 
-function ContactFormContent() {
+interface NewsProps {
+  className?: string
+  transition?: ReturnType<typeof useTransition>
+}
+
+function ContactsPage({ className, transition }: NewsProps) {
+  const router = useRouter()
   const formRef = useRef<HTMLFormElement>(null)
+  const { executeRecaptcha } = useGoogleReCaptcha()
   const [formState, dispatch] = useActionState(createContact, {
-    form: {
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    },
+    form: { name: '', email: '', message: '' },
     status: 'default',
   } as ContactFormState)
 
-  const { executeRecaptcha } = useGoogleReCaptcha()
+  const trackFieldInteraction = (fieldName: string) => {
+    sendGTMEvent({
+      event: 'contact_form_field_interaction',
+      field_name: fieldName,
+      page: 'contact_page',
+    })
+  }
 
   useEffect(() => {
     if (formState.status === 'success') {
-      // Send GTM event on successful form submission
       sendGTMEvent({
-        event: 'contact_form_submission',
-        formName: 'contact_sales',
-        formStatus: 'success',
-        email: formState.form.email,
-        subject: formState.form.subject || 'Not provided',
+        event: 'contact_form_success',
+        user_type: formState.form.email
+          ? formState.form.email.includes('@')
+            ? 'business'
+            : 'personal'
+          : 'unknown',
+        has_phone: !!formState.form.phone,
+        page: 'contact_page',
       })
+      toast.success('Contact Submitted', {
+        description: 'Your message has been sent successfully.',
+      })
+      void router.push('/')
+    }
 
-      toast.success('Message sent successfully!')
-
-      // Reset the form after successful submission
-      if (formRef.current) {
-        formRef.current.reset()
-      }
-    } else if (formState.status === 'error') {
-      // Track form submission errors
+    if (formState.status === 'error') {
       sendGTMEvent({
         event: 'contact_form_error',
-        formName: 'contact_sales',
-        errorType:
-          typeof formState.errors === 'string' ? 'general' : 'field_errors',
-        errorMessage:
+        error_type: 'server_error',
+        error_message:
           typeof formState.errors === 'string'
             ? formState.errors
             : Object.values(formState.errors || {}).join(', '),
+        page: 'contact_page',
       })
-
-      toast.error('Failed to send', {
+      toast.error('Possibly a duplicate email!', {
         description:
           typeof formState.errors === 'string'
             ? formState.errors
             : Object.values(formState.errors || {}).join(', '),
         icon: <MailWarning className="h-5 w-5 text-red-500" />,
       })
-    } else if (formState.status === 'field-errors') {
-      // Track form validation errors
+    }
+
+    if (formState.status === 'field-errors') {
       sendGTMEvent({
         event: 'contact_form_validation_error',
-        formName: 'contact_sales',
+        field_errors: Object.keys(formState.errors || {}),
+        page: 'contact_page',
       })
-
       toast.error('Form Error', {
-        description: 'Please fix the errors in the form and try again.',
+        description: 'Check the form for errors and try again.',
         icon: <MailWarning className="h-5 w-5 text-red-500" />,
       })
     }
   }, [formState.status, formState.form, formState.errors])
 
-  // Track form interaction when user focuses on the form
-  const handleFormFocus = () => {
+  useEffect(() => {
     sendGTMEvent({
-      event: 'contact_form_interaction',
-      formName: 'contact_sales',
-      action: 'focus',
+      event: 'page_view',
+      page_name: 'contact_page',
+      page_path: '/contact',
     })
-  }
+  }, [])
 
   const formAction = async (formData: FormData) => {
-    if (!executeRecaptcha) return
-    const token = await executeRecaptcha('contact_submit')
-    formData.append('recaptchaToken', token)
-
-    // Track form submission attempt
     sendGTMEvent({
       event: 'contact_form_submit_attempt',
-      formName: 'contact_sales',
+      has_name: !!formData.get('name'),
+      has_email: !!formData.get('email'),
+      has_phone: !!formData.get('phone'),
+      has_subject: !!formData.get('subject'),
+      page: 'contact_page',
     })
 
-    startTransition(() => {
-      dispatch(formData)
-    })
+    if (!executeRecaptcha) {
+      sendGTMEvent({
+        event: 'contact_form_recaptcha_error',
+        error_type: 'recaptcha_not_available',
+        page: 'contact_page',
+      })
+      toast.error('Security Error', {
+        description: 'Security verification not available. Please try again.',
+        icon: <MailWarning className="h-5 w-5 text-red-500" />,
+      })
+      return
+    }
+
+    try {
+      const token = await executeRecaptcha('contact_submit')
+      formData.append('recaptchaToken', token)
+      sendGTMEvent({ event: 'contact_form_recaptcha_success', page: 'contact_page' })
+      startTransition(() => {
+        dispatch(formData)
+      })
+    } catch (error) {
+      console.error('reCAPTCHA error:', error)
+      sendGTMEvent({
+        event: 'contact_form_recaptcha_error',
+        error_type: 'execution_error',
+        page: 'contact_page',
+      })
+      toast.error('Security Error', {
+        description: 'Security verification not available. Please try again.',
+        icon: <MailWarning className="h-5 w-5 text-red-500" />,
+      })
+    }
   }
 
   return (
-    <div className="isolate mt-8 md:mt-28 px-6 py-24 sm:py-32 lg:px-8">
+    <div className="relative flex flex-col min-h-screen justify-start overflow-hidden bg-white py-2 md:py-8 lg:py-24">
       <GoogleTagManager gtmId="GTM-P6CXJTBT" />
-      <div
-        data-component="dialog"
-        className="mx-auto max-w-2xl text-center rounded-2xl border-b border-gray-300 pb-6 pt-8 backdrop-blur-2xl drop-shadow-accent dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-primary lg:p-4 lg:dark:bg-zinc-800/30"
-      >
-        <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Contact sales
-        </h2>
-        <p className="mt-2 text-sm md:text-lg text-gray-600">
-          We&apos;d love to hear from you. Please fill out the form below.
-        </p>
+      <img
+        src="/img/dot-bg.svg"
+        alt="robot contact"
+        className="hidden backdrop-blur-2xl md:block absolute top-[60%] left-1/2 max-w-none -translate-x-2/4 -translate-y-2/4 image-with-rounded-corners"
+        width="1700"
+        height="1708"
+      />
+      <div className="w-full py-16 px-4 lg:py-8">
+        <div className="mx-auto max-w-md lg:max-w-xl">
+          <div className="text-center rounded-2xl border border-gray-300 px-6 py-6 bg-primary backdrop-blur-2xl drop-shadow-accent dark:border-neutral-800 lg:rounded-xl lg:px-8 lg:py-8">
+            <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              Contact Us
+            </h2>
+            <p className="mt-3 text-sm md:text-lg text-white">
+              We&apos;d love to hear from you.
+            </p>
+          </div>
+        </div>
       </div>
+      <div className="relative bg-white px-4 md:py-8 md:pt-12 pb-6 md:pb-12 shadow-xl ring-1 ring-white/40 mx-auto w-full max-w-md md:max-w-lg rounded-lg z-30 -mt-6 md:mt-6">
+        <div className="mx-auto max-w-md ">
+          <div className="mx-auto block max-w-md rounded-lg bg-white p-6 shadow-4">
+            <form ref={formRef} action={formAction}>
+              <div className="mb-6">
+                <label
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
+                  Your name
+                </label>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  defaultValue={formState.form.name}
+                  placeholder="Your Name"
+                  onFocus={() => trackFieldInteraction('name')}
+                  className="bg-white border border-primary text-primary placeholder-primary/60 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                />
+              </div>
 
-      <form
-        ref={formRef}
-        action={formAction}
-        onFocus={handleFormFocus}
-        className="mx-auto mt-16 max-w-xl sm:mt-20 bg-no-repeat bg-center bg-size-[100%_100%] p-8 rounded-lg shadow-lg"
-        style={{
-          backgroundImage:
-            'linear-gradient(120deg, var(--indigo-6), var(--crimson-5))',
-        }}
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-          <div>
-            <Label htmlFor="name">Your name</Label>
-            <Input
-              type="text"
-              id="name"
-              name="name"
-              defaultValue={formState.form.name}
-              required
-              placeholder="John Doe"
-              className="mt-2"
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              defaultValue={formState.form.email}
-              required
-              placeholder="you@example.com"
-              className="mt-2"
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <Label htmlFor="phone">Phone</Label>
-            <Input
-              type="tel"
-              id="phone"
-              name="phone"
-              defaultValue={formState.form.phone}
-              placeholder="+44 1234 567890"
-              className="mt-2"
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <Label htmlFor="subject">Subject</Label>
-            <Input
-              type="text"
-              id="subject"
-              name="subject"
-              defaultValue={formState.form.subject}
-              placeholder="Message subject"
-              className="mt-2"
-            />
-          </div>
+              {formState.status === 'field-errors' &&
+                formState.errors?.name && (
+                  <p className="text-red-500 text-sm font-medium">
+                    {formState.errors.name}
+                  </p>
+                )}
 
-          <div className="sm:col-span-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea
-              id="message"
-              name="message"
-              rows={4}
-              defaultValue={formState.form.message}
-              required
-              placeholder="Your message..."
-              className="mt-2"
-            />
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
+                  Email address
+                </label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  defaultValue={formState.form.email}
+                  placeholder="your@email.com"
+                  onFocus={() => trackFieldInteraction('email')}
+                  className="bg-white border border-primary text-primary placeholder-primary/60 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                  required
+                />
+              </div>
+
+              {formState.status === 'field-errors' &&
+                formState.errors?.email && (
+                  <p className="text-red-500 text-sm">
+                    {formState.errors.email}
+                  </p>
+                )}
+
+              <div className="mb-6">
+                <label
+                  htmlFor="subject"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
+                  Subject (Optional)
+                </label>
+                <Input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  defaultValue={formState.form.subject}
+                  placeholder="Subject of your message"
+                  onFocus={() => trackFieldInteraction('subject')}
+                  className="bg-white border border-primary text-primary placeholder-primary/60 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                />
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="phone"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
+                  Phone (Optional)
+                </label>
+                <Input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  defaultValue={formState.form.phone}
+                  placeholder="Your phone number"
+                  onFocus={() => trackFieldInteraction('phone')}
+                  className="bg-white border border-primary text-primary placeholder-primary/60 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                />
+              </div>
+
+              <div className="mb-6">
+                <Label
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-primary"
+                >
+                  Message
+                </Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  defaultValue={formState.form.message}
+                  placeholder="Your message"
+                  onFocus={() => trackFieldInteraction('message')}
+                  className="bg-white border border-primary text-primary placeholder-primary/60 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                  required
+                />
+              </div>
+
+              {formState.status === 'field-errors' &&
+                formState.errors?.message && (
+                  <p className="text-red-500 text-sm">
+                    {formState.errors.message}
+                  </p>
+                )}
+
+              {/* Checkbox removed per your earlier requirement */}
+
+              <SubmitButton idleText="Submit" submittingText="Submitting..." />
+            </form>
           </div>
-          {/* <div className="sm:col-span-2">
-            <Label htmlFor="date">
-              Select Date
-              <Calendar className="w-6 h-6 " />
-            </Label>
-            <TestCal />
-          </div> */}
         </div>
-
-        <div className="mt-10">
-          <Button
-            type="submit"
-            className="w-full"
-            onClick={() => {
-              sendGTMEvent({
-                event: 'contact_form_button_click',
-                formName: 'contact_sales',
-              })
-            }}
-          >
-            Let's talk
-          </Button>
-        </div>
-      </form>
+      </div>
     </div>
   )
 }
 
-
 export default function ContactPage() {
   return (
     <ReCaptchaProvider>
-      <ContactFormContent />
+      <ContactsPage />
     </ReCaptchaProvider>
   )
 }
 
+function SubmitButton({
+  idleText,
+  submittingText,
+  ...props
+}: HTMLAttributes<HTMLButtonElement> & { idleText: string; submittingText: string }) {
+  const { pending } = useFormStatus()
 
+  useEffect(() => {
+    if (pending) {
+      sendGTMEvent({
+        event: 'contact_form_submit_processing',
+        status: 'pending',
+        page: 'contact_page',
+      })
+    }
+  }, [pending])
+
+  return (
+    <Button
+      type="submit"
+      {...props}
+      className="w-full py-3 text-center bg-gradient-to-br from-primary to-secondary hover:opacity-70 text-white rounded-lg disabled:bg-primary/40 disabled:cursor-default"
+      disabled={pending}
+      onClick={() => {
+        sendGTMEvent({
+          event: 'contact_form_button_click',
+          button_status: pending ? 'processing' : 'ready',
+          page: 'contact_page',
+        })
+      }}
+    >
+      {pending ? submittingText : idleText}
+    </Button>
+  )
+}

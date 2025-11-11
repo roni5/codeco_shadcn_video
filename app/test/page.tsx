@@ -1,5 +1,8 @@
 import Bento from '@/components/Bento'
 import ChatTrigger from '@/components/ChatTrigger'
+import LeftZig from '@/components/LeftZig'
+import Pricing from '@/components/Pricing'
+import RightZag from '@/components/RightZag'
 import Link from 'next/link'
 
 export default function Hero() {
@@ -99,10 +102,19 @@ export default function Hero() {
           />
         </svg>
       </div>
-       <section className="mb-12 md:mb-20">
+      <section className="mb-12 md:mb-20">
+        <Bento />
+      </section>
+      <section className="mb-12 md:mb-20">
+        <LeftZig />
+      </section>
+      <section className="mb-12 md:mb-20">
+        <RightZag />
+      </section>
+      <section className="mb-12 md:mb-20">
+        <Pricing />
+      </section>
 
-       </section>
-      <Bento />
       <ChatTrigger />
       {/* Wave effect */}
       <div className="absolute bottom-0 left-0 right-0">
