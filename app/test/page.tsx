@@ -2,10 +2,19 @@ import Bento from '@/components/Bento'
 import ChatTrigger from '@/components/ChatTrigger'
 import LeftZig from '@/components/LeftZig'
 import Pricing from '@/components/Pricing'
+import ProductCard from '@/components/product-card'
 import RightZag from '@/components/RightZag'
+import TeamMembers from '@/components/TeamMembers'
+
+import Teams from '@/components/Teams'
 import Link from 'next/link'
 
+
+
 export default function Hero() {
+  // const handleProductClick = () => {
+  //   console.log('Product clicked!')
+  // }
   return (
     <div className="relative bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden">
       {/* Background pattern */}
@@ -18,7 +27,7 @@ export default function Hero() {
           <div className="lg:w-1/2">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
               <span className="block">Build faster with</span>
-              <span className="block mt-2 text-indigo-400">
+              <span className="block mt-2 bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent">
                 Next.js 15 & Tailwind 4
               </span>
             </h1>
@@ -30,7 +39,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/get-started"
-                className="rounded-md bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors"
+                className="rounded-md bg-violet-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors  duration-300 ease-in-out scale-100 hover:scale-107"
               >
                 Get Started
               </Link>
@@ -62,7 +71,7 @@ export default function Hero() {
           {/* Image/illustration section */}
           <div className="mt-16 lg:mt-0 lg:w-1/2">
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              <div className="relative aspect-4/3 bg-linear-to-tr from-indigo-500 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative aspect-4/3 bg-linear-to-tr from-violet-500 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg
                     className="w-3/4 h-3/4 text-white opacity-80"
@@ -102,17 +111,67 @@ export default function Hero() {
           />
         </svg>
       </div>
-      <section className="mb-12 md:mb-20">
+      <section className="mb-16 md:mb-32">
         <Bento />
       </section>
-      <section className="mb-12 md:mb-20">
+      <section className="mb-14 md:mb-28">
         <LeftZig />
       </section>
-      <section className="mb-12 md:mb-20">
+      <section className="mb-12 md:mb-28">
         <RightZag />
+      </section>
+
+      <section className="mb-12 md:mb-20">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 tracking-tight">
+            Featured Articles
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            {/* Card repetition for demo */}
+            <ProductCard
+              title="Premium Headphones"
+              description="Experience crystal-clear audio with our latest noise-cancelling technology. Perfect for music lovers and professionals alike."
+              imageSrc="/img/cardImg.webp"
+              imageAlt="Premium wireless headphones"
+              buttonText="Learn More"
+              //onButtonClick={handleProductClick}
+            />
+
+            <ProductCard
+              title="Smart Watch"
+              description="Stay connected and track your fitness goals with our advanced smartwatch featuring heart rate monitoring and GPS."
+              imageSrc="/img/cardImg.webp"
+              imageAlt="Modern smartwatch"
+            />
+
+            <ProductCard
+              title="Laptop Stand"
+              description="Ergonomic aluminum laptop stand designed to improve posture and increase productivity during long work sessions."
+              imageSrc="/img/cardImg.webp"
+              imageAlt="Adjustable laptop stand"
+              buttonText="Buy Now"
+              //onButtonClick={() => alert('Adding to cart...')}
+            />
+            <ProductCard
+              title="Premium Earbuds"
+              description="Experience crystal-clear audio with our latest noise-cancelling technology. Perfect for music lovers and professionals alike."
+              imageSrc="/img/cardImg.webp"
+              imageAlt="Premium wireless headphones"
+              buttonText="Learn More"
+              //onButtonClick={handleProductClick}
+            />
+          </div>
+        </div>
       </section>
       <section className="mb-12 md:mb-20">
         <Pricing />
+        <section className="mb-12 md:mb-20">
+          <TeamMembers />
+        </section>
+      </section>
+      <section className="mb-12 md:mb-20">
+        <Teams />
       </section>
 
       <ChatTrigger />

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Pricing() {
@@ -9,9 +10,9 @@ export default function Pricing() {
           <div className="bg-gray-200 opacity-90 blur-3xl w-[577px] h-75 translate-y-32 dark:bg-neutral-800/60" />
         </div>
 
-        <div className="max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14 mx-auto">
+        <div className="max-w-340 px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14 mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-10">
-            <h2 className="text-3xl leading-tight font-bold md:text-4xl lg:text-5xl bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent">
+            <h2 className="text-3xl leading-tight font-bold md:text-4xl lg:text-5xl bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent">
               Simple, transparent pricing
             </h2>
             <p className="mt-2 lg:text-lg text-gray-800 dark:text-neutral-200">
@@ -35,7 +36,7 @@ export default function Pricing() {
                 type="checkbox"
                 id="pricing-switch"
                 className="peer sr-only"
-                checked
+                defaultChecked={false}
               />
               <span className="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-purple-600 dark:bg-neutral-700 dark:peer-checked:bg-purple-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none" />
               <span className="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white" />
@@ -126,12 +127,14 @@ export default function Pricing() {
                 </li>
               </ul>
 
-              <a
-                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-violet-600 text-violet-600 hover:border-violet-500 hover:text-violet-500 focus:outline-hidden focus:border-violet-500 focus:text-violet-500 disabled:opacity-50 disabled:pointer-events-none dark:border-violet-500 dark:text-violet-500 dark:hover:text-violet-400 dark:hover:border-violet-400 dark:focus:text-violet-400 dark:focus:border-violet-400"
-                href="#"
+              <Link
+                href="/get-started"
+                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-violet-600 text-violet-600 hover:border-violet-500 hover:text-violet-500 focus:outline-hidden focus:border-violet-500 focus:text-violet-500 disabled:opacity-50 disabled:pointer-events-none dark:border-violet-500 dark:text-violet-500 dark:hover:text-violet-400 dark:hover:border-violet-400 dark:focus:text-violet-400 dark:focus:border-violet-400 transform transition duration-300 ease-in-out
+                    scale-100
+                    hover:scale-110 "
               >
                 Get started
-              </a>
+              </Link>
             </div>
             {/* End Card */}
 
@@ -146,7 +149,7 @@ export default function Pricing() {
                 Startup
               </h4>
               <span className="mt-5 font-bold text-3xl md:text-4xl xl:text-5xl text-gray-800 dark:text-neutral-200">
-                $39
+                £39
               </span>
               <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
                 All the basics for starting a new business
@@ -214,12 +217,14 @@ export default function Pricing() {
                 </li>
               </ul>
 
-              <a
-                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-violet-600 text-white hover:bg-violet-700 focus:outline-hidden focus:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none"
-                href="https://github.com/htmlstreamofficial/preline/tree/main/examples/html"
+              <Link
+                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-violet-600 text-white hover:bg-violet-700 focus:outline-hidden focus:bg-violet-700 disabled:opacity-50 disabled:pointer-events-none transform transition duration-300 ease-in-out
+                    scale-100
+                    hover:scale-110 "
+                href="https:codeco.tech"
               >
                 Get started
-              </a>
+              </Link>
             </div>
             {/* End Card */}
 
@@ -229,7 +234,7 @@ export default function Pricing() {
                 Team
               </h4>
               <span className="mt-5 font-bold text-3xl md:text-4xl xl:text-5xl text-gray-800 dark:text-neutral-200">
-                $89
+                £89
               </span>
               <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
                 Everything you need for a growing business
@@ -297,12 +302,14 @@ export default function Pricing() {
                 </li>
               </ul>
 
-              <a
-                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-violet-600 text-violet-600 hover:border-violet-500 hover:text-violet-500 focus:outline-hidden focus:border-violet-500 focus:text-violet-500 disabled:opacity-50 disabled:pointer-events-none dark:border-violet-500 dark:text-violet-500 dark:hover:text-violet-400 dark:hover:border-violet-400 dark:focus:text-violet-400 dark:focus:border-violet-400"
-                href="#"
+              <Link
+                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-violet-600 text-violet-600 hover:border-violet-500 hover:text-violet-500 focus:outline-hidden focus:border-violet-500 focus:text-violet-500 disabled:opacity-50 disabled:pointer-events-none dark:border-violet-500 dark:text-violet-500 dark:hover:text-violet-400 dark:hover:border-violet-400 dark:focus:text-violet-400 dark:focus:border-violet-400 transform transition duration-300 ease-in-out
+                    scale-100
+                    hover:scale-110 "
+                href="/"
               >
                 Get started
-              </a>
+              </Link>
             </div>
             {/* End Card */}
 
@@ -312,7 +319,7 @@ export default function Pricing() {
                 Enterprise
               </h4>
               <span className="mt-5 font-bold text-3xl md:text-4xl xl:text-5xl text-gray-800 dark:text-neutral-200">
-                $149
+                £149
               </span>
               <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
                 Advanced features for scaling your business
@@ -379,13 +386,14 @@ export default function Pricing() {
                   </span>
                 </li>
               </ul>
-
-              <a
-                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-violet-600 text-violet-600 hover:border-violet-500 hover:text-violet-500 focus:outline-hidden focus:border-violet-500 focus:text-violet-500 disabled:opacity-50 disabled:pointer-events-none dark:border-violet-500 dark:text-violet-500 dark:hover:text-violet-400 dark:hover:border-violet-400 dark:focus:text-violet-400 dark:focus:border-violet-400"
-                href="#"
+              <Link
+                className="mt-5 py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-violet-600 text-violet-600 hover:border-violet-500 hover:text-violet-500 focus:outline-hidden focus:border-violet-500 focus:text-violet-500 disabled:opacity-50 disabled:pointer-events-none dark:border-violet-500 dark:text-violet-500 dark:hover:text-violet-400 dark:hover:border-violet-400 dark:focus:text-violet-400 dark:focus:border-violet-400 transform transition duration-300 ease-in-out
+                    scale-100
+                    hover:scale-110 "
+                href="/"
               >
                 Get started
-              </a>
+              </Link>
             </div>
             {/* End Card */}
           </div>

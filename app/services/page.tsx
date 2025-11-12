@@ -150,37 +150,23 @@ export default function Services() {
           </p>
         </div>
       </div>
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 tracking-tight">
-            Featured Articles
-          </h2>
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 tracking-tight">
+          Featured Articles
+        </h2>
 
-          {/*
-          Responsive Grid Implementation:
-          - grid-cols-1: Default for mobile (1 card per row)
-          - sm:grid-cols-2: Small screens and up (2 cards per row)
-          - lg:grid-cols-4: Large screens and up (4 cards per row)
-        */}
-          <div
-            className="
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          lg:grid-cols-4
-          gap-x-6 gap-y-12
-        "
-          >
-            {/* Card repetition for demo */}
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+          {/* Card repetition for demo */}
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
+      </div>
 
       <div className="relative -right-px col-start-2 row-span-full "></div>
-      <div className="relative -left-px col-start-4 "></div>
-      <div className="relative -bottom-px col-span-full col-start-1 row-start-2 h-px bg-(--pattern-fg)"></div>
+      <div className="relative -left-px col-start-4 " />
+      <div className="relative -bottom-px col-span-full col-start-1 row-start-2 h-px bg-(--pattern-fg)" />
       <div className="relative -top-px col-span-full col-start-1 row-start-4 h-px bg-(--pattern-fg)"></div>
     </div>
   )

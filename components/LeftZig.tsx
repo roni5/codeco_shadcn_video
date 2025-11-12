@@ -5,7 +5,7 @@ export default function LeftZig() {
     <section className="flex justify-center w-full px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row items-center md:items-start max-w-5xl w-full gap-8">
         {/* Left side image */}
-        <div className="flex-shrink-0 w-full md:w-1/2">
+        <div className="shrink-0 w-full md:w-1/2">
           <img
             className="w-full h-64 md:h-80 object-cover rounded-xl shadow-md"
             src="https://images.unsplash.com/photo-1671726203390-cdc4354ee2eb?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=640&h=640&q=80"
@@ -33,16 +33,16 @@ export default function LeftZig() {
             <rect x="2" y="3" width="20" height="14" rx="2" />
           </svg>
 
-          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-gray-800 leading-relaxed dark:text-neutral-200">
-            To say that switching to Preline has been life-changing is an
+          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-neutral-200  leading-relaxed text-white">
+            To say that switching to Codeco.tech has been life-changing is an
             understatement. My business has tripled and I got my life back.
           </p>
 
           <footer className="pt-2">
-            <p className="font-semibold text-gray-800 dark:text-neutral-200">
+            <p className="font-semibold text-neutral-200">
               Nicole Grazioso
             </p>
-            <p className="text-sm text-gray-600 dark:text-neutral-400">
+            <p className="text-sm text-neutral-400">
               Head of Finance
             </p>
           </footer>

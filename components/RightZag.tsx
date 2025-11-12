@@ -33,16 +33,16 @@ export default function RightZag() {
             <rect x="2" y="3" width="20" height="14" rx="2" />
           </svg>
 
-          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-gray-800 leading-relaxed dark:text-neutral-200">
-            Working with Preline has simplified everything. The tools are
+          <p className="text-lg sm:text-xl lg:text-2xl font-medium  leading-relaxed text-neutral-200">
+            Working with Codeco.tech has simplified everything. The tools are
             intuitive, and the support has been outstanding.
           </p>
 
           <footer className="pt-2">
-            <p className="font-semibold text-gray-800 dark:text-neutral-200">
+            <p className="font-semibold text-neutral-200">
               David Lin
             </p>
-            <p className="text-sm text-gray-600 dark:text-neutral-400">
+            <p className="text-sm text-neutral-400">
               Creative Director
             </p>
           </footer>
