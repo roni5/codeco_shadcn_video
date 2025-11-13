@@ -1,5 +1,6 @@
 import Bento from '@/components/Bento'
 import ChatTrigger from '@/components/ChatTrigger'
+import GradientCard from '@/components/GradientCard'
 import LeftZig from '@/components/LeftZig'
 import Pricing from '@/components/Pricing'
 import ProductCard from '@/components/product-card'
@@ -71,25 +72,31 @@ export default function Hero() {
           {/* Image/illustration section */}
           <div className="mt-16 lg:mt-0 lg:w-1/2">
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              <div className="relative aspect-4/3 bg-linear-to-tr from-violet-500 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg
-                    className="w-3/4 h-3/4 text-white opacity-80"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <title>icon2</title>
-                    <path d="M12 2L2 19h20L12 2zm0 4l6.5 10h-13L12 6z" />
-                  </svg>
+              <GradientCard
+                title="Website Analytics"
+                value="17,479"
+                percentage="+48%"
+                subtitle="Monthly visits"
+                imageUrl="https://cruip-tutorials.vercel.app/animated-gradient-border/card-01.png"
+                duration={6}
+                colors={{
+                  start: '#172033',
+                  mid: '#1e293b',
+                  end: '#172033',
+                  accent: '#8b5cf6', // violet-500
+                }}
+              />
+
+              {/* Example with custom child content */}
+              <GradientCard
+                title="Custom Content"
+                value="Pro"
+                subtitle="Subscription Tier"
+              >
+                <div className="text-slate-400 text-sm">
+                  Includes API access and premium support.
                 </div>
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                    <div className="h-2 w-3/4 bg-white/50 rounded mb-2" />
-                    <div className="h-2 w-1/2 bg-white/30 rounded" />
-                  </div>
-                </div>
-              </div>
+              </GradientCard>
 
               {/* Decorative elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-indigo-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob" />
@@ -105,11 +112,35 @@ export default function Hero() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>icon3</title>
+          <defs>
+            <linearGradient
+              id="purpleGradient"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#d8b4fe" />
+              <stop offset="50%" stopColor="#9333ea" />
+              <stop offset="100%" stopColor="#581c87" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 82.5C840 90 960 105 1080 105C1200 105 1320 90 1380 82.5L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+            fill="url(#purpleGradient)"
+          />
+        </svg>
+        {/* <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>icon3</title>
           <path
             d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 82.5C840 90 960 105 1080 105C1200 105 1320 90 1380 82.5L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="#f9fafb"
           />
-        </svg>
+        </svg> */}
       </div>
       <section className="mb-16 md:mb-32">
         <Bento />
@@ -166,6 +197,33 @@ export default function Hero() {
       </section>
       <section className="mb-12 md:mb-20">
         <Pricing />
+        <section className="mb-12 md:mb-20">
+          <GradientCard
+            title="Website Analytics"
+            value="17,479"
+            percentage="+48%"
+            subtitle="Monthly visits"
+            imageUrl="https://cruip-tutorials.vercel.app/animated-gradient-border/card-01.png"
+            duration={6}
+            colors={{
+              start: '#172033',
+              mid: '#1e293b',
+              end: '#172033',
+              accent: '#8b5cf6', // violet-500
+            }}
+          />
+
+          {/* Example with custom child content */}
+          <GradientCard
+            title="Custom Content"
+            value="Pro"
+            subtitle="Subscription Tier"
+          >
+            <div className="text-slate-400 text-sm">
+              Includes API access and premium support.
+            </div>
+          </GradientCard>
+        </section>
         <section className="mb-12 md:mb-20">
           <TeamMembers />
         </section>

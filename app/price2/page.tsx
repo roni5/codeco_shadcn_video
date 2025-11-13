@@ -9,7 +9,7 @@ export default function PricingPage() {
 
   return (
     <main id="content">
-      <section className="relative pb-8 overflow-y-hidden bg-gradient-to-r from-neutral-950 via-neutral-900 to-neutral-950 overflow-hidden">
+      <section className="relative pb-8 overflow-y-hidden bg-linear-to-r from-neutral-950 via-neutral-900 to-neutral-950 overflow-hidden">
         <div className="overflow-hidden">
           <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-2/5">
             <div className="relative h-full">
@@ -97,7 +97,7 @@ export default function PricingPage() {
                     Frequent authentication
                   </span>
                 </div>
-                <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-medium leading-none text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300">
+                <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-medium leading-none text-transparent bg-clip-text bg-linear-to-r from-gray-100 via-gray-200 to-gray-300">
                   Build products that users will really love
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-neutral-300">

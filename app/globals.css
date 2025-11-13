@@ -41,6 +41,24 @@
   animation: parallax 30s linear infinite;
 }
 
+/* Animated Gradient Border */
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
+}
+
+@keyframes rotate-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+/* Default animation class */
+.animate-border {
+  animation: rotate-border 4s linear infinite;
+}
+
 @theme {
   --color-primary: #3BA3D3;
   --color-primary-foreground: #FEFEFE;
