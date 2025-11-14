@@ -3,23 +3,69 @@
 import { useState } from 'react'
 import HeaderNav from '@/components/HeaderNav'
 import Pricing from '@/components/Pricing'
+import Services from '@/components/services'
 
 export default function PricingPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
-    <main id="content">
-      <section className="relative pb-8 overflow-y-hidden bg-linear-to-r from-neutral-950 via-neutral-900 to-neutral-950 overflow-hidden">
+    <main className="w-full mx-auto  ">
+      <section className="relative mt-23 pb-8 overflow-y-hidden bg-neutral-950  overflow-hidden">
         <div className="overflow-hidden">
-          <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-2/5">
+          <div className="hidden lg:block absolute top-9 left-0 md:left-32 bottom-0 w-2/5">
             <div className="relative h-full">
-              <div className="absolute inset-0 opacity-20 bg-linear-to-br from-purple-400 to-purple-900 rounded-2xl blur-3xl" />
-              <div className="pr-1 pb-1 border border-white border-opacity-20 h-full rounded-br-2xl">
-                <img
-                  className="relative object-cover w-full h-full border-r border-neutral-800 rounded-br-xl"
-                  src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMzIzMzB8MHwxfHNlYXJjaHwxfHx3b3JrfGVufDB8MXx8fDE3NTAwNjA4NTV8MA&ixlib=rb-4.1.0&q=80&w=960"
-                  alt=""
-                />
+              <div className="absolute inset-0 opacity-20 rounded-2xl blur-3xl" />
+              <div className="pr-1 pb-1  border-opacity-20 h-full ">
+                <svg width="1600" height="800">
+                  <defs>
+                    <filter id="turbulent-dissolve" x="0%" y="0%">
+                      <feTurbulence type="fractalNoise" baseFrequency=".012" />
+                      <feColorMatrix type="luminanceToAlpha" />
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0">
+                          <animate
+                            attributeName="slope"
+                            values="0;0;0;0;0;0.5;1;1.5;2;2;2;2;2;2;1.5;1;0.5;0"
+                            dur="8s"
+                            repeatCount="indefinite"
+                          />
+                        </feFuncA>
+                      </feComponentTransfer>
+
+                      <feComponentTransfer>
+                        <feFuncA type="discrete" tableValues="0 1" />
+                      </feComponentTransfer>
+
+                      <feGaussianBlur stdDeviation="1" />
+
+                      <feComposite
+                        operator="in"
+                        in="SourceGraphic"
+                        result="overlay"
+                      />
+
+                      {/* ⛔️ xlink:href → ✅ href */}
+                      <feImage
+                        href="/img/osaka02.jpg"
+                        width="800"
+                        height="600"
+                        result="underlay"
+                      />
+
+                      <feComposite
+                        operator="over"
+                        in="overlay"
+                        in2="underlay"
+                      />
+                    </filter>
+                  </defs>
+                  <image
+                    filter="url(#turbulent-dissolve)"
+                    width="800"
+                    height="600"
+                    href="/img/osaka01.jpg"
+                  />
+                </svg>
               </div>
             </div>
           </div>
@@ -91,7 +137,7 @@ export default function PricingPage() {
                   Get Started
                 </a>
               </nav> */}
-              <div className="mt-10 lg:mt-20 mb-16 lg:mb-20 max-w-xl">
+              <div className="ml-2 md:ml-62 py-8 mt-10 lg:mt-20 mb-16 lg:mb-20 max-w-xl">
                 <div className="mb-6">
                   <span className="text-sm text-neutral-400 font-medium">
                     Frequent authentication
@@ -105,8 +151,8 @@ export default function PricingPage() {
                   for high-performing teams. Ship faster, collaborate better,
                   and scale with confidence of a professional.
                 </p>
-                <div className="relative flex flex-col sm:flex-row gap-4">
-                  <div className="lg:hidden absolute inset-0 opacity-20 bg-gradient-to-r from-purple-950 via-purple-900 to-purple-950 rounded-2xl blur-3xl" />
+                <div className="relative flex flex-col sm:flex-row gap-4 bg-neutral-950">
+                  <div className="lg:hidden absolute inset-0  bg-neutral-950 rounded-2xl blur-3xl" />
                   <a
                     className="relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-100 rounded-full transition-all duration-200 hover:shadow-lg group"
                     href="/"
@@ -134,8 +180,8 @@ export default function PricingPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex flex-wrap justify-center lg:justify-start -m-4 -mx-6">
-                <div className="w-1/2 md:w-1/4 p-4 px-6">
+              <div className="flex flex-wrap justify-center lg:justify-start   -my-18 md:-my-4 -mx-6">
+                <div className="w-1/2 md:w-1/4 -py-4 md:py-4 px-2 md:px-6 pb-4 md:pb-8">
                   <img
                     className="mx-auto sm:mx-0 h-8 brightness-0 invert"
                     src="darkpro-assets/logos/jiggle-color.svg"
@@ -156,7 +202,7 @@ export default function PricingPage() {
                     alt=""
                   />
                 </div>
-                <div className="w-1/2 md:w-1/4 p-4 px-6">
+                <div className="w-1/2 md:w-1/4 p-0 md:p-4 px-6">
                   <img
                     className="mx-auto sm:mx-0 h-8 brightness-0 invert"
                     src="darkpro-assets/logos/resecurb-color.svg"
@@ -255,6 +301,7 @@ export default function PricingPage() {
               </div>
             </nav>
           </div> */}
+          <Services />
         </div>
       </section>
     </main>

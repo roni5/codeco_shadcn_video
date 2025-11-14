@@ -244,87 +244,16 @@ export default function HomePage() {
           </section> */}
         </div>
       </section>
-      {/* Enterprise Solutions Section - FIXED WITH PROPER STRUCTURE */}
-      <section className="mb-12 md:mb-20">
-        <div className={styles.whoopsTout}>
-          <div className={styles.whoopsToutBackground}>
-            <Image
-              src="/img/ai-generated.png"
-              alt=""
-              className="w-full h-[300px] md:h-[400px] object-cover object-center"
-              width={1500}
-              height={400}
-              style={{ objectPosition: 'center 20%' }}
-            />
-          </div>
-          <div className={styles.whoopsToutContent}>
-            <div className="container mx-auto px-4">
-              <div className="lg:w-3/4 lg:ml-16">
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                  Looking for enterprise{' '}
-                  <span className="text-primary">solutions?</span>
-                </h3>
-                <p className="text-xl mb-6 font-medium ">
-                  Codeco.tech Platform offers enterprise-level solutions
-                  <span className="text-secondary ml-1 font-medium text-balance">
-                    for businesses{' '}
-                  </span>
-                  <span className="text-secondary  font-medium text-balance">
-                    who need real world App muscle.
-                  </span>
-                </p>
-                <Link
-                  href="/intl/en_uk/about/enterprise/"
-                  className="inline-block bg-primary hover:bg-sky-400 text-white font-medium py-3 px-6 rounded-full"
-                >
-                  See solutions
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Products */}
-      <section className="mb-16 md:mb-32">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8 items-center mb-12" />
-          <section className="mb-12 md:mb-20">
-            <div className={styles.colorBar}>
-              <div className="container mx-auto px-4">
-                <div className="flex justify-center">
-                  <div className="lg:w-2/3 text-center">
-                    <div className={styles.colorBarIconBlack} />
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                      <span>
-                        Google Analytics helped us optimize our art marketplace,{' '}
-                      </span>
-                      <span className="text-primary">
-                        resulting in 400% year-over-year revenue growth
-                      </span>
-                      <span> for our art business.</span>
-                    </h3>
-                    <p className="text-lg">
-                      <span className="font-medium">Mariam Naficy</span>,
-                      Founder &amp; CEO, Minted
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section className="mb-12 md:mb-20">
+      <section className="mb-16 md:mb-28">
         <div className={styles.highlightsModule}>
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="lg:w-1/2">
                 <div className="sticky top-24">
                   <Image
-                    src="/img/business-partners.jpg"
+                    src="/img/Strategic-Planning.webp"
                     alt="Designed to work together."
-                    className="w-full"
+                    className="w-full rounded-md  drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
                     width={768}
                     height={800}
                   />
@@ -394,8 +323,157 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* Enterprise Solutions Section - FIXED WITH PROPER STRUCTURE */}
+      <section className="mb-12 md:mb-20">
+        <div className={styles.whoopsTout}>
+          <div className={styles.whoopsToutBackground}>
+            <Image
+              src="/img/ai-generated.png"
+              alt=""
+              className="w-full h-[300px] md:h-[400px] object-cover object-center"
+              width={1500}
+              height={400}
+              style={{ objectPosition: 'center 20%' }}
+            />
+          </div>
+
+          <div className={styles.whoopsToutContent}>
+            <div className="container mx-auto px-4">
+              <div className="lg:w-3/4 lg:ml-16">
+                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                  Looking for enterprise{' '}
+                  <span className="text-primary">solutions?</span>
+                </h3>
+                <p className="text-xl mb-6 font-medium ">
+                  Codeco.tech Platform offers enterprise-level solutions
+                  <span className="text-secondary ml-1 font-medium text-balance">
+                    for businesses{' '}
+                  </span>
+                  <span className="text-secondary  font-medium text-balance">
+                    who need real world App muscle.
+                  </span>
+                </p>
+                <Link
+                  href="/intl/en_uk/about/enterprise/"
+                  className="inline-block bg-primary hover:bg-sky-400 text-white font-medium py-3 px-6 rounded-full"
+                >
+                  See solutions
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Products */}
+      <section className="mb-16 md:mb-32">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-8 items-center mb-12" />
+          <section className="mb-12 md:mb-20">
+            <div className={styles.colorBar}>
+              <div className="container mx-auto px-4">
+                <div className="flex justify-center">
+                  <div className="lg:w-2/3 text-center">
+                    <div className={styles.colorBarIconBlack} />
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+                      <span>
+                        Google Analytics helped us optimize our art marketplace,{' '}
+                      </span>
+                      <span className="text-primary">
+                        resulting in 400% year-over-year revenue growth
+                      </span>
+                      <span> for our art business.</span>
+                    </h3>
+                    <p className="text-lg">
+                      <span className="font-medium">Mariam Naficy</span>,
+                      Founder &amp; CEO, Minted
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
 
       <section className="mx-auto p-4 md:p-6 mb-12 md:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link
+            href="/intl/en_uk/about/analytics/"
+            className="relative overflow-hidden bg-primary rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
+          >
+            {/* Grid background */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <div
+                className="absolute inset-0 opacity-100"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
+                  backgroundSize: '30px 30px',
+                }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <div className="mb-4 h-12" />
+              <h4 className="text-xl font-bold mb-2">Analytics</h4>
+              <p className="mb-4">
+                Understand your customers so you can deliver better experiences.
+              </p>
+              <div className="text-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  role="img"
+                  aria-label="open laptop"
+                >
+                  <title>arrow</title>
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/intl/en_uk/about/tag-manager/"
+            className="relative overflow-hidden bg-primary  rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
+          >
+            {/* Grid background */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <div
+                className="absolute inset-0 opacity-100"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
+                  backgroundSize: '30px 30px',
+                }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <div className="mb-4 h-12" />
+              <h4 className="text-xl font-bold mb-2">Tag Manager</h4>
+              <p className="mb-4">Manage all your tags without editing code.</p>
+              <div className="text-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  role="img"
+                  aria-label="Forward arrow icon"
+                >
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+      {/* <section className="mx-auto p-4 md:p-6 mb-12 md:mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link
             href="/intl/en_uk/about/analytics/"
@@ -442,7 +520,7 @@ export default function HomePage() {
             </div>
           </Link>
         </div>
-      </section>
+      </section> */}
       <ContactWidget />
     </main>
   )
