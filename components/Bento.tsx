@@ -91,7 +91,7 @@ export default function Bento() {
 
           {/* === Powerful SEO (Tall Right) === */}
           <div className="relative lg:row-span-2">
-            <div className="[background:linear-gradient(45deg,#0f172a,theme(colors.slate.900)_50%,#0f172a)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.amber.400)_80%,theme(colors.orange.500)_86%,theme(colors.yellow.400)_90%,theme(colors.orange.500)_94%,theme(colors.amber.400)_100%)_border-box] border border-transparent animate-border rounded-2xl flex flex-col overflow-hidden">
+            <div className="[background:linear-gradient(45deg,#0f172a,var(--color-slate-900)_50%,#0f172a)_padding-box,conic-gradient(from_var(--border-angle),var(--color-amber-400)_80%,var(--color-orange-500)_86%,var(--color-yellow-400)_90%,var(--color-orange-500)_94%,var(--color-amber-400)_100%)_border-box] border border-transparent animate-border rounded-2xl flex flex-col overflow-hidden">
               <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
                 <p className="text-lg font-medium tracking-tight text-white max-lg:text-center">
                   Powerful SEO

@@ -152,9 +152,9 @@ export default function Hero() {
         <RightZag />
       </section>
 
-      <section className="mb-12 md:mb-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 tracking-tight">
+      <section className=" mb-10 md:mb-18 bg-[url('/img/bg-cta-dark.webp')] bg-center  bg-no-repeat overflow-hidden px-4 ">
+        <div className="max-w-7xl mx-auto mt-4 md:mt-8 pb-4 md:pb-8">
+          <h2 className="text-4xl font-extrabold text-white text-center mb-12 tracking-tight">
             Featured Articles
           </h2>
 
@@ -196,40 +196,14 @@ export default function Hero() {
         </div>
       </section>
       <section className="mb-12 md:mb-20">
-        <Pricing />
-        <section className="mb-12 md:mb-20">
-          <GradientCard
-            title="Website Analytics"
-            value="17,479"
-            percentage="+48%"
-            subtitle="Monthly visits"
-            imageUrl="https://cruip-tutorials.vercel.app/animated-gradient-border/card-01.png"
-            duration={6}
-            colors={{
-              start: '#172033',
-              mid: '#1e293b',
-              end: '#172033',
-              accent: '#8b5cf6', // violet-500
-            }}
-          />
+        <Teams />
 
-          {/* Example with custom child content */}
-          <GradientCard
-            title="Custom Content"
-            value="Pro"
-            subtitle="Subscription Tier"
-          >
-            <div className="text-slate-400 text-sm">
-              Includes API access and premium support.
-            </div>
-          </GradientCard>
-        </section>
         <section className="mb-12 md:mb-20">
-          <TeamMembers />
+          <Pricing />
         </section>
       </section>
       <section className="mb-12 md:mb-20">
-        <Teams />
+        <TeamMembers />
       </section>
 
       <ChatTrigger />

@@ -4,7 +4,7 @@ import React from 'react'
 export default function Pricing() {
   return (
     <>
-      <div className="relative">
+      <div className="relative ">
         <div aria-hidden="true" className="flex -z-1 absolute -top-48 start-0">
           <div className="bg-purple-200 opacity-30 blur-3xl w-[1036px] h-150 dark:bg-purple-900 dark:opacity-20" />
           <div className="bg-gray-200 opacity-90 blur-3xl w-[577px] h-75 translate-y-32 dark:bg-neutral-800/60" />
@@ -38,7 +38,7 @@ export default function Pricing() {
                 className="peer sr-only"
                 defaultChecked={false}
               />
-              <span className="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-purple-600 dark:bg-neutral-700 dark:peer-checked:bg-purple-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none" />
+              <span className="absolute inset-0 bg-purple-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-purple-600 dark:bg-neutral-700 dark:peer-checked:bg-purple-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none" />
               <span className="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white" />
             </label>
 
