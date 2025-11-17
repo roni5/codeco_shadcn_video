@@ -1,12 +1,47 @@
 'use client'
 
-import { useState } from 'react'
-import HeaderNav from '@/components/HeaderNav'
-import Pricing from '@/components/Pricing'
+import { useState, useEffect } from 'react'
+import './scrolling.css'
+//import HeaderNav from '@/components/HeaderNav'
+//import Pricing from '@/components/Pricing'
 import Services from '@/components/services'
+import FourSection from '@/components/Four-Features-Section'
+import DarkFooter from '@/components/dark-footer'
+import DarkZigzag from '@/components/dark-zigzag'
+import DarkSteps from '@/components/DarkSteps'
+import DarkStats from '@/components/DarkStats'
+import DarkNewsLetter from '@/components/DarkNewsLetter'
 
 export default function PricingPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
+  useEffect(() => {
+          // plain old JS from your working demo — no packages needed
+          const headings = document.querySelectorAll('[data-splitting]')
+          headings.forEach(h => {
+            const text = h.textContent || ''
+            h.textContent = ''
+            text.split('').forEach((char, i) => {
+              const span = document.createElement('span')
+              span.className = 'char'
+              span.style.setProperty('--char-index', i.toString())
+              span.textContent = char
+              h.appendChild(span)
+            })
+          })
+  
+          const observer = new IntersectionObserver(
+            entries => {
+              entries.forEach(entry => {
+                const state = entry.isIntersecting ? '' : 'out'
+                entry.target.setAttribute('data-scroll', state)
+              })
+            },
+            { threshold: 0.1 }
+          )
+  
+          headings.forEach(h => observer.observe(h))
+        }, [])
 
   return (
     <main className="w-full mx-auto  ">
@@ -17,6 +52,7 @@ export default function PricingPage() {
               <div className="absolute inset-0 opacity-20 rounded-2xl blur-3xl" />
               <div className="pr-1 pb-1  border-opacity-20 h-full ">
                 <svg width="1600" height="800">
+                  <title>hero</title>
                   <defs>
                     <filter id="turbulent-dissolve" x="0%" y="0%">
                       <feTurbulence type="fractalNoise" baseFrequency=".012" />
@@ -43,8 +79,6 @@ export default function PricingPage() {
                         in="SourceGraphic"
                         result="overlay"
                       />
-
-                      {/* ⛔️ xlink:href → ✅ href */}
                       <feImage
                         href="/img/osaka02.jpg"
                         width="800"
@@ -143,8 +177,11 @@ export default function PricingPage() {
                     Frequent authentication
                   </span>
                 </div>
-                <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-medium leading-none text-transparent bg-clip-text bg-linear-to-r from-gray-100 via-gray-200 to-gray-300">
-                  Build products that users will really love
+                <h1
+                  data-splitting
+                  className="mb-6 text-4xl md:text-5xl lg:text-6xl font-medium leading-none text-transparent bg-clip-text bg-linear-to-r from-gray-100 via-gray-200 to-gray-300"
+                >
+                  WeBuild Products That U Will Really Love
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-neutral-300">
                   Transform your workflow with our intuitive platform designed
@@ -154,7 +191,7 @@ export default function PricingPage() {
                 <div className="relative flex flex-col sm:flex-row gap-4 bg-neutral-950">
                   <div className="lg:hidden absolute inset-0  bg-neutral-950 rounded-2xl blur-3xl" />
                   <a
-                    className="relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-100 rounded-full transition-all duration-200 hover:shadow-lg group"
+                    className="relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-neutral-950 bg-linear-to-r from-gray-100 via-gray-200 to-gray-300 hover:bg-neutral-100 rounded-full transition-all duration-200 hover:shadow-lg group"
                     href="/"
                   >
                     Get Started
@@ -164,6 +201,7 @@ export default function PricingPage() {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
+                      <title>social-icon</title>
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -180,6 +218,7 @@ export default function PricingPage() {
                   </a>
                 </div>
               </div>
+
               <div className="flex flex-wrap justify-center lg:justify-start   -my-18 md:-my-4 -mx-6">
                 <div className="w-1/2 md:w-1/4 -py-4 md:py-4 px-2 md:px-6 pb-4 md:pb-8">
                   <img
@@ -302,6 +341,12 @@ export default function PricingPage() {
             </nav>
           </div> */}
           <Services />
+          <DarkZigzag />
+          <FourSection />
+          <DarkStats />
+          <DarkSteps />
+          <DarkNewsLetter />
+          <DarkFooter />
         </div>
       </section>
     </main>

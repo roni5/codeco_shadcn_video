@@ -1,4 +1,5 @@
 import { CardWithForm } from '@/components/card-project'
+import DarkFooter from '@/components/dark-footer'
 import { NameTransition } from '@/components/name'
 import Image from 'next/image'
 
