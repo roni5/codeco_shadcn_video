@@ -1,3 +1,4 @@
+import './node-webstorage-shim' // must be first to neutralize accidental Node WebStorage in SSR
 import Navbar from '@/components/NavBar'
 import Footer from '@/components/footer'
 import { Toaster } from '@/components/ui/sonner'
@@ -102,7 +103,8 @@ export default function RootLayout({
         </noscript>
         <Navbar />
         <main>{children}</main>
-        <Toaster />
+        {/* Toaster relies on next-themes (client-only). Guard if next-themes is disabled. */}
+       <Toaster />
         <Footer />
       </body>
     </html>

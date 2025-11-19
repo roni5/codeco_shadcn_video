@@ -130,7 +130,7 @@ export default function Newsletters({ className, transition }: NewsProps) {
                             location: 'footer',
                           })
                         }}
-                        className="w-full  relative group inline-block shrink-0 sm:w-auto py-2 px-5 text-md font-semibold text-slate-50 bg-white-50 rounded-md overflow-hidden  mb-3 sm:mb-0 sm:mr-4  text-sm text-codeco-blue placeholder-gray-400 border border-gray-200 focus:border-sky-500 focus:outline-sky-500 "
+                        className="w-full  relative group inline-block shrink-0 sm:w-auto py-2 px-5 text-md font-semibold text-neutral-700 bg-white-50 rounded-md overflow-hidden  mb-3 sm:mb-0 sm:mr-4  text-sm text-codeco-blue placeholder-gray-400 border border-gray-200 focus:border-sky-500 focus:outline-sky-500 "
                         placeholder="janedoe@gmail.com"
                       />
                       {formState.status === 'field-errors' &&

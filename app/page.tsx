@@ -188,12 +188,12 @@ export default function HomePage() {
           </h3>
         </div>
 
-        <div className="container mx-auto px-4">
+        <div className="container bg-white mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8 items-center mb-12">
             <div className="lg:w-1/3">
               <div className="flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="w-12 h-12 rounded-full bg-primary inline-block" />
+                  <span className="w-12 h-12 rounded-full bg-secondary inline-block" />
                   <h4 className="text-2xl font-bold">Analytics</h4>
                 </div>
                 <p className="text-lg mb-6">
@@ -201,7 +201,7 @@ export default function HomePage() {
                   experiences.
                 </p>
                 <Link
-                  href="/intl/en_uk/about/analytics/"
+                  href="/about"
                   className="text-primary hover:opacity-80 font-medium"
                 >
                   Learn more about Analytics
@@ -210,9 +210,9 @@ export default function HomePage() {
             </div>
             <div className="lg:w-2/3">
               <Image
-                src="/img/home_front_ipad.jpg"
+                src="/img/osaka02.jpg"
                 alt="Analytics"
-                className="w-full rounded-lg"
+                className="w-full rounded-lg bg-white"
                 width={768}
                 height={400}
               />
@@ -399,7 +399,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link
             href="/intl/en_uk/about/analytics/"
-            className="relative overflow-hidden bg-primary rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
+            className="relative overflow-hidden bg-secondary rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
           >
             {/* Grid background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -438,7 +438,7 @@ export default function HomePage() {
 
           <Link
             href="/intl/en_uk/about/tag-manager/"
-            className="relative overflow-hidden bg-primary  rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
+            className="relative overflow-hidden bg-secondary-foreground  rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
           >
             {/* Grid background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -454,10 +454,14 @@ export default function HomePage() {
 
             {/* Content */}
             <div className="relative z-10">
-              <div className="mb-4 h-12" />
-              <h4 className="text-xl font-bold mb-2">Tag Manager</h4>
-              <p className="mb-4">Manage all your tags without editing code.</p>
-              <div className="text-primary">
+              <div className="mb-4 h-12 " />
+              <h4 className="text-xl font-bold text-neutral-50 mb-2">
+                Tag Manager
+              </h4>
+              <p className="mb-4 text-neutral-50">
+                Manage all your tags without editing code.
+              </p>
+              <div className="text-neutral-50">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -498,7 +502,6 @@ export default function HomePage() {
               </svg>
             </div>
           </Link>
-
           <Link
             href="/intl/en_uk/about/tag-manager/"
             className=" border-primary border-3 rounded-lg p-6 drop-shadow-accent-foreground hover:shadow-lg transition-shadow"
