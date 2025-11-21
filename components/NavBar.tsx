@@ -124,7 +124,7 @@ export default function Navbar() {
                     <ListItem href="/resources/examples" title="Examples">
                       Code examples and demos
                     </ListItem>
-                    <ListItem href="/resources/blog" title="Blog">
+                    <ListItem href="/blog" title="Blog">
                       Latest news and updates
                     </ListItem>
                   </ul>

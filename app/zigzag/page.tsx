@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 export default function ZigzagSection() {
   return (
@@ -38,7 +38,7 @@ export default function ZigzagSection() {
               give you free rein to create any template. Change the basics and
               create something unique!
             </p>
-            <button type="button" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors shadow-lg">
+            <button type="button" className="bg-primary hover:bg-secondary text-white font-semibold px-8 py-3.5 rounded-lg transition-colors shadow-lg">
               Try Demo
             </button>
           </div>
@@ -52,13 +52,13 @@ export default function ZigzagSection() {
                   <div
                     key={i}
                     className="w-2 h-2 bg-gray-300 rounded-full"
-                  ></div>
+                 />
                 ))}
               </div>
             </div>
 
             {/* Large cyan circle background - TOP RIGHT */}
-            <div className="absolute -top-20 -right-20 w-80 h-80 bg-cyan-400 rounded-full"></div>
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-cyan-400 rounded-full"/>
 
             {/* Image container with THICK GRAY BORDER and ROUNDED CORNERS */}
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl bg-gray-300 p-3">
@@ -113,7 +113,7 @@ export default function ZigzagSection() {
                   <div
                     key={i}
                     className="w-2 h-2 bg-gray-300 rounded-full"
-                  ></div>
+                  />
                 ))}
               </div>
             </div>
