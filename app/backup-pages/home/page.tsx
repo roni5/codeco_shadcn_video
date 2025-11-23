@@ -383,7 +383,7 @@ export default function HomePage() {
             <div className="lg:w-1/2 order-2 lg:order-1">
               <Image
                 src="/img/business-partners.jpg"
-                alt="Grow with Google Ads."
+                alt="Google Ads."
                 className="w-full"
                 width={1500}
                 height={800}

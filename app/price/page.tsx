@@ -97,7 +97,7 @@ export default function PricingPage() {
                     filter="url(#turbulent-dissolve)"
                     width="800"
                     height="600"
-                    href="/img/osaka01.jpg"
+                    href="/img/looking-down.jpg"
                   />
                 </svg>
               </div>

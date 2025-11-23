@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import './scrolling.css'
-import BackButton from '@/components/BackButton'
+//import BackButton from '@/components/BackButton'
 import Link from 'next/link'
 
 export default function AboutPage() {

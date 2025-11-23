@@ -1,0 +1,46 @@
+{
+  "name": "Contact",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Contact full name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["lead", "active", "inactive"],
+      "default": "lead",
+      "description": "Contact status"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Contact tags"
+    },
+    "lifetime_value": {
+      "type": "number",
+      "description": "Total customer lifetime value"
+    },
+    "last_contact_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Last contact date"
+    }
+  },
+  "required": ["name", "email"]
+}

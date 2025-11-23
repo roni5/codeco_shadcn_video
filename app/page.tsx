@@ -180,7 +180,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8 mb-12 md:mb-16">
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-foreground">
             Marketing solutions for{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
               every business
             </span>
           </h3>
@@ -189,20 +189,20 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="relative group">
             <div
-              className="absolute inset-0 rounded-3xl p-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-3xl p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 backgroundImage:
                   'linear-gradient(var(--border-angle), var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary))',
                 backgroundSize: '300% 100%',
                 animation: 'rotate-border 4s linear infinite',
               }}
-            ></div>
-            <div className="relative bg-gradient-to-br from-background to-muted/10 rounded-3xl p-8 md:p-12 border border-border group-hover:border-transparent transition-colors duration-500">
+            />
+            <div className="relative bg-linear-to-br from-background to-muted/10 rounded-3xl p-8 md:p-12 border border-border group-hover:border-transparent transition-colors duration-500">
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
                 <div className="lg:w-1/3">
                   <div className="flex flex-col">
                     <div className="flex items-center gap-4 mb-6">
-                      <span className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-accent inline-flex items-center justify-center">
+                      <span className="w-16 h-16 rounded-2xl bg-linear-to-br from-secondary to-accent inline-flex items-center justify-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -211,6 +211,7 @@ export default function HomePage() {
                           strokeWidth="2"
                           className="w-8 h-8 text-primary-foreground"
                         >
+                          <title>icon graph</title>
                           <path d="M3 3v18h18" />
                           <path d="m19 9-5 5-4-4-3 3" />
                         </svg>
@@ -235,6 +236,7 @@ export default function HomePage() {
                         fill="currentColor"
                         className="group-hover:translate-x-1 transition-transform"
                       >
+                        <title>icon forward arrow</title>
                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                       </svg>
                     </Link>
@@ -243,7 +245,7 @@ export default function HomePage() {
                 <div className="lg:w-2/3">
                   <div className="relative rounded-2xl overflow-hidden">
                     <Image
-                      src="/img/osaka02.jpg"
+                      src="/img/marketingteam.jpg"
                       alt="Analytics"
                       className="w-full rounded-2xl"
                       width={768}
@@ -265,17 +267,17 @@ export default function HomePage() {
               <div className="sticky top-24">
                 <div className="relative group">
                   <div
-                    className="absolute inset-0 rounded-3xl p-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 rounded-3xl p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       backgroundImage:
                         'linear-gradient(var(--border-angle), var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary))',
                       backgroundSize: '300% 100%',
                       animation: 'rotate-border 4s linear infinite',
                     }}
-                  ></div>
+                  />
                   <div className="relative rounded-3xl overflow-hidden">
                     <Image
-                      src="/img/Strategic-Planning.webp"
+                      src="/img/women.jpg"
                       alt="Designed to work together."
                       className="w-full rounded-3xl"
                       width={768}
@@ -287,7 +289,7 @@ export default function HomePage() {
             </div>
 
             <div className="lg:w-1/2">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-primary via-foreground to-accent bg-clip-text text-transparent">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 bg-linear-to-r from-primary via-foreground to-accent bg-clip-text text-transparent">
                 Designed to work together.
               </h3>
               <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 leading-relaxed">
@@ -300,7 +302,7 @@ export default function HomePage() {
                 <li className="relative">
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 hover:from-primary/10 hover:to-secondary/10 transition-all duration-300">
                     <div className="flex items-start gap-3 mb-3">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2"></div>
+                      <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                       <h4 className="text-xl md:text-2xl font-bold text-foreground">
                         Get a complete picture of your advertising.
                       </h4>
@@ -315,9 +317,9 @@ export default function HomePage() {
                 </li>
 
                 <li className="relative">
-                  <div className="p-6 rounded-2xl bg-gradient-to-br from-secondary/5 to-accent/5 hover:from-secondary/10 hover:to-accent/10 transition-all duration-300">
+                  <div className="p-6 rounded-2xl bg-linear-to-br from-secondary/5 to-accent/5 hover:from-secondary/10 hover:to-accent/10 transition-all duration-300">
                     <div className="flex items-start gap-3 mb-3">
-                      <div className="w-2 h-2 rounded-full bg-secondary mt-2"></div>
+                      <div className="w-2 h-2 rounded-full bg-secondary mt-2" />
                       <h4 className="text-xl md:text-2xl font-bold text-foreground">
                         Deliver more relevant advertising experiences.
                       </h4>
@@ -333,8 +335,8 @@ export default function HomePage() {
               </ul>
 
               <a
-                href="https://marketingplatform.google.com/home?openIntegrationCenter=true"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+                href="/"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
                 target="_blank"
                 rel="nofollow noreferrer noopener"
               >
@@ -345,6 +347,7 @@ export default function HomePage() {
                   height="20"
                   fill="currentColor"
                 >
+                  <title>icon up arrow</title>
                   <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                 </svg>
               </a>
@@ -365,9 +368,9 @@ export default function HomePage() {
                 backgroundSize: '300% 100%',
                 animation: 'rotate-border 4s linear infinite',
               }}
-            ></div>
+            />
 
-            <div className="relative bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-3xl overflow-hidden">
+            <div className="relative bg-linear-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-3xl overflow-hidden">
               <div className="absolute inset-0 opacity-30">
                 <Image
                   src="/img/ai-generated.png"
@@ -401,6 +404,7 @@ export default function HomePage() {
                       height="20"
                       fill="currentColor"
                     >
+                      <title>icon task complete</title>
                       <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                     </svg>
                   </Link>
@@ -423,17 +427,19 @@ export default function HomePage() {
                 backgroundSize: '300% 100%',
                 animation: 'rotate-border 4s linear infinite',
               }}
-            ></div>
+            />
 
-            <div className="relative bg-gradient-to-br from-background to-muted/10 rounded-3xl px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+            <div className="relative bg-linear-to-br from-background to-muted/10 rounded-3xl px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
               <div className="max-w-4xl mx-auto text-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mx-auto mb-8 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-linear-to-br from-primary to-secondary mx-auto mb-8 flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     className="w-8 h-8 text-primary-foreground"
                   >
+                    {' '}
+                    <title>icon up arrow</title>
                     <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                   </svg>
                 </div>
@@ -472,9 +478,9 @@ export default function HomePage() {
                   backgroundSize: '300% 100%',
                   animation: 'rotate-border 4s linear infinite',
                 }}
-              ></div>
+              />
 
-              <div className="relative bg-gradient-to-br from-secondary/20 to-secondary/40 rounded-3xl p-8 md:p-10 border border-secondary/30 group-hover:border-transparent transition-all duration-500 h-full">
+              <div className="relative bg-linear-to-br from-secondary/20 to-secondary/40 rounded-3xl p-8 md:p-10 border border-secondary/30 group-hover:border-transparent transition-all duration-500 h-full">
                 <div
                   className="absolute inset-0 opacity-10 pointer-events-none rounded-3xl"
                   style={{
@@ -484,7 +490,7 @@ export default function HomePage() {
                   }}
                 />
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-primary to-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -493,6 +499,7 @@ export default function HomePage() {
                       strokeWidth="2"
                       className="w-7 h-7 text-primary-foreground"
                     >
+                      <title>icon up arrow</title>
                       <path d="M3 3v18h18" />
                       <path d="m19 9-5 5-4-4-3 3" />
                     </svg>
@@ -512,6 +519,7 @@ export default function HomePage() {
                       height="20"
                       fill="currentColor"
                     >
+                      <title>icon up arrow</title>
                       <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                     </svg>
                   </div>
@@ -531,9 +539,9 @@ export default function HomePage() {
                   backgroundSize: '300% 100%',
                   animation: 'rotate-border 4s linear infinite',
                 }}
-              ></div>
+              />
 
-              <div className="relative bg-gradient-to-br from-foreground/90 to-foreground rounded-3xl p-8 md:p-10 border border-foreground/30 group-hover:border-transparent transition-all duration-500 h-full">
+              <div className="relative bg-linear-to-br from-foreground/90 to-foreground rounded-3xl p-8 md:p-10 border border-foreground/30 group-hover:border-transparent transition-all duration-500 h-full">
                 <div
                   className="absolute inset-0 opacity-10 pointer-events-none rounded-3xl"
                   style={{
@@ -543,7 +551,7 @@ export default function HomePage() {
                   }}
                 />
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-accent to-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -552,6 +560,7 @@ export default function HomePage() {
                       strokeWidth="2"
                       className="w-7 h-7 text-primary-foreground"
                     >
+                      <title>icon </title>
                       <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                       <polyline points="14 2 14 8 20 8" />
                       <line x1="12" y1="18" x2="12" y2="12" />
@@ -572,6 +581,7 @@ export default function HomePage() {
                       height="20"
                       fill="currentColor"
                     >
+                      <title>icon </title>
                       <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                     </svg>
                   </div>

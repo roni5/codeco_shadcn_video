@@ -1,0 +1,38 @@
+{
+  "name": "NewsletterSubscriber",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Subscriber email"
+    },
+    "name": {
+      "type": "string",
+      "description": "Subscriber name"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["subscribed", "unsubscribed", "pending"],
+      "default": "subscribed",
+      "description": "Subscription status"
+    },
+    "subscribed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date subscribed"
+    },
+    "source": {
+      "type": "string",
+      "description": "Subscription source"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Subscriber tags"
+    }
+  },
+  "required": ["email"]
+}
