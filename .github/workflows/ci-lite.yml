@@ -39,17 +39,6 @@ jobs:
       - name: Install deps (clean)
         run: npm ci
 
-      - name: Typecheck (non-blocking)
-        run: npm run typecheck || true
-
-      - name: Lint (non-blocking)
-        run: npm run lint || true
-
-      - name: Build (blocking)
-        run: npm run build
-
-      - name: Generate migrations (safe)
-        run: npm run drizzle:generate
       - name: Typecheck
         run: npm run typecheck
 
