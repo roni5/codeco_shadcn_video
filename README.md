@@ -1,3 +1,18 @@
+# How we work (lean rules)
+- Read once, keep cheap: Core Lean Rules live at playbooks/lean-standards.md. We keep prompts short and link to that file instead of pasting long rules.
+- Tooling: npm + TypeScript strict + ESLint + Prettier + Drizzle. Minimal deps. Drizzle migrations are the source of truth. Auth.js + Drizzle adapter; sessions in Postgres.
+- Defaults we won’t change without approval: backend versions, Node runtime, Postgres settings, auth/session strategy, Stripe/webhooks.
+
+## Setup (short)
+1) npm ci
+2) cp .env.example .env.local and fill required vars
+3) npx drizzle-kit migrate
+4) npm run dev
+
+Note: biome.json exists but is not used by default (opt-in only). Prefer ESLint + Prettier.
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

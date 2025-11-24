@@ -16,64 +16,29 @@ const interSans = Inter({
 // const description =
 //   'This is a Codeco.tech Next.js starter kit that uses NextAuth.js for simple social login and a Postgres database to persist the data.'
 
+
+
 export const metadata: Metadata = {
-  // Sets the base URL for resolving all relative URLs.
-  // This is the clean, correct Next.js 15 pattern.
-  metadataBase: new URL('https://your-awesome-site.com'),
-
-  // Default title and description for the entire site
-  title: {
-    template: '%s | Your Awesome Site', // Page titles will be "Page | Your Awesome Site"
-    default: 'Your Awesome Site', // Fallback title
-  },
-  description: 'The default description for Your Awesome Site.',
-
-  // Default Open Graph metadata
+  metadataBase: new URL('https://your-domain.com'),
+  title: { template: '%s | Your Brand', default: 'Your Brand' },
+  description: 'Your default site description.',
   openGraph: {
-    title: 'Your Awesome Site',
-    description: 'The default description for Your Awesome Site.',
-    url: '[https://www.your-awesome-site.com](https://www.your-awesome-site.com)', // Use the full URL for the root OpenGraph
-    siteName: 'Your Awesome Site',
-    // Add your default social sharing image
-    // images: [
-    //   {
-    //     url: '/default-og-image.png',
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    // ],
+    title: 'Your Brand',
+    description: 'Your default site description.',
+    url: 'https://your-domain.com',
+    siteName: 'Your Brand',
     locale: 'en_GB',
     type: 'website',
   },
-
-  // Default Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'Your Awesome Site',
-    description: 'The default description for Your Awesome Site.',
-    // images: ['/default-og-image.png'],
-    // creator: '@yourTwitterHandle',
+    title: 'Your Brand',
+    description: 'Your default site description.',
   },
+  icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
+  manifest: '/site.webmanifest',
+  appleWebApp: { title: 'Your Brand' },
 }
-
-// export const metadata: Metadata = {
-//   title,
-//   description,
-//   twitter: {
-//     card: 'summary_large_image',
-//     title,
-//     description,
-//   },
-//   metadataBase: new URL('https://your-awesome-site.com'),
-//   icons: {
-//     icon: '/favicon.ico',
-//     apple: '/apple-touch-icon.png',
-//   },
-//   manifest: '/site.webmanifest',
-//   appleWebApp: {
-//     title: 'codeco',
-//   },
-// }
 
 export default function RootLayout({
   children,
