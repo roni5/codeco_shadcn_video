@@ -11,7 +11,8 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { auth } from '@/lib/auth'
-import Image from 'next/image'
+//mport Image from 'next/image'
+import { ImageWithFallback } from '@/components/ImageWithFallback' 
 import Link from 'next/link'
 
 import { Shield, CheckCircle, Zap, Lock } from 'lucide-react'
@@ -37,7 +38,7 @@ export default async function SignInPage() {
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-linear-to-br from-cyan-500/40 via-purple-500/40 via-pink-500/40 to-yellow-400/40" />
+          <div className="absolute inset-0 bg-linear-to-br from-cyan-500/40 via-purple-500/40 to-yellow-400/40" />
         </div>
         {/* </CHANGE> */}
 
@@ -70,7 +71,14 @@ export default async function SignInPage() {
                 <CardHeader className="text-center pb-4">
                   <div className="flex justify-center mb-4">
                     <div className="relative">
-                      <Image
+                      <ImageWithFallback
+                        src={user?.image}
+                        alt={`${user?.name ?? 'User'} avatar`}
+                        width={96}
+                        height={96}
+                        className="h-24 w-24 rounded-full ring-4 ring-purple-200"
+                      />
+                      {/* <Image
                         className="h-24 w-24 rounded-full ring-4 ring-purple-200"
                         src={
                           user?.image || '/placeholder.svg?height=96&width=96'
@@ -78,7 +86,7 @@ export default async function SignInPage() {
                         height={96}
                         width={96}
                         alt={`${user?.name} avatar`}
-                      />
+                      /> */}
                       <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-1">
                         <CheckCircle className="w-5 h-5 text-white" />
                       </div>

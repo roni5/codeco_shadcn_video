@@ -7,6 +7,7 @@ import {
   text,
   timestamp,
   uuid,
+  decimal,
 } from 'drizzle-orm/pg-core'
 
 // add timestamp
@@ -90,17 +91,63 @@ export const verificationTokens = pgTable(
   })
 )
 
-export const newsletters = pgTable('newsletters', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  email: text('email').notNull().unique(),
-})
+// Contact Status Enum
+export const contactStatusEnum = pgEnum('contact_status', [
+  'lead',
+  'active',
+  'inactive',
+])
 
+// Newsletter Status Enum
+export const newsletterStatusEnum = pgEnum('newsletter_status', [
+  'subscribed',
+  'unsubscribed',
+  'pending',
+])
+
+// Updated Contacts Table
 export const contacts = pgTable('contact', {
   id: uuid('id').primaryKey().defaultRandom(),
   name: text('name').notNull(),
-  email: text('email').notNull(),
-  message: text('message').notNull(),
+  email: text('email').notNull().unique(),
   phone: text('phone'),
+  company: text('company'),
+  message: text('message'),
   subject: text('subject'),
+  status: contactStatusEnum('status').default('lead').notNull(),
+  lifetimeValue: decimal('lifetime_value', { precision: 10, scale: 2 })
+    .default('0')
+    .notNull(),
+  lastContactDate: timestamp('last_contact_date'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
+
+// Updated Newsletters Table
+export const newsletters = pgTable('newsletters', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  email: text('email').notNull().unique(),
+  name: text('name'),
+  status: newsletterStatusEnum('status').default('subscribed').notNull(),
+  source: text('source'), // e.g., 'website', 'landing-page', 'referral'
+  tags: text('tags').array(), // PostgreSQL array for tags
+  subscribedDate: timestamp('subscribed_date'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+
+// export const newsletters = pgTable('newsletters', {
+//   id: uuid('id').primaryKey().defaultRandom(),
+//   email: text('email').notNull().unique(),
+// })
+
+// export const contacts = pgTable('contact', {
+//   id: uuid('id').primaryKey().defaultRandom(),
+//   name: text('name').notNull(),
+//   email: text('email').notNull(),
+//   message: text('message').notNull(),
+//   phone: text('phone'),
+//   subject: text('subject'),
+//   createdAt: timestamp('created_at').defaultNow().notNull(),
+// })

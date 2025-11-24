@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "types",
     "app/faqs/page-old.bac"
-  ],
+, "app/api/data/route.bac"  ],
   "exclude": ["node_modules"]
 }
