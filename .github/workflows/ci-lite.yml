@@ -39,7 +39,6 @@ jobs:
       - name: Install deps (clean)
         run: npm ci
 
-<<<<<<< HEAD
       - name: Typecheck (non-blocking)
         run: npm run typecheck || true
 
@@ -51,7 +50,6 @@ jobs:
 
       - name: Generate migrations (safe)
         run: npm run drizzle:generate
-=======
       - name: Typecheck
         run: npm run typecheck
 
@@ -69,4 +67,3 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run drizzle:migrate -- --config drizzle.config.ts
->>>>>>> ui-theme
