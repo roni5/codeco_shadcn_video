@@ -38,23 +38,23 @@ export default function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-full overflow-x-hidden md:overflow-visible px-4 md:px-8',
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? ' bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
       )}
     >
       <div className="container flex items-center justify-between mx-auto max-w-full min-w-0">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-0.5 flex-shrink-0">
+        <Link href="/" className="flex items-center gap-0.5 shrink-0">
           <span className="px-0 hidden md:block font-bold text-lg">
             <Image
               className="p-1 sm:p-2"
-              src="/img/elephant-alone.svg"
+              src="/img/logo.svg"
               alt="logo"
               width={70}
               height={70}
               priority
             />
           </span>
-          <div className="w-28 h-8 rounded-md bg-gradient-to-r from-primary to-secondary items-center justify-center hidden sm:flex">
+          <div className="w-28 h-8 rounded-md bg-linear-to-r from-primary to-secondary items-center justify-center hidden sm:flex">
             <span className="text-white font-bold hidden sm:block">Codeco.tech</span>
           </div>
         </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
                     <ListItem href="/resources/examples" title="Examples">
                       Code examples and demos
                     </ListItem>
-                    <ListItem href="/resources/blog" title="Blog">
+                    <ListItem href="/blog" title="Blog">
                       Latest news and updates
                     </ListItem>
                   </ul>

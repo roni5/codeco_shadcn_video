@@ -6,12 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "biome format --write .",
-    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
     "check": "biome check .",
-    "check:fix": "biome check --write ."
+    "check:fix": "biome check --write .",
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:migrate": "drizzle-kit migrate",
+    "ci:local": "npm run typecheck && npm run lint && npm run build && npm run drizzle:generate"
   },
   "dependencies": {
     "@auth/core": "^0.38.0",
@@ -33,6 +37,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.44.1",
+    "framer-motion": "^12.23.24",
     "lucide-react": "^0.503.0",
     "next": "15.3.1",
     "next-auth": "5.0.0-beta.25",

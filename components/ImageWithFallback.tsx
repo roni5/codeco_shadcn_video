@@ -1,21 +1,45 @@
 'use client'
-import React, { useState } from 'react'
+
+import { useState } from 'react'
 import Image, { type ImageProps } from 'next/image'
 
-export function ImageWithFallback(props: ImageProps) {
-  const [didError, setDidError] = useState(false)
+type Props = Omit<ImageProps, 'fill'> & {
+  // width/height required for stable layout (no CLS)
+}
 
-  const { src, alt, className, ...rest } = props
+export function ImageWithFallback({
+  src,
+  alt,
+  className,
+  width,
+  height,
+  ...rest
+}: Props) {
+  const [broken, setBroken] = useState(false)
 
-  if (didError) {
+  // Fallback: inline SVG, no network, no role="img" (satisfies a11y/useSemanticElements)
+  if (!src || broken) {
     return (
-      <div
-        className={`bg-gray-100 flex items-center justify-center text-gray-400 ${className ?? ''}`}
-        {...rest}
+      <span
+        className={className}
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width,
+          height,
+          backgroundColor: 'rgba(241,245,249,1)', // slate-100-ish
+          color: 'rgba(148,163,184,1)', // slate-400-ish
+          borderRadius: '9999px',
+        }}
       >
+        {/* Provide accessible name without using role="img" */}
+        <span className="sr-only">{alt}</span>
         <svg
-          width="24"
-          height="24"
+          aria-hidden="true"
+          focusable="false"
+          width={Math.max(16, Math.floor(Number(width) * 0.6))}
+          height={Math.max(16, Math.floor(Number(height) * 0.6))}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -27,7 +51,7 @@ export function ImageWithFallback(props: ImageProps) {
           <circle cx="9" cy="9" r="2" />
           <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
         </svg>
-      </div>
+      </span>
     )
   }
 
@@ -36,11 +60,56 @@ export function ImageWithFallback(props: ImageProps) {
       src={src}
       alt={alt}
       className={className}
+      width={width}
+      height={height}
       {...rest}
-      onError={() => setDidError(true)}
+      onError={() => setBroken(true)}
     />
   )
 }
+// 'use client'
+// import React, { useState } from 'react'
+// import Image, { type ImageProps } from 'next/image'
+
+// export function ImageWithFallback(props: ImageProps) {
+//   const [didError, setDidError] = useState(false)
+
+//   const { src, alt, className, ...rest } = props
+
+//   if (didError) {
+//     return (
+//       <div
+//         className={`bg-gray-100 flex items-center justify-center text-gray-400 ${className ?? ''}`}
+//         {...rest}
+//       >
+//         <svg
+//           width="24"
+//           height="24"
+//           viewBox="0 0 24 24"
+//           fill="none"
+//           stroke="currentColor"
+//           strokeWidth="2"
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//         >
+//           <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+//           <circle cx="9" cy="9" r="2" />
+//           <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+//         </svg>
+//       </div>
+//     )
+//   }
+
+//   return (
+//     <Image
+//       src={src}
+//       alt={alt}
+//       className={className}
+//       {...rest}
+//       onError={() => setDidError(true)}
+//     />
+//   )
+// }
 // 'use client'
 // import React, { useState } from 'react'
 // import Image, { type ImageProps } from 'next/image'

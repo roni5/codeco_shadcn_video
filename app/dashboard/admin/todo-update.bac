@@ -1,0 +1,854 @@
+// ============================================================================
+// REAL WORLD IMPLEMENTATION - Aligned with YOUR Drizzle Schema
+// ============================================================================
+
+// ============================================================================
+// 1. Update your schema to match business needs
+// lib/schema.ts - ADD these fields to match your components
+// ============================================================================
+
+import {
+  integer,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+  decimal,
+} from 'drizzle-orm/pg-core'
+
+// Contact Status Enum
+export const contactStatusEnum = pgEnum('contact_status', [
+  'lead',
+  'active',
+  'inactive',
+])
+
+// Newsletter Status Enum  
+export const newsletterStatusEnum = pgEnum('newsletter_status', [
+  'subscribed',
+  'unsubscribed',
+  'pending',
+])
+
+// Updated Contacts Table
+export const contacts = pgTable('contact', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  name: text('name').notNull(),
+  email: text('email').notNull().unique(),
+  phone: text('phone'),
+  company: text('company'),
+  message: text('message'),
+  subject: text('subject'),
+  status: contactStatusEnum('status').default('lead').notNull(),
+  lifetimeValue: decimal('lifetime_value', { precision: 10, scale: 2 })
+    .default('0')
+    .notNull(),
+  lastContactDate: timestamp('last_contact_date'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Updated Newsletters Table
+export const newsletters = pgTable('newsletters', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  email: text('email').notNull().unique(),
+  name: text('name'),
+  status: newsletterStatusEnum('status').default('subscribed').notNull(),
+  source: text('source'), // e.g., 'website', 'landing-page', 'referral'
+  tags: text('tags').array(), // PostgreSQL array for tags
+  subscribedDate: timestamp('subscribed_date'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// ============================================================================
+// 2. Generate migration
+// ============================================================================
+// Run: npx drizzle-kit generate
+// Run: npx drizzle-kit migrate
+
+// ============================================================================
+// 3. Type definitions from schema
+// types/database.ts
+// ============================================================================
+
+import { contacts, newsletters } from '@/lib/schema'
+
+export type Contact = typeof contacts.$inferSelect
+export type NewContact = typeof contacts.$inferInsert
+
+export type Newsletter = typeof newsletters.$inferSelect
+export type NewNewsletter = typeof newsletters.$inferInsert
+
+// ============================================================================
+// 4. Server Component - Main Dashboard Page
+// app/dashboard/page.tsx
+// ============================================================================
+
+import { db } from '@/lib/db'
+import { contacts, newsletters } from '@/lib/schema'
+import { desc } from 'drizzle-orm'
+import DashboardClient from './DashboardClient'
+
+async function getContacts() {
+  return await db
+    .select()
+    .from(contacts)
+    .orderBy(desc(contacts.createdAt))
+}
+
+async function getNewsletters() {
+  return await db
+    .select()
+    .from(newsletters)
+    .orderBy(desc(newsletters.createdAt))
+}
+
+export default async function DashboardPage() {
+  // Parallel data fetching for better performance
+  const [allContacts, allNewsletters] = await Promise.all([
+    getContacts(),
+    getNewsletters(),
+  ])
+
+  return (
+    <DashboardClient
+      initialContacts={allContacts}
+      initialNewsletters={allNewsletters}
+    />
+  )
+}
+
+// ============================================================================
+// 5. Client Component - Dashboard UI with interactions
+// app/dashboard/DashboardClient.tsx
+// ============================================================================
+"use client"
+
+import { useState, useMemo } from 'react'
+import { Users, Mail, TrendingUp, DollarSign } from 'lucide-react'
+import StatsCard from '@/components/dashboard/StatsCard'
+import DateFilter from '@/components/dashboard/DateFilter'
+import ExportButton from '@/components/dashboard/ExportButton'
+import ContactsTable from '@/components/contacts/ContactsTable'
+import NewsletterTable from '@/components/newsletter/NewsletterTable'
+import { motion } from 'framer-motion'
+import { subDays, subMonths, subYears, isAfter } from 'date-fns'
+import type { Contact, Newsletter } from '@/types/database'
+
+const ITEMS_PER_PAGE = 10
+
+interface DashboardClientProps {
+  initialContacts: Contact[]
+  initialNewsletters: Newsletter[]
+}
+
+export default function DashboardClient({
+  initialContacts,
+  initialNewsletters,
+}: DashboardClientProps) {
+  const [dateRange, setDateRange] = useState('30d')
+  const [contactsPage, setContactsPage] = useState(1)
+  const [newsletterPage, setNewsletterPage] = useState(1)
+
+  const getDateFilter = (date: Date) => {
+    const now = new Date()
+    switch (dateRange) {
+      case '7d':
+        return isAfter(date, subDays(now, 7))
+      case '30d':
+        return isAfter(date, subDays(now, 30))
+      case '3m':
+        return isAfter(date, subMonths(now, 3))
+      case '1y':
+        return isAfter(date, subYears(now, 1))
+      case 'all':
+        return true
+      default:
+        return true
+    }
+  }
+
+  // Memoized filtered data
+  const { filteredContacts, filteredNewsletters, stats } = useMemo(() => {
+    const filtered = {
+      filteredContacts: initialContacts.filter(c =>
+        getDateFilter(c.createdAt)
+      ),
+      filteredNewsletters: initialNewsletters.filter(n =>
+        getDateFilter(n.createdAt)
+      ),
+    }
+
+    // Calculate stats
+    const activeContacts = filtered.filteredContacts.filter(
+      c => c.status === 'active'
+    ).length
+
+    const subscribedCount = filtered.filteredNewsletters.filter(
+      n => n.status === 'subscribed'
+    ).length
+
+    const totalLifetimeValue = filtered.filteredContacts.reduce(
+      (sum, c) => sum + Number(c.lifetimeValue || 0),
+      0
+    )
+
+    return {
+      ...filtered,
+      stats: {
+        activeContacts,
+        subscribedCount,
+        totalLifetimeValue,
+        totalContacts: filtered.filteredContacts.length,
+        totalNewsletters: filtered.filteredNewsletters.length,
+      },
+    }
+  }, [initialContacts, initialNewsletters, dateRange])
+
+  // Pagination
+  const contactsTotalPages = Math.ceil(
+    filteredContacts.length / ITEMS_PER_PAGE
+  )
+  const paginatedContacts = filteredContacts.slice(
+    (contactsPage - 1) * ITEMS_PER_PAGE,
+    contactsPage * ITEMS_PER_PAGE
+  )
+
+  const newslettersTotalPages = Math.ceil(
+    filteredNewsletters.length / ITEMS_PER_PAGE
+  )
+  const paginatedNewsletters = filteredNewsletters.slice(
+    (newsletterPage - 1) * ITEMS_PER_PAGE,
+    newsletterPage * ITEMS_PER_PAGE
+  )
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8"
+        >
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 tracking-tight">
+            Dashboard
+          </h1>
+          <p className="text-lg text-slate-600">
+            Monitor your business metrics and customer engagement
+          </p>
+        </motion.div>
+
+        {/* Date Filter */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="mb-8 flex flex-wrap items-center justify-between gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-slate-100"
+        >
+          <DateFilter value={dateRange} onChange={setDateRange} />
+          <div className="text-sm text-slate-600">
+            Showing <span className="font-semibold text-slate-900">{stats.totalContacts}</span> contacts
+            and <span className="font-semibold text-slate-900">{stats.totalNewsletters}</span> subscribers
+          </div>
+        </motion.div>
+
+        {/* Stats Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <StatsCard
+            title="Active Contacts"
+            value={stats.activeContacts.toLocaleString()}
+            icon={Users}
+            trend="up"
+            trendValue={`${stats.totalContacts} total`}
+            primary={true}
+            delay={0}
+          />
+          <StatsCard
+            title="Subscribed"
+            value={stats.subscribedCount.toLocaleString()}
+            icon={Mail}
+            trend="up"
+            trendValue={`${stats.totalNewsletters} total`}
+            delay={0.1}
+          />
+          <StatsCard
+            title="Total Revenue"
+            value={`$${stats.totalLifetimeValue.toLocaleString()}`}
+            icon={DollarSign}
+            trend="up"
+            trendValue="Lifetime value"
+            delay={0.2}
+          />
+          <StatsCard
+            title="Growth Rate"
+            value={`${Math.round((stats.subscribedCount / Math.max(stats.totalNewsletters, 1)) * 100)}%`}
+            icon={TrendingUp}
+            trend="up"
+            trendValue="Conversion rate"
+            delay={0.3}
+          />
+        </div>
+
+        {/* Newsletter Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg shadow-emerald-500/20">
+                <Mail className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Newsletter Subscribers
+                </h2>
+                <p className="text-sm text-slate-600 mt-0.5">
+                  {initialNewsletters.length} total •{' '}
+                  <span className="text-emerald-600 font-medium">
+                    {stats.subscribedCount} active
+                  </span>
+                </p>
+              </div>
+            </div>
+            <ExportButton
+              data={filteredNewsletters.map(n => ({
+                email: n.email,
+                name: n.name || '',
+                status: n.status,
+                source: n.source || '',
+                tags: n.tags?.join(', ') || '',
+                subscribed_date: n.subscribedDate?.toISOString() || n.createdAt.toISOString(),
+              }))}
+              filename="newsletter_subscribers"
+              label="Export Subscribers"
+            />
+          </div>
+          <NewsletterTable
+            subscribers={paginatedNewsletters.map(n => ({
+              id: n.id,
+              name: n.name,
+              email: n.email,
+              status: n.status,
+              source: n.source,
+              tags: n.tags,
+              subscribed_date: n.subscribedDate || n.createdAt,
+              created_date: n.createdAt,
+            }))}
+            currentPage={newsletterPage}
+            totalPages={newslettersTotalPages}
+            onPageChange={setNewsletterPage}
+          />
+        </motion.div>
+
+        {/* Contacts Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl shadow-lg shadow-indigo-500/20">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Contacts
+                </h2>
+                <p className="text-sm text-slate-600 mt-0.5">
+                  {initialContacts.length} total •{' '}
+                  <span className="text-indigo-600 font-medium">
+                    {stats.activeContacts} active
+                  </span>
+                </p>
+              </div>
+            </div>
+            <ExportButton
+              data={filteredContacts.map(c => ({
+                name: c.name,
+                email: c.email,
+                phone: c.phone || '',
+                company: c.company || '',
+                status: c.status,
+                lifetime_value: Number(c.lifetimeValue),
+                last_contact_date: c.lastContactDate?.toISOString() || '',
+              }))}
+              filename="contacts"
+              label="Export Contacts"
+            />
+          </div>
+          <ContactsTable
+            contacts={paginatedContacts.map(c => ({
+              id: c.id,
+              name: c.name,
+              email: c.email,
+              phone: c.phone,
+              company: c.company,
+              status: c.status,
+              lifetime_value: Number(c.lifetimeValue),
+              last_contact_date: c.lastContactDate,
+            }))}
+            currentPage={contactsPage}
+            totalPages={contactsTotalPages}
+            onPageChange={setContactsPage}
+          />
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+
+// ============================================================================
+// 6. Migration Commands
+// ============================================================================
+
+// Step 1: Update your schema file with the code above
+// Step 2: Generate migration
+// npx drizzle-kit generate
+
+// Step 3: Apply migration
+// npx drizzle-kit migrate
+
+// Step 4: (Optional) Seed some data for testing
+// npx tsx scripts/seed.ts
+
+// ============================================================================
+// 7. Seed Script (scripts/seed.ts)
+// ============================================================================
+
+import { db } from '@/lib/db'
+import { contacts, newsletters } from '@/lib/schema'
+
+async function seed() {
+  // Seed contacts
+  await db.insert(contacts).values([
+    {
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+1-555-0123',
+      company: 'Acme Corp',
+      status: 'active',
+      lifetimeValue: '5000.00',
+      message: 'Interested in premium package',
+      subject: 'Premium Inquiry',
+    },
+    {
+      name: 'Jane Smith',
+      email: 'jane@example.com',
+      phone: '+1-555-0124',
+      company: 'Tech Solutions',
+      status: 'lead',
+      lifetimeValue: '0',
+      message: 'Looking for consultation',
+      subject: 'Consultation Request',
+    },
+  ])
+
+  // Seed newsletters
+  await db.insert(newsletters).values([
+    {
+      email: 'subscriber1@example.com',
+      name: 'Alice Johnson',
+      status: 'subscribed',
+      source: 'website',
+      tags: ['customer', 'premium'],
+    },
+    {
+      email: 'subscriber2@example.com',
+      name: 'Bob Wilson',
+      status: 'subscribed',
+      source: 'landing-page',
+      tags: ['lead'],
+    },
+  ])
+
+  console.log('✅ Database seeded successfully!')
+}
+
+seed().catch(console.error)
+
+----
+# Generate migration file
+npx drizzle-kit generate
+
+# Apply migration to database
+npx drizzle-kit migrate
+
+# Or if using push (faster for development)
+npx drizzle-kit push
+
+3️⃣ Update Import Path
+typescript// Change this:
+import { contacts, newsletterSubscribers } from '@/lib/db/schema'
+
+// To this:
+import { contacts, newsletters } from '@/lib/schema'
+4️⃣ Seed Some Data (Optional but helpful)
+Create scripts/seed.ts with the seed script from the artifact and run:
+bashnpx tsx scripts/seed.ts
+5️⃣ Replace Your Dashboard Files
+
+Replace app/dashboard/page.tsx with the Server Component
+Create app/dashboard/DashboardClient.tsx with the Client Component
+Create types/database.ts for type definitions
+
+
+🎨 About the Styling
+I kept it professional but added some "GOAT-level" touches:
+
+✨ Gradient backgrounds with backdrop blur
+🎯 Better stat cards with gradient icons
+📊 Improved visual hierarchy
+🌊 Smooth animations
+💎 Modern glassmorphism effects
+
+But honestly? Your original styling was clean! This is just slightly more polished for a dashboard that admins will actually enjoy using.
+
+❓ Why This Approach?
+
+No API routes needed - Direct DB access in Server Components
+No mock data needed - You have a real database!
+Better type safety - Types inferred from schema
+Simpler code - Less boilerplate than TanStack Query
+Better performance - Server-side rendering, no loading states
+
+Need help with the migration or have questions? Let me know! 🚀
+
+------
+Good question! Let me check what fields your contact form/server action is using. The migration should be safe because we're only adding fields, not removing or renaming existing ones.
+Here's what's happening:
+✅ Safe Changes (Won't Break Anything)
+Your current schema has:
+typescript{
+  id, name, email, message, phone, subject, createdAt
+}
+New schema adds (with defaults):
+typescript{
+  // ... existing fields stay the same
+  company: text('company'),              // nullable, won't break forms
+  status: contactStatusEnum('status')    // has DEFAULT 'lead'
+    .default('lead').notNull(),
+  lifetimeValue: decimal(...)            // has DEFAULT '0'
+    .default('0').notNull(),
+  lastContactDate: timestamp(...),       // nullable
+  updatedAt: timestamp(...)              // has DEFAULT now()
+    .defaultNow().notNull(),
+}
+🔍 What You Need to Check
+Show me your:
+
+Contact form server action (the one that creates contacts)
+Contact page/form component
+
+I need to see if you're doing something like:
+typescript// ❌ This would break:
+await db.insert(contacts).values({
+  name, email, message, phone, subject
+  // Missing new required fields
+})
+
+// ✅ This is fine (defaults handle it):
+await db.insert(contacts).values({
+  name, email, message, phone, subject
+  // status, lifetimeValue, updatedAt auto-filled by DB
+})
+
+🛡️ Ultra-Safe Migration Option
+If you're worried, we can make the migration even safer:Safe Schema Migration - Won't Break Existing CodeCode // ============================================================================
+// ULTRA-SAFE MIGRATION - Won't break any existing code
+// lib/schema.ts
+// ============================================================================
+
+import {
+  integ🎯 Bottom Line
+Your contact form will be fine! Because:
+
+✅ All new fields are optional or have default values
+✅ Your existing insert statements don't need to change
+✅ Database auto-fills the new columns
+✅ Your existing data stays intact
+
+However, show me your contact server action just to be 100% sure. Something like:
+typescript// app/actions/contact.ts or similar
+export async function createContact(data) {
+  await db.insert(contacts).values({
+    // what fields are you inserting?
+  })
+}
+If you're using all required fields (name, email, message), you're golden. The migration is backwards compatible!
+Want me to double-check your actual code? Share the contact action/form! 🔍
+
+// ============================================================================
+// ULTRA-SAFE MIGRATION - Won't break any existing code
+// lib/schema.ts
+// ============================================================================
+
+import {
+  integer,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+  decimal,
+} from 'drizzle-orm/pg-core'
+
+// Contact Status Enum
+export const contactStatusEnum = pgEnum('contact_status', [
+  'lead',
+  'active',
+  'inactive',
+])
+
+// Newsletter Status Enum  
+export const newsletterStatusEnum = pgEnum('newsletter_status', [
+  'subscribed',
+  'unsubscribed',
+  'pending',
+])
+
+// ============================================================================
+// CONTACTS - All new fields are OPTIONAL or have DEFAULTS
+// Your existing contact form will work without changes!
+// ============================================================================
+export const contacts = pgTable('contact', {
+  // ✅ EXISTING FIELDS - Don't touch these!
+  id: uuid('id').primaryKey().defaultRandom(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  message: text('message').notNull(),
+  phone: text('phone'),
+  subject: text('subject'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+
+  // ✨ NEW FIELDS - All optional or with defaults
+  company: text('company'),                                    // nullable
+  status: contactStatusEnum('status').default('lead'),         // auto-fills 'lead'
+  lifetimeValue: decimal('lifetime_value', { precision: 10, scale: 2 }).default('0'), // auto-fills '0'
+  lastContactDate: timestamp('last_contact_date'),             // nullable
+  updatedAt: timestamp('updated_at').defaultNow(),             // auto-fills current time
+})
+
+// ============================================================================
+// NEWSLETTERS - Safe update
+// ============================================================================
+export const newsletters = pgTable('newsletters', {
+  // ✅ EXISTING FIELDS
+  id: uuid('id').primaryKey().defaultRandom(),
+  email: text('email').notNull().unique(),
+
+  // ✨ NEW FIELDS - All optional or with defaults
+  name: text('name'),                                          // nullable
+  status: newsletterStatusEnum('status').default('subscribed'),// auto-fills 'subscribed'
+  source: text('source'),                                      // nullable
+  tags: text('tags').array(),                                  // nullable (empty array)
+  subscribedDate: timestamp('subscribed_date'),                // nullable
+  createdAt: timestamp('created_at').defaultNow(),             // auto-fills current time
+  updatedAt: timestamp('updated_at').defaultNow(),             // auto-fills current time
+})
+
+// ============================================================================
+// PROOF: Your existing contact form will still work!
+// ============================================================================
+
+// BEFORE migration - This works:
+await db.insert(contacts).values({
+  name: 'John Doe',
+  email: 'john@example.com',
+  message: 'Hello',
+  phone: '555-0123',
+  subject: 'Inquiry',
+  // No other fields needed!
+})
+
+// AFTER migration - This STILL works (fields auto-fill):
+await db.insert(contacts).values({
+  name: 'John Doe',
+  email: 'john@example.com',
+  message: 'Hello',
+  phone: '555-0123',
+  subject: 'Inquiry',
+  // status → auto-fills 'lead'
+  // lifetimeValue → auto-fills '0'
+  // createdAt → auto-fills now()
+  // updatedAt → auto-fills now()
+  // company → null (ok)
+  // lastContactDate → null (ok)
+})
+
+// ============================================================================
+// NEWSLETTER: Before/After comparison
+// ============================================================================
+
+// BEFORE - This works:
+await db.insert(newsletters).values({
+  email: 'user@example.com',
+})
+
+// AFTER - This STILL works:
+await db.insert(newsletters).values({
+  email: 'user@example.com',
+  // status → auto-fills 'subscribed'
+  // createdAt → auto-fills now()
+  // updatedAt → auto-fills now()
+  // name, source, tags, subscribedDate → all null (ok)
+})
+
+// ============================================================================
+// Migration Steps
+// ============================================================================
+
+/*
+1. Update lib/schema.ts with this code
+
+2. Generate migration:
+   npx drizzle-kit generate
+
+3. Review the migration file in drizzle/ folder
+   Make sure it's only ADDING columns, not removing
+
+4. Apply migration:
+   npx drizzle-kit migrate
+   
+   OR (safer, shows you SQL first):
+   npx drizzle-kit push
+
+5. Test your contact form - it should work exactly as before!
+
+6. Your existing data is safe:
+   - Old contacts get status='lead', lifetimeValue='0' automatically
+   - Old newsletters get status='subscribed' automatically
+*/
+
+// ============================================================================
+// Types for TypeScript
+// ============================================================================
+
+export type Contact = typeof contacts.$inferSelect
+export type NewContact = typeof contacts.$inferInsert
+
+export type Newsletter = typeof newsletters.$inferSelect
+export type NewNewsletter = typeof newsletters.$inferInsert
+
+// ============================================================================
+// Validation: Check your data after migration
+// ============================================================================
+
+// Run this after migration to verify data is intact:
+async function validateMigration() {
+  const allContacts = await db.select().from(contacts)
+  const allNewsletters = await db.select().from(newsletters)
+  
+  console.log('✅ Contacts:', allContacts.length)
+  console.log('✅ Newsletters:', allNewsletters.length)
+  
+  // Check new fields have defaults
+  const contactsWithDefaults = allContacts.filter(
+    c => c.status === 'lead' && c.lifetimeValue === '0'
+  )
+  console.log('✅ Contacts with auto-filled defaults:', contactsWithDefaults.length)
+  
+  const newslettersWithDefaults = allNewsletters.filter(
+    n => n.status === 'subscribed'
+  )
+  console.log('✅ Newsletters with auto-filled defaults:', newslettersWithDefaults.length)
+}
+
+errors 
+
+GET /admin/dashboard 500 in 131ms
+ ✓ Compiled in 349ms (1236 modules)
+ ⨯ Error: Failed query: select "id", "email" from "newsletters" order by  desc
+params: 
+    at async getSubscribers (app/admin/dashboard/page.tsx:17:15)
+    at async DashboardPage (app/admin/dashboard/page.tsx:27:40)
+  15 |
+  16 | async function getSubscribers() {
+> 17 |   const rows = await db
+     |               ^
+  18 |     .select()
+  19 |     .from(newsletters)
+  20 |     .orderBy(desc(newsletters.createdAt)) {
+  query: 'select "id", "email" from "newsletters" order by  desc',
+  params: [],
+  digest: '1762283010',
+  [cause]: error: syntax error at or near "desc"
+      at async getSubscribers (app/admin/dashboard/page.tsx:17:15)
+      at async DashboardPage (app/admin/dashboard/page.tsx:27:40)
+    15 |
+    16 | async function getSubscribers() {
+  > 17 |   const rows = await db
+       |               ^
+    18 |     .select()
+    19 |     .from(newsletters)
+    20 |     .orderBy(desc(newsletters.createdAt)) {
+    length: 93,
+    severity: 'ERROR',
+    code: '42601',
+    detail: undefined,
+    hint: undefined,
+    position: '51',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'scan.l',
+    line: '1245',
+    routine: 'scanner_yyerror'
+  }
+}
+ ⨯ Error: Failed query: select "id", "email" from "newsletters" order by  desc
+params: 
+    at async getSubscribers (app/admin/dashboard/page.tsx:17:15)
+    at async DashboardPage (app/admin/dashboard/page.tsx:27:40)
+  15 |
+  16 | async function getSubscribers() {
+> 17 |   const rows = await db
+     |               ^
+  18 |     .select()
+  19 |     .from(newsletters)
+  20 |     .orderBy(desc(newsletters.createdAt)) {
+  query: 'select "id", "email" from "newsletters" order by  desc',
+  params: [],
+  digest: '1762283010',
+  [cause]: error: syntax error at or near "desc"
+      at async getSubscribers (app/admin/dashboard/page.tsx:17:15)
+      at async DashboardPage (app/admin/dashboard/page.tsx:27:40)
+    15 |
+    16 | async function getSubscribers() {
+  > 17 |   const rows = await db
+       |               ^
+    18 |     .select()
+    19 |     .from(newsletters)
+    20 |     .orderBy(desc(newsletters.createdAt)) {
+    length: 93,
+    severity: 'ERROR',
+    code: '42601',
+    detail: undefined,
+    hint: undefined,
+    position: '51',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'scan.l',
+    line: '1245',
+    routine: 'scanner_yyerror'
+  }
+}
+ GET /admin/dashboard 200 in 171ms
+ GET /admin/dashboard 500 in 175ms

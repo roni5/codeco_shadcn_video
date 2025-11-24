@@ -1,0 +1,33 @@
+.page {
+  padding: 2rem;
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* THIS NOW MATCHES data-splitting correctly */
+h1[data-splitting] {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem;
+}
+
+/* splitting chars */
+h1[data-splitting] .char {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.3, 0, 0.3, 1), opacity 0.3s linear;
+  transition-delay: calc(20ms * var(--char-index));
+}
+
+/* scroll-out effect */
+h1[data-splitting][data-scroll="out"] .char {
+  opacity: 0.1;
+  transform: translateY(0.25em);
+}
+
+h1[data-splitting] code {
+  font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.9em;
+  padding: 0 0.1rem;
+}

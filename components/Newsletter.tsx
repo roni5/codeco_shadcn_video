@@ -130,7 +130,7 @@ export default function Newsletters({ className, transition }: NewsProps) {
                             location: 'footer',
                           })
                         }}
-                        className="w-full  relative group inline-block flex-shrink-0 sm:w-auto py-2 px-5 text-md font-semibold text-slate-50 bg-white-50 rounded-md overflow-hidden  mb-3 sm:mb-0 sm:mr-4  text-sm text-codeco-blue placeholder-gray-400 border border-gray-200 focus:border-sky-500 focus:outline-sky-500 "
+                        className="w-full  relative group inline-block shrink-0 sm:w-auto py-2 px-5 text-md font-semibold text-neutral-700 bg-white-50 rounded-md overflow-hidden  mb-3 sm:mb-0 sm:mr-4  text-sm text-codeco-blue placeholder-gray-400 border border-gray-200 focus:border-sky-500 focus:outline-sky-500 "
                         placeholder="janedoe@gmail.com"
                       />
                       {formState.status === 'field-errors' &&
@@ -187,7 +187,7 @@ function SubmitButton({
           button_status: pending ? 'processing' : 'ready',
         })
       }}
-      className="relative group inline-flex items-center justify-center flex-shrink-0 w-full sm:w-auto py-2 px-5 text-md font-semibold text-white bg-gradient-to-r from-sky-300 to-pink-400 rounded-md overflow-hidden shadow-xl/20 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all duration-200"
+      className="relative group inline-flex items-center justify-center shrink-0 w-full sm:w-auto py-2 px-5 text-md font-semibold text-white bg-linear-to-r from-primary to-secondary rounded-md overflow-hidden shadow-xl/20 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all duration-200"
       type="submit"
     >
       <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"/>

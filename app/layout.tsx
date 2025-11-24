@@ -1,3 +1,4 @@
+import './node-webstorage-shim' // must be first to neutralize accidental Node WebStorage in SSR
 import Navbar from '@/components/NavBar'
 import Footer from '@/components/footer'
 import { Toaster } from '@/components/ui/sonner'
@@ -11,27 +12,32 @@ const interSans = Inter({
   subsets: ['latin'],
 })
 
-const title = 'Codeco.tech Next.js + Postgres Auth contact form'
-const description =
-  'This is a Codeco.tech Next.js starter kit that uses NextAuth.js for simple social login and a Postgres database to persist the data.'
+// const title = 'Codeco.tech Next.js + Postgres Auth contact form'
+// const description =
+//   'This is a Codeco.tech Next.js starter kit that uses NextAuth.js for simple social login and a Postgres database to persist the data.'
+
+
 
 export const metadata: Metadata = {
-  title,
-  description,
+  metadataBase: new URL('https://your-domain.com'),
+  title: { template: '%s | Your Brand', default: 'Your Brand' },
+  description: 'Your default site description.',
+  openGraph: {
+    title: 'Your Brand',
+    description: 'Your default site description.',
+    url: 'https://your-domain.com',
+    siteName: 'Your Brand',
+    locale: 'en_GB',
+    type: 'website',
+  },
   twitter: {
     card: 'summary_large_image',
-    title,
-    description,
+    title: 'Your Brand',
+    description: 'Your default site description.',
   },
-  metadataBase: new URL('https://nextjs-postgres-auth.vercel.app'),
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
+  icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
   manifest: '/site.webmanifest',
-  appleWebApp: {
-    title: 'codeco',
-  },
+  appleWebApp: { title: 'Your Brand' },
 }
 
 export default function RootLayout({
@@ -62,7 +68,8 @@ export default function RootLayout({
         </noscript>
         <Navbar />
         <main>{children}</main>
-        <Toaster />
+        {/* Toaster relies on next-themes (client-only). Guard if next-themes is disabled. */}
+       <Toaster />
         <Footer />
       </body>
     </html>

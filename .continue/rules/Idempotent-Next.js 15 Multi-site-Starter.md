@@ -4,7 +4,7 @@
 
 You need to produce 12+ production-ready Next.js 15 websites from a repeatable, idempotent, easy-to-follow starter. Each site must include:
 
-* Next.js 15 + TypeScript
+* Next.js 15/16 + TypeScript
 * PostgreSQL (Neon / Vercel Postgres or equivalent)
 * Drizzle ORM + drizzle-kit migrations
 * Tailwind CSS

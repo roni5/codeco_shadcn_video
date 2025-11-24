@@ -14,13 +14,13 @@ export default function Stand() {
       reverse: false,
     },
     {
-      img: '/img/BotBonnie.webp',
+      img: '/img/overlap_image.png',
       title: 'Develop & Deploy at Lightning Speed',
       desc: 'Using containerized infrastructure and continuous deployment pipelines, we deliver production-ready apps that evolve as your business grows.',
       reverse: true,
     },
     {
-      img: '/img/data-infrastructure.jpg',
+      img: '/img/BotBonnie.webp ',
       title: 'Data at the Core',
       desc: 'We connect APIs, databases, and machine learning pipelines to create systems that learn, adapt, and scale with every transaction.',
       reverse: false,
@@ -61,6 +61,13 @@ export default function Stand() {
           </div>
         ))}
       </section>
+      <form>
+      <div className="m-4 p-1 rounded-full max-w-sm hover:bg-linear-to-r focus-within:bg-linear-to-r focus from-rose-400 via-fuchsia-500 to-indigo-500">
+  <label htmlFor="name" className="sr-only">Name</label>
+  <input className="p-3 w-full rounded-full border border-fuchsia-500 focus:outline-none focus:border-transparent hover:border-transparent" type="text" id="name" placeholder="Enter Your Name"/>
+</div>
+  </form>
     </main>
   )
 }
+//full thing in kimi.com
