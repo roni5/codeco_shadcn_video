@@ -156,26 +156,26 @@ function ContactsPage({ className, transition }: NewsProps) {
       <GoogleTagManager gtmId="GTM-P6CXJTBT" />
 
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5"></div>
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5"/>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"/>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"/>
 
       {/* Main Container - Single View */}
       <div className="relative w-full max-w-2xl">
         {/* Animated Border Wrapper */}
         <div
-          className="absolute inset-0 rounded-3xl p-[2px] animate-border"
+          className="absolute inset-0 rounded-3xl p-0.5 animate-border"
           style={{
             backgroundImage:
               'linear-gradient(var(--border-angle), var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary))',
             backgroundSize: '300% 100%',
           }}
-        ></div>
+       />
 
         {/* Content Card */}
         <div className="relative bg-background rounded-3xl overflow-hidden shadow-2xl">
           {/* Header Section - Compact */}
-          <div className="bg-gradient-to-br from-primary to-secondary px-6 py-6 md:px-8 md:py-8 text-center">
+          <div className="bg-linear-to-br from-primary to-secondary px-6 py-6 md:px-8 md:py-8 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
               Contact Us
             </h1>

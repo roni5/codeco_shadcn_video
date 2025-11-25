@@ -34,7 +34,7 @@ export default function StatsCard({
       <Card
         className={`p-6 border-0 shadow-sm hover:shadow-md transition-all duration-300 ${
           primary
-            ? 'bg-linear-to-br from-cyan-500/40 via-purple-500/40 to-yellow-400/40" text-white'
+            ? 'bg-linear-to-br from-slate-900 via-indigo-900 to-slate-900" text-white'
             : 'bg-white'
         }`}
       >
