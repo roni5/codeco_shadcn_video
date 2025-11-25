@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
-    # Dummy env so the build doesn’t crash on missing secrets (safe).
     env:
       DATABASE_URL: postgresql://user:pass@localhost:5432/dummy
+      DATABASE_URL_SECRET: ${{ secrets.DATABASE_URL }}   # map secret -> env
       NEXTAUTH_URL: http://localhost:3000
       NEXTAUTH_SECRET: dummy
       AUTH_GOOGLE_ID: dummy
@@ -53,8 +53,8 @@ jobs:
       - name: Generate migrations (no DB, safe)
         run: npm run drizzle:generate
 
-      - name: Optional migrate (requires DATABASE_URL)
-        if: ${{ secrets.DATABASE_URL != '' }}
+      - name: Optional migrate (requires DATABASE_URL secret)
+        if: ${{ env.DATABASE_URL_SECRET != '' }}         # check env, not secrets
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL_SECRET }}   # use secret only here
         run: npm run drizzle:migrate -- --config drizzle.config.ts
