@@ -75,6 +75,43 @@
   --color-ring: #3BA3D3;
 }
 
+:root {
+  /* --color-primary: #3BA3D3; */
+  --color-primary: oklch(71.91% 0.116 230.34);
+  /* --color-primary-foreground: #FEFEFE; */
+  --color-primary-foreground: oklch(99.63% 0.007 274.65);
+  /* Very close to white */
+  /* --color-secondary: #A4C4CD; */
+  --color-secondary: oklch(79.03% 0.021 236.96);
+  /* --color-secondary-foreground: #28292E; */
+  --color-secondary-foreground: oklch(18.27% 0.007 275.05);
+  /* Very close to black */
+  /* --color-accent: #BBBBBB; */
+  --color-accent: oklch(77.9% 0.007 275.05);
+  /* Gray */
+  /* --color-accent-foreground: #28292E; */
+  --color-accent-foreground: oklch(18.27% 0.007 275.05);
+  /* Very close to black */
+  /* --color-background: #FEFEFE; */
+  --color-background: oklch(99.63% 0.007 274.65);
+  /* Very close to white */
+  /* --color-foreground: #28292E; */
+  --color-foreground: oklch(18.27% 0.007 275.05);
+  /* Very close to black */
+  /* --color-muted: #A4C4CD; */
+  --color-muted: oklch(79.03% 0.021 236.96);
+  /* --color-muted-foreground: #28292E; */
+  --color-muted-foreground: oklch(18.27% 0.007 275.05);
+  /* Very close to black */
+  /* --color-border: #BBBBBB; */
+  --color-border: oklch(77.9% 0.007 275.05);
+  /* Gray */
+  /* --color-input: #A4C4CD; */
+  --color-input: oklch(79.03% 0.021 236.96);
+  /* --color-ring: #3BA3D3; */
+  --color-ring: oklch(71.91% 0.116 230.34);
+}
+
 /* @theme {
   --color-primary: #2E2A39;
   --color-primary-foreground: #FDFBF7;
