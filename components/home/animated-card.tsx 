@@ -1,0 +1,389 @@
+'use client'
+
+import { Button } from '@/components/ui/button'
+// import { Button } from '../../components/ui/button'
+import { motion } from 'framer-motion'
+import { MoveRight } from 'lucide-react'
+import Image from 'next/image'
+import { useEffect, useMemo, useState } from 'react'
+import type { ReactNode } from 'react'
+
+function Hero() {
+  const [titleNumber, setTitleNumber] = useState(0)
+
+  const titles = useMemo(
+    () => ['Modern', 'Full-stack', 'Secure', 'Scalable', 'Powerful'],
+    []
+  )
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1))
+    }, 2000)
+    return () => window.clearInterval(id)
+  }, [titles.length])
+
+  return (
+    <div className="w-full">
+      <div className="container mx-auto">
+        <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
+          <div>
+            <a
+              href="https://codeco.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-row items-center gap-2"
+            >
+              <Image
+                src="/codeguide-logo.png"
+                alt="CodeGuide"
+                width={42}
+                height={42}
+                priority
+              />
+              <span className="logo-text text-3xl font-bold">CodeGuide</span>
+            </a>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h1 className="font-normal max-w-2xl text-center text-5xl tracking-tighter md:text-7xl">
+              <span className="relative flex w-full justify-center overflow-hidden text-center md:mb-1">
+                &nbsp;
+                {titles.map((title, index) => (
+                  <motion.span
+                    key={index}
+                    className="absolute font-semibold"
+                    initial={{ opacity: 0, y: -100 }}
+                    transition={{ type: 'spring', stiffness: 50 }}
+                    animate={
+                      titleNumber === index
+                        ? { y: 0, opacity: 1 }
+                        : {
+                            y: titleNumber > index ? -150 : 150,
+                            opacity: 0,
+                          }
+                    }
+                  >
+                    {title}
+                  </motion.span>
+                ))}
+              </span>
+              <span className="text-spektr-cyan-50">Complete Website </span>
+            </h1>
+
+            <p className="max-w-2xl text-center text-lg leading-relaxed tracking-tight text-muted-foreground md:mt-8 md:text-xl">
+              Start building with a modern web application template featuring
+              authentication, database integration. Built with Next.js 14,
+              Clerk, Supabase.
+            </p>
+          </div>
+
+          <div className="flex flex-row gap-3">
+            <Button size="lg" className="gap-4">
+              Get Started <MoveRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+type AnimatedCardProps = {
+  children: ReactNode
+  delay?: number
+  className?: string
+}
+
+function AnimatedCard({ children, delay = 0, className = '' }: AnimatedCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{
+        duration: 0.6,
+        delay,
+        ease: [0.21, 0.45, 0.27, 0.9],
+      }}
+      className={className}
+    >
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="relative group"
+      >
+        <div
+          className="absolute inset-0 rounded-3xl p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            backgroundImage:
+              'linear-gradient(var(--border-angle), var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary))',
+            backgroundSize: '300% 100%',
+            animation: 'rotate-border 4s linear infinite',
+          }}
+        />
+        <div className="relative overflow-hidden rounded-3xl">{children}</div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+export { Hero, AnimatedCard }
+// 'use client'
+
+// import { Button } from '@/components/ui/button'
+// import { motion } from 'framer-motion'
+// import { MoveRight } from 'lucide-react'
+// import Image from 'next/image'
+// import { useEffect, useMemo, useState } from 'react'
+
+// function Hero() {
+//   const [titleNumber, setTitleNumber] = useState(0)
+//   const titles = useMemo(
+//     () => ['Modern', 'Full-stack', 'Secure', 'Scalable', 'Powerful'],
+//     []
+//   )
+
+//   useEffect(() => {
+//     const id = setInterval(() => {
+//       setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1))
+//     }, 2000)
+//     return () => clearInterval(id)
+//   }, [titles.length])
+
+//   return (
+//     <div className="w-full">
+//       <div className="container mx-auto">
+//         <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
+//           <div>
+//             <a
+//               href="https://codeco.tech"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="flex flex-row items-center gap-2"
+//             >
+//               <Image
+//                 src="/codeguide-logo.png"
+//                 alt="CodeGuide"
+//                 width={42}
+//                 height={42}
+//                 priority
+//               />
+//               <span className="logo-text text-3xl font-bold">CodeGuide</span>
+//             </a>
+//           </div>
+//           <div className="flex flex-col gap-4">
+//             <h1 className="font-regular max-w-2xl text-center text-5xl tracking-tighter md:text-7xl">
+//               <span className="relative flex w-full justify-center overflow-hidden text-center md:mb-1">
+//                 &nbsp;
+//                 {titles.map((title, index) => (
+//                   <motion.span
+//                     key={index}
+//                     className="absolute font-semibold"
+//                     initial={{ opacity: 0, y: -100 }} {/* number, not string */}
+//                     transition={{ type: 'spring', stiffness: 50 }}
+//                     animate={
+//                       titleNumber === index
+//                         ? { y: 0, opacity: 1 }
+//                         : {
+//                             y: titleNumber > index ? -150 : 150,
+//                             opacity: 0,
+//                           }
+//                     }
+//                   >
+//                     {title}
+//                   </motion.span>
+//                 ))}
+//               </span>
+//               <span className="text-spektr-cyan-50">Complete Website </span>
+//             </h1>
+
+//             <p className="max-w-2xl text-center text-lg leading-relaxed tracking-tight text-muted-foreground md:mt-8 md:text-xl">
+//               Start building with a modern web application template featuring
+//               authentication, database integration. Built with Next.js 14,
+//               Clerk, Supabase.
+//             </p>
+//           </div>
+//           <div className="flex flex-row gap-3">
+//             <Button size="lg" className="gap-4">
+//               Get Started <MoveRight className="h-4 w-4" />
+//             </Button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// type AnimatedCardProps = {
+//   children: React.ReactNode
+//   delay?: number
+//   className?: string
+// }
+
+// function AnimatedCard({ children, delay = 0, className = '' }: AnimatedCardProps) {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 30 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       viewport={{ once: true, margin: '-100px' }}
+//       transition={{
+//         duration: 0.6,
+//         delay,
+//         ease: [0.21, 0.45, 0.27, 0.9],
+//       }}
+//       className={className}
+//     >
+//       <motion.div
+//         whileHover={{ scale: 1.02 }}
+//         transition={{ duration: 0.3, ease: 'easeOut' }}
+//         className="relative group"
+//       >
+//         <div
+//           className="absolute inset-0 rounded-3xl p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+//           style={{
+//             backgroundImage:
+//               'linear-gradient(var(--border-angle), var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary))',
+//             backgroundSize: '300% 100%',
+//             animation: 'rotate-border 4s linear infinite',
+//           }}
+//         />
+//         <div className="relative overflow-hidden rounded-3xl">{children}</div>
+//       </motion.div>
+//     </motion.div>
+//   )
+// }
+
+// export { Hero, AnimatedCard }
+// 'use client'
+
+// import { Button } from '@/components/ui/button'
+// import { motion } from 'framer-motion'
+// import { MoveRight } from 'lucide-react'
+// import Image from 'next/image'
+// import { useEffect, useMemo, useState } from 'react'
+
+// function Hero() {
+//   const [titleNumber, setTitleNumber] = useState(0)
+//   const titles = useMemo(
+//     () => ['Modern', 'Full-stack', 'Secure', 'Scalable', 'Powerful'],
+//     []
+//   )
+
+//   useEffect(() => {
+//     const timeoutId = setTimeout(() => {
+//       setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1))
+//     }, 2000)
+//     return () => clearTimeout(timeoutId)
+//   }, [titles])
+
+//   return (
+//     <div className="w-full">
+//       <div className="container mx-auto">
+//         <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
+//           <div>
+//             <a
+//               href="https://codeco.tech"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="flex flex-row items-center gap-2"
+//             >
+//               <Image
+//                 src="/codeguide-logo.png"
+//                 alt="CodeGuide"
+//                 width={42}
+//                 height={42}
+//                 priority
+//               />
+//               <span className="logo-text text-3xl font-bold">CodeGuide</span>
+//             </a>
+//           </div>
+//           <div className="flex flex-col gap-4">
+//             <h1 className="font-regular max-w-2xl text-center text-5xl tracking-tighter md:text-7xl">
+//               <span className="relative flex w-full justify-center overflow-hidden text-center md:mb-1">
+//                 &nbsp;
+//                 {titles.map((title, index) => (
+//                   <motion.span
+//                     key={index}
+//                     className="absolute font-semibold"
+//                     initial={{ opacity: 0, y: -100 }}   // number, not string
+//                     transition={{ type: 'spring', stiffness: 50 }}
+//                     animate={
+//                       titleNumber === index
+//                         ? { y: 0, opacity: 1 }
+//                         : {
+//                             y: titleNumber > index ? -150 : 150,
+//                             opacity: 0,
+//                           }
+//                     }
+//                   >
+//                     {title}
+//                   </motion.span>
+//                 ))}
+//               </span>
+//               <span className="text-spektr-cyan-50">Complete Website </span>
+//             </h1>
+
+//             <p className="max-w-2xl text-center text-lg leading-relaxed tracking-tight text-muted-foreground md:mt-8 md:text-xl">
+//               Start building with a modern web application template featuring
+//               authentication, database integration. Built with Next.js 14,
+//               Clerk, Supabase.
+//             </p>
+//           </div>
+//           <div className="flex flex-row gap-3">
+//             <Button size="lg" className="gap-4">
+//               Get Started <MoveRight className="h-4 w-4" />
+//             </Button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export { Hero }
+// 'use client'
+
+// import { motion } from 'framer-motion'
+// import { ReactNode } from 'react'
+
+// interface AnimatedCardProps {
+//   children: ReactNode
+//   delay?: number
+//   className?: string
+// } 
+
+// export function AnimatedCard({ children, delay = 0, className = '' }: AnimatedCardProps) {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 30 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       viewport={{ once: true, margin: '-100px' }}
+//       transition={{
+//         duration: 0.6,
+//         delay,
+//         ease: [0.21, 0.45, 0.27, 0.9]
+//       }}
+//       className={className}
+//     >
+//       <motion.div
+//         whileHover={{ scale: 1.02 }}
+//         transition={{ duration: 0.3, ease: 'easeOut' }}
+//         className="relative group"
+//       >
+//         <div
+//           className="absolute inset-0 rounded-3xl p-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+//           style={{
+//             backgroundImage:
+//               'linear-gradient(var(--border-angle), var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary))',
+//             backgroundSize: '300% 100%',
+//             animation: 'rotate-border 4s linear infinite',
+//           }}
+//         />
+//         <div className="relative rounded-3xl overflow-hidden">
+//           {children}
+//         </div>
+//       </motion.div>
+//     </motion.div>
+//   )
+// }

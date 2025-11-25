@@ -1,0 +1,67 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
+interface HeroSectionProps {
+  styles: {
+    heroLanding: string
+    heroLandingBackground: string
+    heroLandingImage: string
+    heroLandingContent: string
+  }
+}
+
+export function HeroSection({ styles }: HeroSectionProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="mb-8"
+    >
+      <section className="mb-12 md:mb-20">
+        <div className={styles.heroLanding}>
+          <div className={styles.heroLandingBackground}>
+            <div className="w-full">
+              <video
+                src="/video/hero-video-25.mp4"
+                className={styles.heroLandingImage}
+                width={1500}
+                height={600}
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+          </div>
+
+          <div className={styles.heroLandingContent}>
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col items-center md:items-start">
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center md:text-left text-balance"
+                >
+                  Easy-to-use tools for your business.
+                </motion.h1>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="text-xl md:text-2xl font-medium text-center md:text-left text-white text-balance"
+                >
+                  Get free tools to make the most of your{' '}
+                  <samp className="text-primary font-extrabold">Marketing</samp>{' '}
+                  from site and app analytics to intuitive testing and more.
+                </motion.h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </motion.div>
+  )
+}
