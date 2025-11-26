@@ -1,7 +1,5 @@
 import AnimatedRainbowText from "@/components/AnimatedRainbowText";
-import MyPageSkeleton from "@/components/skeleton";
-import Spinner from "@/components/Spinner";
-import { Title } from "@radix-ui/react-dialog";
+
 import Image from 'next/image'
 
 export default function page() {

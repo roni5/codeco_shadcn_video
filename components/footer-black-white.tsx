@@ -1,4 +1,4 @@
-import Newsletters from './Newsletters'
+//import Newsletters from './Newsletters'
 
 export default function Footer() {
   return (

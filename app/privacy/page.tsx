@@ -1,37 +1,8 @@
 'use client'
 import SEO from '@/components/seo';
-import type { Metadata } from 'next';
+
 
 import Link from 'next/link';
-//import { HoverText } from '@/components/HoverText';
-//import BackButton from '@/components/BackButton ';
-
-// export const metadata: Metadata = {
-//   title:
-//     'Privacy | your-awesome-site.com - Your AI Integration Partner Website Consulting, Website Development &  Design',
-//   description:
-//     'Learn more about your-awesome-site.com, your trusted partner in AI and Machine Learning integration. We specialize in bringing innovative AI solutions to web applications All in one Stop shop Web Development & security.',
-//   openGraph: {
-//     title: 'Privacy | your-awesome-site.com',
-//     description:
-//       'Get to know your-awesome-site.com, a leader in AI integration for web applications. Our team is dedicated to advancing digital transformation through AI.',
-//     url: 'https://your-awesome-site.com/about',
-//   },
-// }
-// export function EventButton() {
-//   return (
-//     <div>
-//       <button
-//         className='relative rounded" font-semi-bold space-x-8vw space-y-8vw pb-8vw mb-4 rounded-lg bg-primary px-4 py-2 text-white hover:bg-blue-700'
-//         onClick={() =>
-//           sendGTMEvent({ event: "buttonClicked", value: "downloaded" })
-//         }
-//       >
-//         Send Event
-//       </button>
-//     </div>
-//   );
-// }
 
 
 export default function PrivacyPage() {
@@ -149,7 +120,6 @@ export default function PrivacyPage() {
           >
             GDPR
           </Link>
-
           <h2 className="text-normal my-8 py-6  xs:text-center md:text-2xl font-bold text-gray-800 ">
             Data Collection and Use
           </h2>

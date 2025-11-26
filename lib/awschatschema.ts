@@ -1,13 +1,13 @@
 // db/schema.ts
 import {
+  boolean,
+  integer,
+  jsonb,
   pgTable,
   serial,
   text,
   timestamp,
-  jsonb,
   varchar,
-  integer,
-  boolean,
 } from 'drizzle-orm/pg-core'
 
 export const users = pgTable('users', {
@@ -64,28 +64,31 @@ export const files = pgTable('files', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
 })
 
-export const knowledge_base = pgTable('knowledge_base', {
-  id: serial('id').primaryKey(),
-  title: varchar('title', { length: 255 }).notNull(),
-  content: text('content').notNull(),
+export const knowledge_base: any = pgTable(
+  'knowledge_base',
+  {
+    id: serial('id').primaryKey(),
+    title: varchar('title', { length: 255 }).notNull(),
+    content: text('content').notNull(),
 
-  // Vector embeddings for semantic search
-  embedding: text('embedding'), // Store as JSON string or use pgvector
+    // Vector embeddings for semantic search
+    embedding: text('embedding'), // Store as JSON string or use pgvector
 
-  // Metadata
-  source: varchar('source', { length: 500 }), // URL, file name, etc.
-  category: varchar('category', { length: 100 }),
-  tags: jsonb('tags'), // Array of strings
+    // Metadata
+    source: varchar('source', { length: 500 }), // URL, file name, etc.
+    category: varchar('category', { length: 100 }),
+    tags: jsonb('tags'), // Array of strings
 
-  // For chunked content
-  chunkIndex: integer('chunk_index').default(0),
-  parentDocumentId: integer('parent_document_id').references(
-    () => knowledge_base.id
-  ),
+    // For chunked content
+    chunkIndex: integer('chunk_index').default(0),
+    parentDocumentId: integer('parent_document_id').references(
+      () => knowledge_base.id
+    ),
 
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at').defaultNow().notNull(),
-})
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  }
+)
 
 // Types for TypeScript
 export type User = typeof users.$inferSelect

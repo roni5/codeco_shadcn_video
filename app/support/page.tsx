@@ -1,18 +1,19 @@
 'use client'
-import React, { useState } from 'react'
 import {
-  MessageSquare,
-  Phone,
-  Mail,
-  Clock,
-  Zap,
   Bot,
   ChevronRight,
+  Clock,
+  MessageSquare,
+  Phone,
   Sparkles,
+  Zap,
 } from 'lucide-react'
+import { useState } from 'react'
 
 export default function GoatSupport() {
-  const [hoveredCard, setHoveredCard] = useState(null)
+  const [hoveredCard, setHoveredCard] = useState<number | undefined>(undefined)
+
+  // const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const supportChannels = [
     {
@@ -54,9 +55,9 @@ export default function GoatSupport() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5"/>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"/>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"/>
+        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 md:pt-24 md:pb-20 lg:pt-32 lg:pb-24">
           <div className="text-center space-y-6 md:space-y-8">
@@ -84,7 +85,7 @@ export default function GoatSupport() {
           <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {supportStats.map((stat, index) => (
               <div key={index} className="relative group">
-                <div className="absolute inset-0 bg-linear-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+                <div className="absolute inset-0 bg-linear-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative bg-background/80 backdrop-blur-sm border border-border rounded-2xl p-6 text-center">
                   <stat.icon className="w-6 h-6 mx-auto mb-3 text-primary" />
                   <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
@@ -107,7 +108,7 @@ export default function GoatSupport() {
             <div
               key={index}
               onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+              onMouseLeave={() => setHoveredCard(undefined)}
               className="relative group"
             >
               {/* Animated border wrapper */}
@@ -130,7 +131,7 @@ export default function GoatSupport() {
               <div className="relative bg-background rounded-3xl p-8 md:p-10 h-full flex flex-col">
                 {channel.priority && (
                   <div className="absolute top-6 right-6">
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-xs font-semibold text-primary-foreground">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-linear-to-r from-primary to-secondary text-xs font-semibold text-primary-foreground">
                       <Zap className="w-3 h-3" />
                       {channel.priority}
                     </span>
@@ -138,7 +139,7 @@ export default function GoatSupport() {
                 )}
 
                 <div
-                  className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${channel.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
+                  className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-linear-to-br ${channel.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
                 >
                   <channel.icon className="w-8 h-8 md:w-10 md:h-10 text-primary-foreground" />
                 </div>
@@ -161,8 +162,9 @@ export default function GoatSupport() {
                   </a>
                 )}
 
-                <button type="button"
-                  className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-foreground to-foreground/90 text-background font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 group-hover:scale-[1.02]"
+                <button
+                  type="button"
+                  className="w-full py-4 px-6 rounded-xl bg-linear-to-r from-foreground to-foreground/90 text-background font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 group-hover:scale-[1.02]"
                   onClick={() => {
                     if (channel.phone) {
                       window.location.href = `tel:${channel.phone}`
@@ -180,7 +182,7 @@ export default function GoatSupport() {
         {/* Additional Info */}
         <div className="mt-16 md:mt-24 text-center">
           <div className="inline-block relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-30"/>
+            <div className="absolute inset-0 bg-linear-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-30" />
             <div className="relative bg-linear-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm border border-primary/20 rounded-2xl px-8 py-6 md:px-12 md:py-8">
               <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
                 Business Hours
@@ -199,7 +201,7 @@ export default function GoatSupport() {
         <div className="mt-16 md:mt-24 max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-foreground mb-12 md:mb-16">
             Why our support is{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
               different
             </span>
           </h2>
@@ -228,7 +230,7 @@ export default function GoatSupport() {
               },
             ].map((item, index) => (
               <div key={index} className="flex gap-4">
-                <div className="shrink-0 w-2 bg-gradient-to-b from-primary via-secondary to-accent rounded-full"/>
+                <div className="shrink-0 w-2 bg-gradient-to-b from-primary via-secondary to-accent rounded-full" />
                 <div>
                   <h4 className="text-lg md:text-xl font-bold text-foreground mb-2">
                     {item.title}

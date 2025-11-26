@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/dashboard/RevenueChart.bac", "components/daydrop.bac", "components/DropdownPicker.bac", "components/skeleton.bac"],
   "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 //import { motion } from "framer-motion";
 import { useForm } from 'react-hook-form'
-import Newsletters from './Newsletters'
+// import Newsletters from './Newsletters'
 
 export default function Footer3() {
   const { register, handleSubmit, reset } = useForm()
@@ -89,7 +89,7 @@ export default function Footer3() {
           Newsletter
         </h3>
         <p className="text-sm text-[#088196]">Subscribe for updates.</p>
-        <Newsletters />
+        {/* <Newsletters /> */}
       </div>
     </div>
   )
