@@ -62,8 +62,8 @@ jobs:
                   "useButtonType": "warn"
                 },
                 "style": {
-                  "useSelfClosingElements": "fix",
-                  "noUselessElse": "fix"
+                  "useSelfClosingElements": "info",
+                  "noUselessElse": "info"
                 },
                 "correctness": {
                   "noUnusedVariables": "warn",
@@ -91,7 +91,7 @@ jobs:
           set -euo pipefail
           paths="$(ls -d app lib src scripts 2>/dev/null | tr '\n' ' ' || true)"
           if [ -z "$paths" ]; then paths="app scripts"; fi
-          npx biome check --apply --config-path ci.biome.json $paths || true
+          npx biome check --write --config-path ci.biome.json $paths || true
           npx biome ci --reporter=github --max-diagnostics=200 --config-path ci.biome.json $paths
 
       - name: Build
