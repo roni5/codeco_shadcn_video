@@ -24,7 +24,7 @@ const newsvalidation = z.object({
 })
 
 export async function createNewsletter(
-  prevState: NewsletterFormState,
+  _prevState: NewsletterFormState,
   formData: FormData
 ): Promise<NewsletterFormState> {
   const form: Form = {

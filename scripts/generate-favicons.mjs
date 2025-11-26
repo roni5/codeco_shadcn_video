@@ -182,9 +182,7 @@ async function main() {
   Object.values(files).forEach(f =>
     log(` - ${path.relative(process.cwd(), f)}`)
   )
-  log(
-    ` - ${path.relative(process.cwd(), path.join(outDir, 'site.webmanifest'))}`
-  )
+  log(` - ${path.relative(process.cwd(), manifestPath)}`)
 }
 
 main().catch(err => {

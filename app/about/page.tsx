@@ -36,26 +36,31 @@ export default function AboutPage() {
 
   const sections = [
     {
+      id: 'about-us',
       title: 'About Us',
       content:
         "We're not just another company. We're innovators, problem-solvers, and dream-makers who believe in pushing boundaries and delivering excellence. Our mission is to transform industries through cutting-edge solutions and unwavering commitment to quality.",
     },
     {
+      id: 'what-we-do',
       title: 'What We Do',
       content:
         "We craft digital experiences that don't just meet expectations—they exceed them. From AI-powered solutions to seamless integrations, we build technology that empowers businesses to thrive in the modern era. Every project is a masterpiece in the making.",
     },
     {
+      id: 'expertise',
       title: 'Our Expertise',
       content:
         "With decades of combined experience, our team brings world-class expertise in software development, AI/ML, cloud architecture, and digital transformation. We don't just follow trends—we set them. Our track record speaks for itself: 500+ successful projects, 98% client satisfaction, and counting.",
     },
     {
+      id: 'solutions-technology',
       title: 'Solutions & Technology',
       content:
         "We harness the latest technologies—Next.js, React, AI models, cloud infrastructure—to build scalable, secure, and stunning applications. Our solutions are built for the future, designed to grow with your business and adapt to tomorrow's challenges today.",
     },
     {
+      id: 'expert-support',
       title: 'Expert Support',
       content:
         "Our commitment doesn't end at deployment. We provide 24/7 AI-powered support backed by human expertise when you need it. Fast response times, comprehensive documentation, and a team that genuinely cares about your success. That's the difference.",
@@ -65,16 +70,16 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 pt-20 pb-16 md:pt-32 md:pb-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,163,211,0.15),transparent_60%)]"/>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(164,196,205,0.15),transparent_60%)]"/>
+      <div className="relative overflow-hidden bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 pt-20 pb-16 md:pt-32 md:pb-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,163,211,0.15),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(164,196,205,0.15),transparent_60%)]" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"/>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"/>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span className="text-sm font-semibold text-primary">
                 Innovating Since Day One
@@ -98,8 +103,8 @@ export default function AboutPage() {
       {/* Content Sections */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
         <div className="space-y-24 md:space-y-32 lg:space-y-40">
-          {sections.map((section, index) => (
-            <div key={index} className="relative">
+          {sections.map(section => (
+            <div key={section.id ?? section.title} className="relative">
               {/* Section Number */}
               <div className="absolute -left-4 md:-left-12 top-0 text-8xl md:text-9xl font-black text-primary/5 select-none pointer-events-none">
                 {String(index + 1).padStart(2, '0')}
@@ -131,9 +136,8 @@ export default function AboutPage() {
                   </p>
 
                   {/* Decorative gradient line */}
-                  <div className="mt-8 h-1 w-24 mx-auto bg-linear-to-r from-transparent via-primary to-transparent rounded-full"
-                />
-              </div>
+                  <div className="mt-8 h-1 w-24 mx-auto bg-linear-to-r from-transparent via-primary to-transparent rounded-full" />
+                </div>
               </div>
             </div>
           ))}
@@ -142,7 +146,7 @@ export default function AboutPage() {
         {/* Stats Section */}
         <div className="mt-24 md:mt-32 lg:mt-40">
           <div className="relative rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10"/>
+            <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10" />
 
             <div className="relative px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-12 md:mb-16">
@@ -157,9 +161,9 @@ export default function AboutPage() {
                   { value: '500+', label: 'Projects Delivered' },
                   { value: '98%', label: 'Client Satisfaction' },
                   { value: '24/7', label: 'Support Available' },
-                ].map((stat, index) => (
-                  <div key={index} className="text-center group">
-                    <div className="text-5xl sm:text-6xl md:text-7xl font-black bg-gradient-to-br from-primary via-secondary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+                ].map(stat => (
+                  <div key={stat.label} className="text-center group">
+                    <div className="text-5xl sm:text-6xl md:text-7xl font-black bg-linear-to-br from-primary via-secondary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
                       {stat.value}
                     </div>
                     <div className="text-base sm:text-lg text-muted-foreground font-medium">
@@ -175,7 +179,7 @@ export default function AboutPage() {
         {/* CTA Section */}
         <div className="mt-24 md:mt-32 text-center">
           <div className="inline-block relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-50 animate-pulse"/>
+            <div className="absolute inset-0 bg-linear-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-50 animate-pulse" />
             <div
               className="relative p-0.5 rounded-2xl"
               style={{
@@ -199,7 +203,8 @@ export default function AboutPage() {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                  ><title>icon</title>
+                  >
+                    <title>icon</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

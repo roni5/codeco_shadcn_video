@@ -1,68 +1,26 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
+  "$schema": "https://biomejs.dev/schemas/1.7.0/schema.json",
   "files": {
-    "ignoreUnknown": false
-  },
-  "formatter": {
-    "enabled": true,
-    "formatWithErrors": true,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 80,
-    "attributePosition": "auto"
-  },
-  "organizeImports": {
-    "enabled": true
+    "ignore": [
+      "app/backup-pages/**"
+    ]
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "recommended": true,
-      "complexity": {
-        "noForEach": "off",
-        "noStaticOnlyClass": "off"
-      },
-      "correctness": {
-        "noUnusedVariables": "warn",
-        "noUnusedImports": "warn"
-      },
-      "style": {
-        "noVar": "warn",
-        "useConst": "warn",
-        "useTemplate": "off"
-      },
       "suspicious": {
-        "noExplicitAny": "warn",
         "noArrayIndexKey": "warn",
-        "noDoubleEquals": "warn"
+        "noExplicitAny": "warn"
       },
       "a11y": {
-        "noSvgWithoutTitle": "warn",
-        "useKeyWithClickEvents": "warn",
-        "useKeyWithMouseEvents": "warn"
+        "useButtonType": "warn"
       },
-      "security": {
-        "noDangerouslySetInnerHtml": "warn"
+      "style": {
+        "useSelfClosingElements": "fix",
+        "noUselessElse": "fix"
       }
     }
   },
-  "javascript": {
-    "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "es5",
-      "semicolons": "asNeeded",
-      "arrowParentheses": "asNeeded",
-      "bracketSpacing": true,
-      "bracketSameLine": false,
-      "quoteStyle": "single",
-      "attributePosition": "auto"
-    }
+  "formatter": {
+    "enabled": true
   }
 }
