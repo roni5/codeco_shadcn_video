@@ -1,6 +1,6 @@
 "use client";
 
-import { Bot, Ellipsis, MessageCircleWarning, Send } from "lucide-react";
+import { Bot, Ellipsis, MessageCircleWarning, Send, X } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 
 interface Message {
@@ -23,12 +23,10 @@ const ContactWidget = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const chatContainerRef = useRef<HTMLDivElement>(null);
 
-	/* biome-ignore lint/correctness/useExhaustiveDependencies: keep deps minimal for perf and stability */
 	useLayoutEffect(() => {
 		const el = chatContainerRef.current;
 		if (!el) return;
 		el.scrollTop = el.scrollHeight;
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [messages.length, open]);
 
 	const sendMessage = async () => {
@@ -79,17 +77,33 @@ const ContactWidget = () => {
 	};
 
 	return (
-		<div className="relative z-50">
+		<div className="fixed z-50">
 			{/* Modal */}
 			{open && (
 				<>
-					<div className="fixed inset-0 z-[55] bg-black/20 backdrop-blur-sm" />
-					<div className="fixed bottom-[100px] right-5 z-[60] w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-[0_24px_80px_rgba(2,8,23,0.35)] flex flex-col overflow-hidden border border-slate-200">
-						{/* Header */}
-						<div className="bg-gradient-to-r from-primary to-secondary  text-white px-4 py-3 flex items-center gap-2">
-							<Bot className="w-5 h-5" />
-							<h2 className="font-semibold text-sm">Codeco Chat</h2>
-							<MessageCircleWarning className="w-5 h-5" />
+					{/* Backdrop - clicks here will close modal */}
+					<div 
+						className="fixed inset-0 z-[55] bg-black/20 backdrop-blur-sm" 
+						onClick={() => setOpen(false)}
+					/>
+					
+					{/* Modal Container */}
+					<div className="fixed bottom-[100px] right-5 z-[60] w-[calc(100vw-2.5rem)] max-w-sm sm:max-w-md bg-white rounded-2xl shadow-[0_24px_80px_rgba(2,8,23,0.35)] flex flex-col overflow-hidden border border-slate-200">
+						{/* Header with Close Button */}
+						<div className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-3 flex items-center justify-between gap-2">
+							<div className="flex items-center gap-2">
+								<Bot className="w-5 h-5" />
+								<h2 className="font-semibold text-sm">Codeco Chat</h2>
+								<MessageCircleWarning className="w-5 h-5" />
+							</div>
+							<button
+								type="button"
+								onClick={() => setOpen(false)}
+								className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+								aria-label="Close chat"
+							>
+								<X className="w-5 h-5" />
+							</button>
 						</div>
 
 						{/* Chat area */}
@@ -112,7 +126,7 @@ const ContactWidget = () => {
 													: "bg-sky-50 border border-sky-200 text-sky-700"
 										}`}
 									>
-										<p className="whitespace-pre-wrap">{msg.content}</p>
+										<p className="whitespace-pre-wrap text-sm">{msg.content}</p>
 										{msg.timestamp && (
 											<p className="text-[10px] opacity-50 mt-1">
 												{msg.timestamp.toLocaleTimeString()}
@@ -126,17 +140,9 @@ const ContactWidget = () => {
 								<div className="flex justify-start">
 									<div className="bg-white border border-slate-200 px-4 py-2 rounded-2xl">
 										<div className="flex space-x-1">
-											<div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce">
-												<Ellipsis className="w-5 h-5" />
-											</div>
-											<div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce delay-75">
-												{" "}
-												<Ellipsis className="w-5 h-5" />
-											</div>
-											<div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce delay-150">
-												{" "}
-												<Ellipsis className="w-5 h-5" />
-											</div>
+											<div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" />
+											<div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+											<div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:0.4s]" />
 										</div>
 									</div>
 								</div>
@@ -150,7 +156,7 @@ const ContactWidget = () => {
 								onChange={(e) => setInput(e.target.value)}
 								onKeyDown={handleKeyPress}
 								placeholder="Type your message..."
-								className="flex-1 resize-none border border-slate-300 rounded-2xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+								className="flex-1 resize-none border border-slate-300 rounded-2xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm"
 								rows={1}
 								onInput={(e) => {
 									e.currentTarget.style.height = "auto";
@@ -165,7 +171,7 @@ const ContactWidget = () => {
 								type="button"
 								onClick={sendMessage}
 								disabled={isLoading || !input.trim()}
-								className="shrink-0 w-10 h-10 bg-gradient-to-r from-primary to-secondary text-white rounded-full flex items-center justify-center ring-1 ring-black/5 dark:ring-white/10 shadow-[0_8px_24px_rgba(2,8,23,0.25)] hover:shadow-[0_16px_40px_rgba(2,8,23,0.32)] transition-transform duration-300 hover:-translate-y-0.5 focus:outline-none"
+								className="shrink-0 w-10 h-10 bg-gradient-to-r from-primary to-secondary text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
 							>
 								<Send className="w-4 h-4" />
 							</button>
@@ -174,27 +180,15 @@ const ContactWidget = () => {
 				</>
 			)}
 
-			{/* Toggle Button */}
+			{/* Toggle Button - Fixed z-index */}
 			<button
 				type="button"
 				onClick={() => setOpen(!open)}
-				className="fixed z-70 right-5 bottom-5 flex justify-center items-center w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary text-white ring-1 ring-black/5 dark:ring-white/10 shadow-[0_16px_48px_rgba(2,8,23,0.30)] hover:shadow-[0_28px_72px_rgba(2,8,23,0.38)] transition-transform duration-300 hover:-translate-y-1 focus:outline-none"
+				className="fixed z-[70] right-5 bottom-5 flex justify-center items-center w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-[0_16px_48px_rgba(2,8,23,0.30)] hover:shadow-[0_28px_72px_rgba(2,8,23,0.38)] transition-all duration-300 hover:scale-110 focus:outline-none"
+				aria-label={open ? "Close chat" : "Open chat"}
 			>
 				{open ? (
-					<svg
-						className="w-6 h-6 text-white"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						strokeWidth="2"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-					>
-						<title>robot</title>
-						<line x1="18" y1="6" x2="6" y2="18" />
-						<line x1="6" y1="6" x2="18" y2="18" />
-					</svg>
+					<X className="w-6 h-6 text-white" />
 				) : (
 					<Bot className="w-6 h-6 text-white" />
 				)}
