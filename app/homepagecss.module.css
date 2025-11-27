@@ -1,95 +1,95 @@
 /* Hero Section */
 .heroLanding {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
 }
 
 .heroLandingBackground {
-  position: relative;
-  width: 100%;
-  height: auto;
+	position: relative;
+	width: 100%;
+	height: auto;
 }
 
 .heroLandingImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
 }
 
 .heroLandingContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  color: white;
-  z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	color: white;
+	z-index: 10;
 }
 
 /* Highlights Module */
 .highlightsModule {
-  position: relative;
-  width: 100%;
+	position: relative;
+	width: 100%;
 }
 
 /* Color Bar / Testimonial */
 .colorBar {
-  padding: 60px 0;
-  background-color: #f8f9fa;
-  position: relative;
+	padding: 60px 0;
+	background-color: #f8f9fa;
+	position: relative;
 }
 
 .colorBarIconGreen {
-  width: 60px;
-  height: 4px;
-  background-color: #34a853;
-  margin: 0 auto 24px;
+	width: 60px;
+	height: 4px;
+	background-color: #34a853;
+	margin: 0 auto 24px;
 }
 
 .colorBarHighlightGreen {
-  color: #34a853;
-  font-weight: 700;
+	color: #34a853;
+	font-weight: 700;
 }
 
 /* Enterprise Solutions Section */
 .whoopsTout {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
 }
 
 .whoopsToutBackground {
-  width: 100%;
-  height: auto;
-  position: relative;
+	width: 100%;
+	height: auto;
+	position: relative;
 }
 
 .whoopsToutContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  color: white;
-  z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	color: white;
+	z-index: 10;
 }
 
 /* Responsive adjustments */
 @media (max-width: 767px) {
-  .heroLandingContent {
-    position: relative;
-    background-color: #1a73e8;
-    padding: 40px 0;
-  }
+	.heroLandingContent {
+		position: relative;
+		background-color: #1a73e8;
+		padding: 40px 0;
+	}
 
-  .whoopsToutContent {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 40px 0;
-  }
+	.whoopsToutContent {
+		position: relative;
+		background-color: rgba(0, 0, 0, 0.6);
+		padding: 40px 0;
+	}
 }

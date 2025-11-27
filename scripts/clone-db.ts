@@ -1,5 +1,3 @@
-
-
 /*
 Install the missing package (safe - just adds to node_modules)
 npm install postgres
@@ -24,9 +22,9 @@ npm install postgres
 //     // 2. Terminate existing connections to source
 //     console.log('📌 Terminating active connections...')
 //     await adminDb.execute(sql`
-//       SELECT pg_terminate_backend(pid) 
-//       FROM pg_stat_activity 
-//       WHERE datname = ${SOURCE_DB} 
+//       SELECT pg_terminate_backend(pid)
+//       FROM pg_stat_activity
+//       WHERE datname = ${SOURCE_DB}
 //       AND pid <> pg_backend_pid()
 //     `)
 
@@ -39,8 +37,8 @@ npm install postgres
 //     // 4. Create new database from template
 //     console.log('📋 Creating database from template...')
 //     await adminDb.execute(sql`
-//       CREATE DATABASE ${sql.identifier(TARGET_DB)} 
-//       WITH TEMPLATE ${sql.identifier(SOURCE_DB)} 
+//       CREATE DATABASE ${sql.identifier(TARGET_DB)}
+//       WITH TEMPLATE ${sql.identifier(SOURCE_DB)}
 //       OWNER ronimc
 //     `)
 

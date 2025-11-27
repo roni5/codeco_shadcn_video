@@ -1,56 +1,56 @@
-import 'dotenv/config'
-import { db } from '@/lib/db'
-import { users, type UserRole } from '@/lib/schema'
-import { ilike, eq, sql } from 'drizzle-orm'
+import "dotenv/config";
+import { db } from "@/lib/db";
+import { type UserRole, users } from "@/lib/schema";
+import { eq, ilike, sql } from "drizzle-orm";
 
 async function main() {
-  const [, , emailArg, roleArg] = process.argv
-  if (!emailArg) {
-    console.error('Usage: npx tsx scripts/make-admin.ts <email> [ADMIN|USER]')
-    process.exit(1)
-  }
-  const desiredRole = (roleArg ?? 'ADMIN').toUpperCase() as UserRole
-  if (!['ADMIN', 'USER'].includes(desiredRole)) {
-    console.error('Role must be ADMIN or USER')
-    process.exit(1)
-  }
+	const [, , emailArg, roleArg] = process.argv;
+	if (!emailArg) {
+		console.error("Usage: npx tsx scripts/make-admin.ts <email> [ADMIN|USER]");
+		process.exit(1);
+	}
+	const desiredRole = (roleArg ?? "ADMIN").toUpperCase() as UserRole;
+	if (!["ADMIN", "USER"].includes(desiredRole)) {
+		console.error("Role must be ADMIN or USER");
+		process.exit(1);
+	}
 
-  // Show which DB we are operating on (prevents “wrong DB” mistakes)
-  const dbName = await db.execute(sql`select current_database() as db`)
-  console.log(`Operating on DB: ${dbName.rows?.[0]?.db}`)
+	// Show which DB we are operating on (prevents “wrong DB” mistakes)
+	const dbName = await db.execute(sql`select current_database() as db`);
+	console.log(`Operating on DB: ${dbName.rows?.[0]?.db}`);
 
-  // Case-insensitive lookup to avoid subtle mismatches
-  const found = await db
-    .select({ id: users.id, email: users.email, role: users.role })
-    .from(users)
-    .where(ilike(users.email, emailArg.trim()))
-    .limit(1)
+	// Case-insensitive lookup to avoid subtle mismatches
+	const found = await db
+		.select({ id: users.id, email: users.email, role: users.role })
+		.from(users)
+		.where(ilike(users.email, emailArg.trim()))
+		.limit(1);
 
-  if (found.length === 0) {
-    console.error(`User not found: ${emailArg}`)
-    process.exit(1)
-  }
+	if (found.length === 0) {
+		console.error(`User not found: ${emailArg}`);
+		process.exit(1);
+	}
 
-  const current = found[0]
-  if (current.role === desiredRole) {
-    console.log(`No change: ${current.email} already ${current.role}`)
-    process.exit(0)
-  }
+	const current = found[0];
+	if (current.role === desiredRole) {
+		console.log(`No change: ${current.email} already ${current.role}`);
+		process.exit(0);
+	}
 
-  const updated = await db
-    .update(users)
-    .set({ role: desiredRole })
-    .where(eq(users.id, current.id))
-    .returning({ id: users.id, email: users.email, role: users.role })
+	const updated = await db
+		.update(users)
+		.set({ role: desiredRole })
+		.where(eq(users.id, current.id))
+		.returning({ id: users.id, email: users.email, role: users.role });
 
-  console.log('Updated:', updated[0])
-  process.exit(0)
+	console.log("Updated:", updated[0]);
+	process.exit(0);
 }
 
-main().catch(e => {
-  console.error(e)
-  process.exit(1)
-})
+main().catch((e) => {
+	console.error(e);
+	process.exit(1);
+});
 // import 'dotenv/config'
 // import { db } from '@/lib/db'
 // import { users } from '@/lib/schema'

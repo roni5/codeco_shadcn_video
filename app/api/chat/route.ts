@@ -1,30 +1,30 @@
-import { NextResponse } from 'next/server';
-import { invokeBedrock } from '@/lib/bedrock'; // if this alias fails, use: import { invokeBedrock } from '../../../lib/bedrock';
+import { invokeBedrock } from "@/lib/bedrock"; // if this alias fails, use: import { invokeBedrock } from '../../../lib/bedrock';
+import { NextResponse } from "next/server";
 
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  // Build-safe guard until Bedrock env is ready
-  if (!process.env.AWS_REGION || !process.env.BEDROCK_MODEL_ID) {
-    return NextResponse.json(
-      { ok: false, error: 'Bedrock not configured' },
-      { status: 501 }
-    );
-  }
+	// Build-safe guard until Bedrock env is ready
+	if (!process.env.AWS_REGION || !process.env.BEDROCK_MODEL_ID) {
+		return NextResponse.json(
+			{ ok: false, error: "Bedrock not configured" },
+			{ status: 501 },
+		);
+	}
 
-  const { prompt } = await req.json();
+	const { prompt } = await req.json();
 
-  const result = await invokeBedrock({
-    modelId: process.env.BEDROCK_MODEL_ID,
-    body: {
-      anthropic_version: 'bedrock-2023-05-31',
-      max_tokens: 256,
-      messages: [{ role: 'user', content: prompt ?? 'Say hello' }],
-    },
-  });
+	const result = await invokeBedrock({
+		modelId: process.env.BEDROCK_MODEL_ID,
+		body: {
+			anthropic_version: "bedrock-2023-05-31",
+			max_tokens: 256,
+			messages: [{ role: "user", content: prompt ?? "Say hello" }],
+		},
+	});
 
-  return NextResponse.json({ ok: true, result });
+	return NextResponse.json({ ok: true, result });
 }
 // // app/api/chat/route.ts
 // import {
@@ -172,7 +172,6 @@ export async function POST(req: Request) {
 //     )
 //   }
 // }
-
 
 // import { OpenAI } from 'openai'
 

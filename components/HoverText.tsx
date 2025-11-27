@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
 const HoverText = ({
-  text = 'Hover Word',
-  className = '',
-  fontSize = 'text-8xl',
+	text = "Hover Word",
+	className = "",
+	fontSize = "text-8xl",
 }) => {
-  const styles: React.CSSProperties = {
-    WebkitTextFillColor: 'transparent',
-    WebkitTextStrokeColor: 'currentColor',
-    WebkitTextStrokeWidth: '0.012em',
-    position: 'relative',
-    display: 'inline-block',
-    margin: 0,
-  }
+	const styles: React.CSSProperties = {
+		WebkitTextFillColor: "transparent",
+		WebkitTextStrokeColor: "currentColor",
+		WebkitTextStrokeWidth: "0.012em",
+		position: "relative",
+		display: "inline-block",
+		margin: 0,
+	};
 
-  return (
-    <div className="w-full text-center">
-      <style jsx global>{`
+	return (
+		<div className="w-full text-center">
+			<style jsx global>{`
         .text-outline-hover::before {
           position: absolute;
           top: 0;
@@ -37,15 +37,15 @@ const HoverText = ({
         }
       `}</style>
 
-      <h1
-        className={`text-outline-hover ${fontSize} ${className}`}
-        style={styles}
-        data-text={text}
-      >
-        {text}
-      </h1>
-    </div>
-  )
-}
+			<h1
+				className={`text-outline-hover ${fontSize} ${className}`}
+				style={styles}
+				data-text={text}
+			>
+				{text}
+			</h1>
+		</div>
+	);
+};
 
-export { HoverText }
+export { HoverText };

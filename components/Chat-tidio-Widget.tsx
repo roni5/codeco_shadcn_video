@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import { Toaster, toast } from 'sonner'
+import { useEffect, useState } from "react";
+import { Toaster, toast } from "sonner";
 
 // To add your domain name:
 // Go to Settings
@@ -12,70 +12,77 @@ import { Toaster, toast } from 'sonner'
 // Note: This only affects the domain shown in email headers sent to visitors, not the website where Tidio is installed.
 
 const ChatWidget = () => {
-  const [open, setOpen] = useState(false)
+	const [open, setOpen] = useState(false);
 
-  // 1️⃣ Load Tidio script once
-  useEffect(() => {
-    const existingScript = document.querySelector('script[src*="tidio.co"]')
-    if (existingScript) return
+	// 1️⃣ Load Tidio script once
+	useEffect(() => {
+		const existingScript = document.querySelector('script[src*="tidio.co"]');
+		if (existingScript) return;
 
-    const script = document.createElement('script')
-    script.src = '//code.tidio.co/p2gg0ppkdlugaxivilno5xhsv7j2sw0n.js'
-    script.async = true
-    document.body.appendChild(script)
+		const script = document.createElement("script");
+		script.src = "//code.tidio.co/p2gg0ppkdlugaxivilno5xhsv7j2sw0n.js";
+		script.async = true;
+		document.body.appendChild(script);
 
-    return () => {
-      script.remove()
-    }
-  }, [])
+		return () => {
+			script.remove();
+		};
+	}, []);
 
-  //2️⃣ Toggle visibility based on `open`
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const tidioAPI = (window as any).tidioChatApi
-      if (tidioAPI) {
-        clearInterval(interval)
-        if (open) {
-          tidioAPI.show()
-          tidioAPI.open() // Optional: auto-open chat box
-          toast.success('Chat opened')
-        } else {
-          tidioAPI.hide()
-          toast.info('Chat closed')
-        }
-      }
-    }, 300)
+	//2️⃣ Toggle visibility based on `open`
+	useEffect(() => {
+		const interval = setInterval(() => {
+			const w = window as unknown as {
+				tidioChatApi?: {
+					show?: () => void;
+					hide?: () => void;
+					open?: () => void;
+				};
+			};
+			const tidioAPI = w.tidioChatApi;
+			if (tidioAPI) {
+				clearInterval(interval);
+				if (open) {
+					tidioAPI.show?.();
+					tidioAPI.open?.(); // Optional: auto-open chat box
+					toast.success("Chat opened");
+				} else {
+					tidioAPI.hide?.();
+					toast.info("Chat closed");
+				}
+			}
+		}, 300);
 
-    return () => clearInterval(interval)
-  }, [open])
+		return () => clearInterval(interval);
+	}, [open]);
 
-  return (
-    <>
-      <Toaster position="top-right" richColors />
-      <button
-        type="button"
-        onClick={() => setOpen(prev => !prev)}
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          padding: '12px 16px',
-          backgroundColor: '#4f46e5',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '999px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          cursor: 'pointer',
-          zIndex: 1000,
-        }}
-      >
-        {open ? 'Close Chat' : 'Open Chat'}
-      </button>
-    </>
-  )
-}
+	return (
+		<>
+			<Toaster position="top-right" richColors />
+			<button
+				type="button"
+				onClick={() => setOpen((prev) => !prev)}
+				style={{
+					position: "fixed",
+					bottom: "20px",
+					right: "20px",
+					padding: "12px 16px",
+					backgroundColor: "#4f46e5",
+					color: "#fff",
+					border: "none",
+					borderRadius: "999px",
+					boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+					cursor: "pointer",
+					zIndex: 1000,
+				}}
+			>
+				{open ? "Close Chat" : "Open Chat"}
+			</button>
+		</>
+	);
+};
 
-export default ChatWidget
+export default ChatWidget;
 
 // 'use client'
 

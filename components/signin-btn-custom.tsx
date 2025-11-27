@@ -1,24 +1,24 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import type { OAuthProviderType } from 'next-auth/providers'
-import { signIn } from 'next-auth/react'
+import { Button } from "@/components/ui/button";
+import type { OAuthProviderType } from "next-auth/providers";
+import { signIn } from "next-auth/react";
 
 export default function SigninBtnCustom({
-  provider,
+	provider,
 }: {
-  provider: { id: OAuthProviderType; name: string }
+	provider: { id: OAuthProviderType; name: string };
 }) {
-  return (
-    <Button
-      variant="outline"
-      className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
-      size="lg"
-      onClick={() => signIn(provider.id)}
-    >
-      Sign in with {provider.name}
-    </Button>
-  )
+	return (
+		<Button
+			variant="outline"
+			className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
+			size="lg"
+			onClick={() => signIn(provider.id)}
+		>
+			Sign in with {provider.name}
+		</Button>
+	);
 }
 
 // 'use client'

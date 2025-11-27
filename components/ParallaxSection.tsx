@@ -1,34 +1,32 @@
-
-
 export default function ParallaxFeature() {
-  return (
-    <div className="relative w-full overflow-hidden">
-      {[...Array(6)].map((_, i) => {
-        const n = i + 1
-        return (
-          // 📌 Section Div NUMBER: {n}
-          // This div wraps each parallax image + heading.
-          // Vertical spacing between sections is controlled by `h-[60vh]` below.
-          <div
-            key={n}
-            className="w-full h-[60vh] relative overflow-hidden grid place-content-center snap-end"
-          >
-            {/* 📌 Image inside Section {n} */}
-            <img
-              src={`https://unsplash.it/1920/1920/?v=${n}`}
-              alt={`Parallax ${n}`}
-              className="w-full h-full object-cover absolute animate-parallax"
-            />
+	return (
+		<div className="relative w-full overflow-hidden">
+			{[...Array(6)].map((_, i) => {
+				const n = i + 1;
+				return (
+					// 📌 Section Div NUMBER: {n}
+					// This div wraps each parallax image + heading.
+					// Vertical spacing between sections is controlled by `h-[60vh]` below.
+					<div
+						key={n}
+						className="w-full h-[60vh] relative overflow-hidden grid place-content-center snap-end"
+					>
+						{/* 📌 Image inside Section {n} */}
+						<img
+							src={`https://unsplash.it/1920/1920/?v=${n}`}
+							alt={`Parallax ${n}`}
+							className="w-full h-full object-cover absolute animate-parallax"
+						/>
 
-            {/* 📌 Heading inside Section {n} */}
-            <h2 className="text-[8vw] text-white mix-blend-exclusion font-bold z-10">
-              Parallax {n}
-            </h2>
-          </div>
-        )
-      })}
-    </div>
-  )
+						{/* 📌 Heading inside Section {n} */}
+						<h2 className="text-[8vw] text-white mix-blend-exclusion font-bold z-10">
+							Parallax {n}
+						</h2>
+					</div>
+				);
+			})}
+		</div>
+	);
 }
 
 // import React from 'react'

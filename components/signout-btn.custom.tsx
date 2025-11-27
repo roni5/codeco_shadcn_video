@@ -1,26 +1,26 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { LogOut } from 'lucide-react'
-import { signOut } from 'next-auth/react'
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
+import { signOut } from "next-auth/react";
 
 export default function SignOutBtnCustom() {
-  // const handleSignOut = async () => {
-  //   // Implement your sign-out logic here
-  //   console.log('Signing out')
-  // }
+	// const handleSignOut = async () => {
+	//   // Implement your sign-out logic here
+	//   console.log('Signing out')
+	// }
 
-  return (
-    <Button
-      onClick={() => signOut()}
-      variant="outline"
-      className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
-      size="lg"
-    >
-      <LogOut className="w-4 h-4" />
-      Sign Out
-    </Button>
-  )
+	return (
+		<Button
+			onClick={() => signOut()}
+			variant="outline"
+			className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
+			size="lg"
+		>
+			<LogOut className="w-4 h-4" />
+			Sign Out
+		</Button>
+	);
 }
 
 // 'use client'

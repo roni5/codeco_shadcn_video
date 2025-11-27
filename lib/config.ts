@@ -1,19 +1,19 @@
-import { loadEnvConfig } from '@next/env'
+import { loadEnvConfig } from "@next/env";
 
-const projectDir = process.cwd()
-loadEnvConfig(projectDir)
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 
 const config = {
-  APP_ENV: process.env.APP_ENV ?? 'development',
-  POSTGRES_URL: process.env.POSTGRES_URL ?? '',
-}
+	APP_ENV: process.env.APP_ENV ?? "development",
+	POSTGRES_URL: process.env.POSTGRES_URL ?? "",
+};
 
 // const config = {
 //   APP_ENV: process.env.APP_ENV!,
 //   POSTGRES_URL: process.env.POSTGRES_URL!,
 // }
 
-export default config
+export default config;
 
 /*   function requireEnv(name: string): string {
   const value = process.env[name];
