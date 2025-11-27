@@ -32,7 +32,7 @@ export default function FloatingCode() {
 		setMounted(true);
 	}, []);
 
-	if (!mounted) return null;
+
 
 	const floatingItems = useMemo(
 		() =>
@@ -48,6 +48,8 @@ export default function FloatingCode() {
 			})),
 		[],
 	);
+
+	if (!mounted) return null;
 
 	return (
 		<div className="fixed inset-0 pointer-events-none -z-5 overflow-hidden">
