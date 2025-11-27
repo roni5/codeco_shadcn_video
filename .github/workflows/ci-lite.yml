@@ -17,7 +17,6 @@ jobs:
 
     env:
       DATABASE_URL: postgresql://user:pass@localhost:5432/dummy
-      DATABASE_URL_SECRET: ${{ secrets.DATABASE_URL }}
       NEXTAUTH_URL: http://localhost:3000
       NEXTAUTH_SECRET: dummy
       AUTH_GOOGLE_ID: dummy
@@ -42,66 +41,14 @@ jobs:
       - name: Install deps (clean)
         run: npm ci
 
-      - name: Create CI Biome config
-        run: |
-          cat > ci.biome.json << 'EOF'
-          {
-            "$schema": "https://biomejs.dev/schemas/1.7.0/schema.json",
-            "files": {
-              "ignore": [
-                "app/backup-pages/**"
-              ]
-            },
-            "linter": {
-              "rules": {
-                "suspicious": {
-                  "noArrayIndexKey": "warn",
-                  "noExplicitAny": "warn"
-                },
-                "a11y": {
-                  "useButtonType": "warn"
-                },
-                "style": {
-                  "useSelfClosingElements": "info",
-                  "noUselessElse": "info"
-                },
-                "correctness": {
-                  "noUnusedVariables": "warn",
-                  "noUnusedImports": "warn",
-                  "useExhaustiveDependencies": "warn"
-                }
-              }
-            },
-            "formatter": { "enabled": true }
-          }
-          EOF
-
-      - name: Replace bg-gradient-to-* with bg-linear-to-* (repo convention)
-        shell: bash
-        run: |
-          set -euo pipefail
-          git ls-files | grep -E '\.(ts|tsx|jsx|mdx|css)$' | grep -v '^app/backup-pages/' | xargs sed -i 's/bg-gradient-to-/bg-linear-to-/g' || true
-
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Lint (Biome, scoped; apply safe fixes)
-        shell: bash
-        run: |
-          set -euo pipefail
-          paths="$(ls -d app lib src scripts 2>/dev/null | tr '\n' ' ' || true)"
-          if [ -z "$paths" ]; then paths="app scripts"; fi
-          npx biome check --write --config-path ci.biome.json $paths || true
-          npx biome ci --reporter=github --max-diagnostics=200 --config-path ci.biome.json $paths
+      - name: Lint & Format
+        run: npm run check
 
       - name: Build
         run: npm run build
 
       - name: Generate migrations (no DB required)
         run: npm run drizzle:generate
-
-      - name: Optional migrate (requires DATABASE_URL secret)
-        if: ${{ env.DATABASE_URL_SECRET != '' }}
-        env:
-          DATABASE_URL: ${{ env.DATABASE_URL_SECRET }}
-        run: npm run drizzle:migrate -- --config drizzle.config.ts
