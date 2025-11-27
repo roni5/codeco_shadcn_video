@@ -50,3 +50,11 @@
 @utility animate-border {
   animation: rotate-border 4s linear infinite;
 }
+
+
+/* DEBUG — check if globals.css is loaded at all */
+@layer utilities {
+  .__debug_tailwind_loaded {
+    outline: 4px dashed hotpink !important;
+  }
+}
