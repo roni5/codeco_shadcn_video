@@ -33,6 +33,13 @@ export default function page() {
 							priority
 						/>
 					</span>
+						<Image
+																src="/img/working-on-laptops.jpeg"
+																alt="Get better insights to drive your business."
+																className="w-full rounded-3xl"
+																width={768}
+																height={500}
+															/>
 				</h2>
 				{/* Reasons List */}
 				<ul className="space-y-6 mb-8">

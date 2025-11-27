@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const headers = new Headers({
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   });
 
   if (request.method === 'OPTIONS') {
@@ -19,6 +19,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|.*\\.css$|favicon.ico|site.webmanifest|robots.txt|sitemap.xml|apple-touch-icon.png|icon-.*\\.png|.*\\.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.gif|.*\\.webp|.*\\.mp4|.*\\.webm|api).*)'
-  ]
+    '/((?!_next/|.*\\.css$|favicon.ico|site.webmanifest|robots.txt|sitemap.xml|apple-touch-icon.png|icon-.*\\.png|.*\\.(ico|png|jpg|jpeg|svg|gif|webp|mp4|webm)|api).*)',
+  ],
 };

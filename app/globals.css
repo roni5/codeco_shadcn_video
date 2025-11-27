@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source "./**/*.{ts,tsx,mdx}" "../components/**/*.{ts,tsx,mdx}" "../src/**/*.{ts,tsx,mdx}";
+
 /* Define Tailwind v4 tokens */
 @theme {
   /* Converted your % values to OKLCH decimals */
