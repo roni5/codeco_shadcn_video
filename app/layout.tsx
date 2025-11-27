@@ -1,65 +1,57 @@
-import "./node-webstorage-shim"; // must be first
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/footer";
-import { Toaster } from "@/components/ui/sonner";
-import { GoogleTagManager } from "@next/third-parties/google";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import './node-webstorage-shim'; // must be first
+import Navbar from '@/components/NavBar';
+import Footer from '@/components/footer';
+import { Toaster } from '@/components/ui/sonner';
+import { GoogleTagManager } from '@next/third-parties/google';
+import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const interSans = Inter({
-  variable: "--font-inter-sans",
-  subsets: ["latin"],
-});
+const interSans = Inter({ variable: '--font-inter-sans', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"),
-  title: { template: "%s | Your Brand", default: "Your Brand" },
-  description: "Your default site description.",
+  metadataBase: new URL('https://your-domain.com'),
+  title: { template: '%s | Your Brand', default: 'Your Brand' },
+  description: 'Your default site description.',
   openGraph: {
-    title: "Your Brand",
-    description: "Your default site description.",
-    url: "https://your-domain.com",
-    siteName: "Your Brand",
-    locale: "en_GB",
-    type: "website",
+    title: 'Your Brand',
+    description: 'Your default site description.',
+    url: 'https://your-domain.com',
+    siteName: 'Your Brand',
+    locale: 'en_GB',
+    type: 'website'
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Your Brand",
-    description: "Your default site description.",
+    card: 'summary_large_image',
+    title: 'Your Brand',
+    description: 'Your default site description.'
   },
-  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
-  manifest: "/site.webmanifest",
-  appleWebApp: { title: "Your Brand" },
+  icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
+  manifest: '/site.webmanifest',
+  appleWebApp: { title: 'Your Brand' }
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover'
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-      />
+      {/* head is managed by Next via metadata/viewport */}
       <GoogleTagManager gtmId="GTM-P6CXJTBT" />
-      <body
-        className={`${interSans.variable} mx-auto antialiased overflow-x-hidden`}
-        suppressHydrationWarning={true}
-      >
+      <body className={`${interSans.variable} mx-auto antialiased overflow-x-hidden`} suppressHydrationWarning>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-P6CXJTBT"
             height="0"
             width="0"
-            style={{ display: "none", visibility: "hidden" }}
+            style={{ display: 'none', visibility: 'hidden' }}
             title="Google Tag Manager"
           />
         </noscript>
-
         <Navbar />
         <main>{children}</main>
         <Toaster />
@@ -68,6 +60,76 @@ export default function RootLayout({
     </html>
   );
 }
+// import "./node-webstorage-shim"; // must be first
+// import Navbar from "@/components/NavBar";
+// import Footer from "@/components/footer";
+// import { Toaster } from "@/components/ui/sonner";
+// import { GoogleTagManager } from "@next/third-parties/google";
+// import type { Metadata } from "next";
+// import { Inter } from "next/font/google";
+// import "./globals.css";
+
+// const interSans = Inter({
+//   variable: "--font-inter-sans",
+//   subsets: ["latin"],
+// });
+
+// export const metadata: Metadata = {
+//   metadataBase: new URL("https://your-domain.com"),
+//   title: { template: "%s | Your Brand", default: "Your Brand" },
+//   description: "Your default site description.",
+//   openGraph: {
+//     title: "Your Brand",
+//     description: "Your default site description.",
+//     url: "https://your-domain.com",
+//     siteName: "Your Brand",
+//     locale: "en_GB",
+//     type: "website",
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Your Brand",
+//     description: "Your default site description.",
+//   },
+//   icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
+//   manifest: "/site.webmanifest",
+//   appleWebApp: { title: "Your Brand" },
+// };
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html lang="en">
+//       <meta
+//         name="viewport"
+//         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+//       />
+//       <GoogleTagManager gtmId="GTM-P6CXJTBT" />
+//       <body
+//         className={`${interSans.variable} mx-auto antialiased overflow-x-hidden`}
+//         suppressHydrationWarning={true}
+//       >
+//         <noscript>
+//           <iframe
+//             src="https://www.googletagmanager.com/ns.html?id=GTM-P6CXJTBT"
+//             height="0"
+//             width="0"
+//             style={{ display: "none", visibility: "hidden" }}
+//             title="Google Tag Manager"
+//           />
+//         </noscript>
+
+//         <Navbar />
+//         <main>{children}</main>
+//         <Toaster />
+//         <Footer />
+//       </body>
+//     </html>
+//   );
+// }
 
 // import "./node-webstorage-shim"; // must be first to neutralize accidental Node WebStorage in SSR
 // import Navbar from "@/components/NavBar";
