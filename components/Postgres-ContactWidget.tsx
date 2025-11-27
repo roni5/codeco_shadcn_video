@@ -54,7 +54,7 @@ const ContactWidget: React.FC = () => {
 		<div className="relative z-50">
 			{open && (
 				<div className="fixed flex flex-col bottom-[100px] top-0 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(100%-95px)] w-full sm:w-[350px] overflow-auto min-h-[250px] sm:h-[600px] border border-gray-300 bg-white shadow-2xl rounded-md">
-					<div className="flex p-5 flex-col justify-center items-center h-32 bg-linear-to-r from-sky-500 to-red-500">
+					<div className="flex p-5 flex-col justify-center items-center h-32 bg-gradient-to-r from-sky-500 to-red-500">
 						<h3 className="text-lg text-white">How can we help?</h3>
 						<p className="text-white opacity-50">
 							We usually respond in a few hours

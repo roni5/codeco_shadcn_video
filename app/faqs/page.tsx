@@ -41,7 +41,7 @@ export default function GoatFAQ() {
 	return (
 		<div className="min-h-screen bg-background">
 			{/* Hero Section with Gradient */}
-			<div className="relative overflow-hidden bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 pt-16 pb-12 md:pt-24 md:pb-16 lg:pt-32 lg:pb-20">
+			<div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 pt-16 pb-12 md:pt-24 md:pb-16 lg:pt-32 lg:pb-20">
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,163,211,0.1),transparent_50%)]" />
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(164,196,205,0.1),transparent_50%)]" />
 
@@ -96,7 +96,7 @@ export default function GoatFAQ() {
 									<div
 										className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
 											openIndex === index
-												? "bg-linear-to-br from-primary to-secondary rotate-180 shadow-lg shadow-primary/30"
+												? "bg-gradient-to-br from-primary to-secondary rotate-180 shadow-lg shadow-primary/30"
 												: "bg-muted/20 group-hover:bg-muted/40"
 										}`}
 									>
@@ -118,7 +118,7 @@ export default function GoatFAQ() {
 									}`}
 								>
 									<div className="px-5 sm:px-6 md:px-8 pb-5 sm:pb-6 md:pb-8">
-										<div className="h-px bg-linear-to-r from-transparent via-border to-transparent mb-5 md:mb-6" />
+										<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-5 md:mb-6" />
 										<p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose">
 											{faq.answer}
 										</p>
@@ -133,17 +133,17 @@ export default function GoatFAQ() {
 				<div className="mt-12 md:mt-16 lg:mt-20 text-center">
 					<div className="inline-block relative">
 						<div
-							className="absolute inset-0 bg-linear-to-r from-primary via-secondary to-accent rounded-2xl blur-xl opacity-60 animate-border"
+							className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur-xl opacity-60 animate-border"
 							style={{ backgroundSize: "200% 100%" }}
 						/>
 						<div
-							className="relative bg-linear-to-r from-primary via-secondary to-accent p-0.5 rounded-2xl animate-border"
+							className="relative bg-gradient-to-r from-primary via-secondary to-accent p-0.5 rounded-2xl animate-border"
 							style={{ backgroundSize: "200% 100%" }}
 						>
 							<div className="bg-background px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl">
 								<p className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
 									Still have questions?{" "}
-									<span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
+									<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
 										Contact our support team
 									</span>
 								</p>

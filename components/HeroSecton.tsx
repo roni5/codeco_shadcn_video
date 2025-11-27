@@ -43,7 +43,7 @@ export default function HeroSection() {
 			<div className="-my-4 flex min-h-[2.5rem] items-center justify-center p-[1.5rem] ">
 				<button
 					type="submit"
-					className=" w-2xs sm:w-2xl p-3 mb-2 sm:mb-8 text-sm font-bold tracking-wide uppercase rounded-lg bg-linear-to-br from-indigo-400 to-rose-500 shadow-xl hover:opacity-70 dark:bg-sky-600 dark:text-gray-50"
+					className=" w-2xs sm:w-2xl p-3 mb-2 sm:mb-8 text-sm font-bold tracking-wide uppercase rounded-lg bg-gradient-to-br from-indigo-400 to-rose-500 shadow-xl hover:opacity-70 dark:bg-sky-600 dark:text-gray-50"
 				>
 					Lets Talk
 				</button>

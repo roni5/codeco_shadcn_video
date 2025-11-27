@@ -44,7 +44,7 @@ export default function Macontact() {
 				</div>
 				<button
 					type="submit"
-					className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded-lg bg-linear-to-br from-indigo-400 to-rose-500 shadow-xl hover:opacity-70 dark:bg-sky-600 dark:text-gray-50"
+					className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded-lg bg-gradient-to-br from-indigo-400 to-rose-500 shadow-xl hover:opacity-70 dark:bg-sky-600 dark:text-gray-50"
 				>
 					Send Message
 				</button>

@@ -86,7 +86,7 @@ const ContactWidget = () => {
 					<div className="fixed inset-0 z-[55] bg-black/20 backdrop-blur-sm" />
 					<div className="fixed bottom-[100px] right-5 z-[60] w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-[0_24px_80px_rgba(2,8,23,0.35)] flex flex-col overflow-hidden border border-slate-200">
 						{/* Header */}
-						<div className="bg-linear-to-r from-primary to-secondary  text-white px-4 py-3 flex items-center gap-2">
+						<div className="bg-gradient-to-r from-primary to-secondary  text-white px-4 py-3 flex items-center gap-2">
 							<Bot className="w-5 h-5" />
 							<h2 className="font-semibold text-sm">Codeco Chat</h2>
 							<MessageCircleWarning className="w-5 h-5" />
@@ -165,7 +165,7 @@ const ContactWidget = () => {
 								type="button"
 								onClick={sendMessage}
 								disabled={isLoading || !input.trim()}
-								className="shrink-0 w-10 h-10 bg-linear-to-r from-primary to-secondary text-white rounded-full flex items-center justify-center ring-1 ring-black/5 dark:ring-white/10 shadow-[0_8px_24px_rgba(2,8,23,0.25)] hover:shadow-[0_16px_40px_rgba(2,8,23,0.32)] transition-transform duration-300 hover:-translate-y-0.5 focus:outline-none"
+								className="shrink-0 w-10 h-10 bg-gradient-to-r from-primary to-secondary text-white rounded-full flex items-center justify-center ring-1 ring-black/5 dark:ring-white/10 shadow-[0_8px_24px_rgba(2,8,23,0.25)] hover:shadow-[0_16px_40px_rgba(2,8,23,0.32)] transition-transform duration-300 hover:-translate-y-0.5 focus:outline-none"
 							>
 								<Send className="w-4 h-4" />
 							</button>
@@ -178,7 +178,7 @@ const ContactWidget = () => {
 			<button
 				type="button"
 				onClick={() => setOpen(!open)}
-				className="fixed z-70 right-5 bottom-5 flex justify-center items-center w-14 h-14 rounded-full bg-linear-to-r from-primary to-secondary text-white ring-1 ring-black/5 dark:ring-white/10 shadow-[0_16px_48px_rgba(2,8,23,0.30)] hover:shadow-[0_28px_72px_rgba(2,8,23,0.38)] transition-transform duration-300 hover:-translate-y-1 focus:outline-none"
+				className="fixed z-70 right-5 bottom-5 flex justify-center items-center w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary text-white ring-1 ring-black/5 dark:ring-white/10 shadow-[0_16px_48px_rgba(2,8,23,0.30)] hover:shadow-[0_28px_72px_rgba(2,8,23,0.38)] transition-transform duration-300 hover:-translate-y-1 focus:outline-none"
 			>
 				{open ? (
 					<svg

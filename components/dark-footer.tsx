@@ -15,7 +15,7 @@ export default function DarkFooter() {
 							rel="noopener noreferrer"
 							href="/"
 							title="Instagram"
-							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-linear-to-r from-gray-100 via-gray-200 to-gray-300  text-neutral-950"
+							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300  text-neutral-950"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export default function DarkFooter() {
 							rel="noopener noreferrer"
 							href="/"
 							title="Pinterest"
-							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-linear-to-r from-gray-100 via-gray-200 to-gray-300 text-neutral-950"
+							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-neutral-950"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export default function DarkFooter() {
 							rel="noopener noreferrer"
 							href="/"
 							title="Twitter"
-							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-linear-to-r from-gray-100 via-gray-200 to-gray-300 text-neutral-950"
+							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-neutral-950"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ export default function DarkFooter() {
 							rel="noopener noreferrer"
 							href="/"
 							title="Facebook"
-							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-linear-to-r from-gray-100 via-gray-200 to-gray-300 text-neutral-950"
+							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-neutral-950"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@ export default function DarkFooter() {
 							rel="noopener noreferrer"
 							href="/"
 							title="Gmail"
-							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-linear-to-r from-gray-100 via-gray-200 to-gray-200  text-neutral-950"
+							className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-200  text-neutral-950"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

@@ -48,7 +48,7 @@ const Navigation = () => {
 	];
 
 	return (
-		<nav className="bg-linear-to-r from-purple-600 to-pink-400 text-white rounded-md">
+		<nav className="bg-gradient-to-r from-purple-600 to-pink-400 text-white rounded-md">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 antialiased">
 				<div className="flex items-center justify-between h-16 antialiased">
 					{/* Logo */}

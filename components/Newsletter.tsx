@@ -187,7 +187,7 @@ function SubmitButton({
 					button_status: pending ? "processing" : "ready",
 				});
 			}}
-			className="relative group inline-flex items-center justify-center shrink-0 w-full sm:w-auto py-2 px-5 text-md font-semibold text-white bg-linear-to-r from-primary to-secondary rounded-md overflow-hidden shadow-xl/20 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all duration-200"
+			className="relative group inline-flex items-center justify-center shrink-0 w-full sm:w-auto py-2 px-5 text-md font-semibold text-white bg-gradient-to-r from-primary to-secondary rounded-md overflow-hidden shadow-xl/20 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all duration-200"
 			type="submit"
 		>
 			<div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />

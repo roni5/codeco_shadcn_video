@@ -11,7 +11,7 @@ export default function Pricing() {
 
 				<div className="max-w-340 px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14 mx-auto">
 					<div className="max-w-2xl mx-auto text-center mb-10">
-						<h2 className="text-3xl leading-tight font-bold md:text-4xl lg:text-5xl bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent">
+						<h2 className="text-3xl leading-tight font-bold md:text-4xl lg:text-5xl bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent">
 							Simple, transparent pricing
 						</h2>
 						<p className="mt-2 lg:text-lg text-gray-800 dark:text-neutral-200">

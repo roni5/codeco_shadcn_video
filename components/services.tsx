@@ -209,7 +209,7 @@ const ServiceCard = ({ icon, title, details }: ServiceCardProps) => {
 	return (
 		<>
 			<div className="w-full px-4 md:w-1/2 lg:w-1/3">
-				<div className="group mb-9 bg-linear-to-r from-gray-100 via-gray-200 to-gray-200 p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 backdrop-blur-sm rounded-2xl hover:bg-slate-800/80 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/50">
+				<div className="group mb-9 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-200 p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 backdrop-blur-sm rounded-2xl hover:bg-slate-800/80 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/50">
 					<div className="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-gray-900">
 						{icon}
 					</div>

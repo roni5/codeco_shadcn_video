@@ -32,7 +32,7 @@ export default function StatsCard({
 			<Card
 				className={`p-6 border-0 shadow-sm hover:shadow-md transition-all duration-300 ${
 					primary
-						? 'bg-linear-to-br from-slate-900 via-indigo-900 to-slate-900" text-white'
+						? 'bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900" text-white'
 						: "bg-white"
 				}`}
 			>

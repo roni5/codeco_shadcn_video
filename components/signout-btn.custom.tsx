@@ -14,7 +14,7 @@ export default function SignOutBtnCustom() {
 		<Button
 			onClick={() => signOut()}
 			variant="outline"
-			className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
+			className="w-full gap-2 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
 			size="lg"
 		>
 			<LogOut className="w-4 h-4" />
@@ -31,7 +31,7 @@ export default function SignOutBtnCustom() {
 // export default function SignOutBtnCustom() {
 //   return (
 //     <Button
-//       className="bg-linear-to-r from-sky-500 to-red-500 text-white font-bold py-2 px-4 rounded mx-auto my-auto"
+//       className="bg-gradient-to-r from-sky-500 to-red-500 text-white font-bold py-2 px-4 rounded mx-auto my-auto"
 //       onClick={() => signOut()}
 //     >
 //       Sign Out

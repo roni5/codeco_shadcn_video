@@ -14,7 +14,7 @@ export function NameTransition() {
 		<h1 className="font-medium pt-12 transition-element">
 			<span className="sr-only">Codeco.tech</span>
 			<span aria-hidden="true" className="block overflow-hidden group relative">
-				<span className="inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full whitespace-nowrap text-white bg-linear-to-b from-sky-300 to-pink-400 font-semibold rounded-sm px-1.5">
+				<span className="inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full whitespace-nowrap text-white bg-gradient-to-b from-sky-300 to-pink-400 font-semibold rounded-sm px-1.5">
 					{CODECO_LETTERS.map(({ id, char, idx }) => (
 						<span
 							key={id}

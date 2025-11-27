@@ -2,7 +2,7 @@ const DOTS_12 = Array.from({ length: 12 }).map((_, i) => ({ id: `dot-${i}` }));
 
 export default function ZigzagSection() {
 	return (
-		<div className="min-h-screen bg-linear-to-b from-gray-50 to-white py-20 px-4">
+		<div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20 px-4">
 			<div className="max-w-7xl mx-auto">
 				{/* Header */}
 				<div className="text-center mb-32">

@@ -56,7 +56,7 @@ export default function Navbar() {
 							priority
 						/>
 					</span>
-					<div className="w-28 h-8 rounded-md bg-linear-to-r from-primary to-secondary items-center justify-center hidden sm:flex">
+					<div className="w-28 h-8 rounded-md bg-gradient-to-r from-primary to-secondary items-center justify-center hidden sm:flex">
 						<span className="text-white font-bold hidden sm:block">
 							Codeco.tech
 						</span>

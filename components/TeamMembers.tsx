@@ -70,7 +70,7 @@ function TeamMemberCard({ member }: TeamMemberCardProps) {
 
 export default function TeamMembers() {
 	return (
-		<div className=" bg-linear-to-br from-slate-900 to-indigo-950 py-8 px-4 mt-28 sm:px-6 lg:px-8 ">
+		<div className=" bg-gradient-to-br from-slate-900 to-indigo-950 py-8 px-4 mt-28 sm:px-6 lg:px-8 ">
 			<div className="max-w-7xl mx-auto">
 				<div className="text-center mb-8">
 					<h1 className="text-3xl font-extrabold text-white sm:text-4xl">
@@ -81,7 +81,7 @@ export default function TeamMembers() {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4  group relative bg-linear-to-br from-purple-900/40 to-purple-950/40 rounded-3xl p-8 border border-purple-800/30 hover:border-purple-600/50 ">
+				<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4  group relative bg-gradient-to-br from-purple-900/40 to-purple-950/40 rounded-3xl p-8 border border-purple-800/30 hover:border-purple-600/50 ">
 					{TEAM_MEMBERS.map((member) => (
 						<TeamMemberCard key={member.id} member={member} />
 					))}

@@ -71,7 +71,7 @@ export default function AboutPage() {
 	return (
 		<div className="min-h-screen bg-background">
 			{/* Hero Section */}
-			<div className="relative overflow-hidden bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 pt-20 pb-16 md:pt-32 md:pb-24">
+			<div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 pt-20 pb-16 md:pt-32 md:pb-24">
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,163,211,0.15),transparent_60%)]" />
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(164,196,205,0.15),transparent_60%)]" />
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
 
 						<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight">
 							<span className="block text-foreground">We Are</span>
-							<span className="block bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+							<span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
 								The Future
 							</span>
 						</h1>
@@ -114,7 +114,7 @@ export default function AboutPage() {
 							{/* Animated Heading */}
 							<h2
 								data-splitting
-								className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center mb-8 md:mb-12 bg-linear-to-r from-primary via-foreground to-accent bg-clip-text text-transparent"
+								className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center mb-8 md:mb-12 bg-gradient-to-r from-primary via-foreground to-accent bg-clip-text text-transparent"
 							>
 								{section.title}
 							</h2>
@@ -131,13 +131,13 @@ export default function AboutPage() {
 									}}
 								/>
 
-								<div className="relative bg-linear-to-br from-background to-muted/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border group-hover:border-transparent transition-colors duration-500">
+								<div className="relative bg-gradient-to-br from-background to-muted/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border group-hover:border-transparent transition-colors duration-500">
 									<p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed md:leading-loose text-center max-w-4xl mx-auto">
 										{section.content}
 									</p>
 
 									{/* Decorative gradient line */}
-									<div className="mt-8 h-1 w-24 mx-auto bg-linear-to-r from-transparent via-primary to-transparent rounded-full" />
+									<div className="mt-8 h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
 								</div>
 							</div>
 						</div>
@@ -147,12 +147,12 @@ export default function AboutPage() {
 				{/* Stats Section */}
 				<div className="mt-24 md:mt-32 lg:mt-40">
 					<div className="relative rounded-3xl overflow-hidden">
-						<div className="absolute inset-0 bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10" />
+						<div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10" />
 
 						<div className="relative px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
 							<h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-12 md:mb-16">
 								By The{" "}
-								<span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
+								<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
 									Numbers
 								</span>
 							</h3>
@@ -164,7 +164,7 @@ export default function AboutPage() {
 									{ value: "24/7", label: "Support Available" },
 								].map((stat) => (
 									<div key={stat.label} className="text-center group">
-										<div className="text-5xl sm:text-6xl md:text-7xl font-black bg-linear-to-br from-primary via-secondary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+										<div className="text-5xl sm:text-6xl md:text-7xl font-black bg-gradient-to-br from-primary via-secondary to-accent bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
 											{stat.value}
 										</div>
 										<div className="text-base sm:text-lg text-muted-foreground font-medium">
@@ -180,7 +180,7 @@ export default function AboutPage() {
 				{/* CTA Section */}
 				<div className="mt-24 md:mt-32 text-center">
 					<div className="inline-block relative">
-						<div className="absolute inset-0 bg-linear-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-50 animate-pulse" />
+						<div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-50 animate-pulse" />
 						<div
 							className="relative p-0.5 rounded-2xl"
 							style={{
@@ -196,7 +196,7 @@ export default function AboutPage() {
 								</p>
 								<Link
 									href="/contact"
-									className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+									className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
 								>
 									Let's Talk
 									<svg

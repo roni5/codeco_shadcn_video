@@ -2,9 +2,9 @@ import { ImageWithFallback } from "./ImageWithFallback";
 
 export default function Bento() {
 	return (
-		<div className="bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden rounded-lg -mt-8 border-0">
+		<div className="bg-gradient-to-br from-slate-900 to-indigo-950 overflow-hidden rounded-lg -mt-8 border-0">
 			<section className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 opacity-90">
-				<p className="mx-auto mt-12 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent sm:text-5xl">
+				<p className="mx-auto mt-12 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent sm:text-5xl">
 					Digital Bricks & Mortar
 				</p>
 
@@ -131,9 +131,9 @@ export default function Bento() {
 
 // export default function Bento() {
 //   return (
-//     <div className="bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden rounded-lg -mt-8 border-0">
+//     <div className="bg-gradient-to-br from-slate-900 to-indigo-950 overflow-hidden rounded-lg -mt-8 border-0">
 //       <section className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 opacity-90">
-//         <p className="mx-auto mt-12 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent sm:text-5xl">
+//         <p className="mx-auto mt-12 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent sm:text-5xl">
 //           Digital Bricks & Mortar
 //         </p>
 
@@ -189,12 +189,12 @@ export default function Bento() {
 // // bg-gradient-to-r from-indigo-600 to-pink-500
 // export default function Bento() {
 //   return (
-//     <div className="bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden  rounded-lg -mt-8 border-0">
+//     <div className="bg-gradient-to-br from-slate-900 to-indigo-950 overflow-hidden  rounded-lg -mt-8 border-0">
 //       <section className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 opacity-90">
 //         <h2 className="block:hidden md:block text-center text-base/7 font-semibold text-white antialiased text-balance">
 //           {}
 //         </h2>
-//         <p className="mx-auto sm:mt-12 mt-12 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent antialiased sm:text-5xl">
+//         <p className="mx-auto sm:mt-12 mt-12 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent antialiased sm:text-5xl">
 //           Digital Bricks & Mortar
 //         </p>
 //         <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">

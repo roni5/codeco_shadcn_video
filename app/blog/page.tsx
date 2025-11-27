@@ -50,7 +50,7 @@ const categories = [
 
 export default function BlogPage() {
 	return (
-		<section className="min-h-screen w-full bg-linear-to-br from-blue-50 via-white to-purple-50 py-12 lg:py-24">
+		<section className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 lg:py-24">
 			<div className="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 					{/* --- LEFT COLUMN: Blog Feed --- */}

@@ -33,7 +33,7 @@ export default async function SignInPage() {
 							type="video/mp4"
 						/>
 					</video>
-					<div className="absolute inset-0 bg-linear-to-br from-cyan-500/40 via-purple-500/40 to-yellow-400/40" />
+					<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/40 via-purple-500/40 to-yellow-400/40" />
 				</div>
 
 				<FloatingCode />
@@ -70,7 +70,7 @@ export default async function SignInPage() {
 
 								<div className="p-6 space-y-6">
 									{/* Account Status */}
-									<div className="bg-linear-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200">
+									<div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200">
 										<div className="flex items-center gap-3 mb-3">
 											<Shield className="w-5 h-5 text-purple-600" />
 											<h3 className="font-semibold text-gray-900">
@@ -143,7 +143,7 @@ export default async function SignInPage() {
 							{/* Side Cards */}
 							<div className="space-y-4">
 								{/* Security Card */}
-								<Card className="bg-linear-to-br from-purple-600 to-pink-600 text-white border-0 shadow-lg p-6">
+								<Card className="bg-gradient-to-br from-purple-600 to-pink-600 text-white border-0 shadow-lg p-6">
 									<Lock className="w-8 h-8 mb-4" />
 									<h3 className="font-bold text-lg mb-2">Secure Access</h3>
 									<p className="text-sm text-white/90">
@@ -184,7 +184,7 @@ export default async function SignInPage() {
 						type="video/mp4"
 					/>
 				</video>
-				<div className="absolute inset-0 bg-linear-to-br from-cyan-500/40 via-purple-500/40 via-pink-500/40 to-yellow-400/40" />
+				<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/40 via-purple-500/40 via-pink-500/40 to-yellow-400/40" />
 			</div>
 
 			<FloatingCode />
@@ -211,7 +211,7 @@ export default async function SignInPage() {
 						<Card className="lg:col-span-2 bg-white/95 backdrop-blur border-0 shadow-2xl">
 							<CardHeader className="text-center">
 								<div className="flex justify-center mb-4">
-									<div className="bg-linear-to-br from-purple-600 to-pink-600 rounded-full p-4">
+									<div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-full p-4">
 										<Shield className="w-12 h-12 text-white" />
 									</div>
 								</div>
@@ -294,7 +294,7 @@ export default async function SignInPage() {
 						{/* Side Cards */}
 						<div className="space-y-4">
 							{/* Benefits Card */}
-							<Card className="bg-linear-to-br from-cyan-600 to-purple-600 text-white border-0 shadow-lg p-6">
+							<Card className="bg-gradient-to-br from-cyan-600 to-purple-600 text-white border-0 shadow-lg p-6">
 								<Zap className="w-8 h-8 mb-4" />
 								<h3 className="font-bold text-lg mb-2">Why Sign In?</h3>
 								<ul className="space-y-2 text-sm text-white/90">

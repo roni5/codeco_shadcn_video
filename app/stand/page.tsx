@@ -59,7 +59,7 @@ export default function Stand() {
 				))}
 			</section>
 			<form>
-				<div className="m-4 p-1 rounded-full max-w-sm hover:bg-linear-to-r focus-within:bg-linear-to-r focus from-rose-400 via-fuchsia-500 to-indigo-500">
+				<div className="m-4 p-1 rounded-full max-w-sm hover:bg-gradient-to-r focus-within:bg-gradient-to-r focus from-rose-400 via-fuchsia-500 to-indigo-500">
 					<label htmlFor="name" className="sr-only">
 						Name
 					</label>

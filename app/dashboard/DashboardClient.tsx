@@ -106,7 +106,7 @@ export default function DashboardClient({
 	);
 
 	return (
-		<div className="min-h-screen bg-linear-to-br from-primary to-secondary px-">
+		<div className="min-h-screen bg-gradient-to-br from-primary to-secondary px-">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 				{/* Header with User Info */}
 				<motion.div
@@ -216,7 +216,7 @@ export default function DashboardClient({
 				>
 					<div className="flex items-center justify-between mb-6">
 						<div className="flex items-center gap-4">
-							<div className="p-3 bg-linear-to-br from-slate-900 via-indigo-900 to-slate-900 rounded-xl shadow-lg shadow-indigo-500/20">
+							<div className="p-3 bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 rounded-xl shadow-lg shadow-indigo-500/20">
 								<Users className="w-6 h-6 text-white" />
 							</div>
 							<div>
@@ -245,7 +245,7 @@ export default function DashboardClient({
 							label="Export Contacts"
 						/>
 					</div>
-					{/* <div className="p-3 bg-linear-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg shadow-emerald-500/20">
+					{/* <div className="p-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg shadow-emerald-500/20">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -299,7 +299,7 @@ export default function DashboardClient({
 				>
 					<div className="flex items-center justify-between mb-6">
 						<div className="flex items-center gap-4">
-							<div className="p-3 bg-linear-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg shadow-emerald-500/20">
+							<div className="p-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg shadow-emerald-500/20">
 								<Mail className="w-6 h-6 text-white" />
 							</div>
 							<div>

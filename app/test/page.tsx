@@ -15,7 +15,7 @@ export default function Hero() {
 	//   console.log('Product clicked!')
 	// }
 	return (
-		<div className="relative bg-linear-to-br from-slate-900 to-indigo-950 overflow-hidden">
+		<div className="relative bg-gradient-to-br from-slate-900 to-indigo-950 overflow-hidden">
 			{/* Background pattern */}
 			<div className="hidden lg:block absolute inset-0 opacity-10">
 				<div className="absolute inset-0 bg-[url('/img/grid.webp')] bg-center mask-[linear-gradient(180deg,white,rgba(255,255,255,0))]" />
@@ -26,7 +26,7 @@ export default function Hero() {
 					<div className="lg:w-1/2">
 						<h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
 							<span className="block">Build faster with</span>
-							<span className="block mt-2 bg-clip-text bg-linear-to-r from-violet-600 to-fuchsia-700 text-transparent">
+							<span className="block mt-2 bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent">
 								Next.js 15 & Tailwind 4
 							</span>
 						</h1>

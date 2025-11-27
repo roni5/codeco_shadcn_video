@@ -106,7 +106,7 @@ export default function PricingPage() {
 								</div>
 								<h1
 									data-splitting
-									className="mb-6 text-4xl md:text-5xl lg:text-6xl font-medium leading-none text-transparent bg-clip-text bg-linear-to-r from-gray-100 via-gray-200 to-gray-300"
+									className="mb-6 text-4xl md:text-5xl lg:text-6xl font-medium leading-none text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300"
 								>
 									WeBuild Products That U Will Really Love
 								</h1>
@@ -118,7 +118,7 @@ export default function PricingPage() {
 								<div className="relative flex flex-col sm:flex-row gap-4 bg-neutral-950">
 									<div className="lg:hidden absolute inset-0 bg-neutral-950 rounded-2xl blur-3xl" />
 									<a
-										className="relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-neutral-950 bg-linear-to-r from-gray-100 via-gray-200 to-gray-300 hover:bg-neutral-100 rounded-full transition-all duration-200 hover:shadow-lg group"
+										className="relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-neutral-950 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 hover:bg-neutral-100 rounded-full transition-all duration-200 hover:shadow-lg group"
 										href="/"
 									>
 										Get Started

@@ -52,7 +52,7 @@ const teamMembers: TeamMember[] = [
 
 const TeamSection = () => {
 	return (
-		<div className="min-h-screen bg-linear-to-br from-slate-900 to-indigo-950  text-white py-20 px-4">
+		<div className="min-h-screen bg-gradient-to-br from-slate-900 to-indigo-950  text-white py-20 px-4">
 			<div className="max-w-7xl mx-auto">
 				{/* Header */}
 				<div className="text-center mb-16">
@@ -77,10 +77,10 @@ const TeamSection = () => {
 					{teamMembers.map((member) => (
 						<div
 							key={member.id}
-							className="group relative bg-linear-to-br from-purple-900/40 to-purple-950/40 rounded-3xl p-8 border border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105"
+							className="group relative bg-gradient-to-br from-purple-900/40 to-purple-950/40 rounded-3xl p-8 border border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105"
 						>
 							{/* Card Background Effect */}
-							<div className="absolute inset-0 bg-linear-to-br from-purple-600/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+							<div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
 							{/* Content */}
 							<div className="relative flex flex-col items-center text-center space-y-4">

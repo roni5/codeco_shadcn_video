@@ -1,6 +1,6 @@
 export default function DarkSteps() {
 	return (
-		<section className="bg-linear-to-b from-slate-950 via-neutral-900 to-slate-950 text-neutral-50 py-8 md:12 mb-8 md:mb-16  ">
+		<section className="bg-gradient-to-b from-slate-950 via-neutral-900 to-slate-950 text-neutral-50 py-8 md:12 mb-8 md:mb-16  ">
 			<div className="container mx-auto flex flex-col p-6">
 				<h2 className="py-4 text-4xl tracking-wide mb-4 font-bold text-center">
 					Maxime Expedita

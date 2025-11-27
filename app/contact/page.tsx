@@ -153,7 +153,7 @@ function ContactsPage() {
 	return (
 		<div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background py-8 px-4">
 			<GoogleTagManager gtmId="GTM-P6CXJTBT" />
-			<div className="absolute inset-0 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5" />
+			<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
 			<div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
 			<div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
@@ -167,7 +167,7 @@ function ContactsPage() {
 					}}
 				/>
 				<div className="relative bg-background rounded-3xl overflow-hidden shadow-2xl">
-					<div className="bg-linear-to-br from-primary to-secondary px-6 py-6 md:px-8 md:py-8 text-center">
+					<div className="bg-gradient-to-br from-primary to-secondary  px-6 py-6 md:px-8 md:py-8 text-center">
 						<h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
 							Contact Us
 						</h1>
@@ -348,7 +348,7 @@ function SubmitButton({
 		<Button
 			type="submit"
 			{...props}
-			className="w-full py-3.5 text-center bg-linear-to-r from-primary via-secondary to-accent text-primary-foreground font-semibold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02]"
+			className="w-full py-3.5 text-center bg-gradient-to-r from-primary via-secondary to-accent text-primary-foreground font-semibold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02]"
 			disabled={pending}
 			onClick={() => {
 				sendGTMEvent({

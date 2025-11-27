@@ -18,7 +18,7 @@ export default function DarkNewsLetter() {
 					/>
 					<button
 						type="button"
-						className="w-2/5 p-3 font-semibold rounded-r-sm sm:w-1/3 bg-linear-to-r from-gray-100 via-gray-200 to-gray-200 text-neutral-900 hover:opacity-40 hover:text-gray-500 tracking-tight"
+						className="w-2/5 p-3 font-semibold rounded-r-sm sm:w-1/3 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-200 text-neutral-900 hover:opacity-40 hover:text-gray-500 tracking-tight"
 					>
 						Subscribe
 					</button>

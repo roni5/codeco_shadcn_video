@@ -12,7 +12,7 @@ export default function SigninBtnCustom({
 	return (
 		<Button
 			variant="outline"
-			className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
+			className="w-full gap-2 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
 			size="lg"
 			onClick={() => signIn(provider.id)}
 		>
@@ -44,7 +44,7 @@ export default function SigninBtnCustom({
 //   return (
 //     <Button
 //       onClick={handleSignIn}
-//       className="w-full bg-linear-to-br from-indigo-300 to-crimson-500 text-white hover:bg-gray-800 gap-2"
+//       className="w-full bg-gradient-to-br from-indigo-300 to-crimson-500 text-white hover:bg-gray-800 gap-2"
 //       size="lg"
 //     >
 //       {provider.id === 'github' && <Github className="w-5 h-5" />}
@@ -74,4 +74,4 @@ export default function SigninBtnCustom({
 //   )
 // }
 
-//bg-linear-to-br from-indigo-300 to-crimson-500
+//bg-gradient-to-br from-indigo-300 to-crimson-500

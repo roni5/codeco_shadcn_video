@@ -30,7 +30,7 @@ export const Onboarding: FC = () => {
         sm:text-4xl
         md:text-5xl
         font-extrabold
-        bg-linear-to-tr from-[#00ccde] via-pelorous-400 to-pelorous-300
+        bg-gradient-to-tr from-[#00ccde] via-pelorous-400 to-pelorous-300
         text-white
         py-3 px-6
         rounded-lg
@@ -61,7 +61,7 @@ export const Onboarding: FC = () => {
 				))}
 			</div>
 
-			<div className="mt-10 p-6 bg-linear-to-tr from-[#00ccde] via-pelorous-400 to-pelorous-300 rounded-lg border-l-4 border-pelorous-500">
+			<div className="mt-10 p-6 bg-gradient-to-tr from-[#00ccde] via-pelorous-400 to-pelorous-300 rounded-lg border-l-4 border-pelorous-500">
 				<h4 className="text-lg font-semibold text-white mb-2">Key Benefits</h4>
 				<div className="flex items-center space-x-3">
 					<div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shadow-lg my-1">

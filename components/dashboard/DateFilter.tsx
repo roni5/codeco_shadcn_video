@@ -26,7 +26,7 @@ export default function DateFilter({ value, onChange }: DateFilterProps) {
 					size="sm"
 					className={
 						value === range.value
-							? "bg-linear-to-br from-slate-900 via-indigo-900 to-slate-900 text-white"
+							? "bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white"
 							: "text-slate-600 hover:bg-slate-50"
 					}
 				>

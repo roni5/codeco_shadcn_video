@@ -46,7 +46,7 @@ const articlesData: Record<
 		image:
 			"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
 		content:
-			'Gradients in 2025 are subtle. We moved away from harsh contrasts to "mesh" gradients. Using the utility "bg-linear-to-br from-blue-50 via-white to-purple-50" creates an imperial, high-end aesthetic that works perfectly for SaaS pricing pages...',
+			'Gradients in 2025 are subtle. We moved away from harsh contrasts to "mesh" gradients. Using the utility "bg-gradient-to-br from-blue-50 via-white to-purple-50" creates an imperial, high-end aesthetic that works perfectly for SaaS pricing pages...',
 	},
 
 	// SLUG: 'postgres-optimization'
@@ -85,7 +85,7 @@ export default async function ArticlePage({
 
 	// Step D: Render Template
 	return (
-		<div className="w-full min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50">
+		<div className="w-full min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
 			{/* Article Container */}
 			<div className="max-w-3xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
 				<div className="max-w-2xl mx-auto">
