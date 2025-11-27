@@ -1,6 +1,26 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* single utilities layer with one set of keyframes and one animate utility */
+@layer base {
+	:root {
+		--color-primary: 199 79% 52%;
+		--color-primary-foreground: 210 20% 98%;
+		--color-secondary: 199 23% 74%;
+		--color-secondary-foreground: 240 4% 16%;
+		--color-accent: 0 0% 73%;
+		--color-accent-foreground: 240 4% 16%;
+		--color-background: 210 20% 98%;
+		--color-foreground: 240 4% 16%;
+		--color-muted: 199 23% 74%;
+		--color-muted-foreground: 240 4% 16%;
+		--color-border: 0 0% 73%;
+		--color-input: 199 23% 74%;
+		--color-ring: 199 79% 52%;
+		--radius: 0.5rem;
+	}
+}
+
 @layer utilities {
 	@keyframes parallax {
 		from {
@@ -12,34 +32,11 @@
 		}
 	}
 
-	/* Fallback for browsers without animation-timeline */
-	@supports not (animation-timeline: scroll()) {
-		img {
-			transform: translate(0%, 0%) !important;
-		}
-	}
-
-	/* utility you can use in JSX */
 	.animate-parallax {
-		animation: parallax 30s linear both;
+		animation: parallax 30s linear infinite;
 	}
 }
 
-@keyframes parallax {
-	0% {
-		transform: translateY(-50%);
-	}
-
-	100% {
-		transform: translateY(50%);
-	}
-}
-
-.animate-parallax {
-	animation: parallax 30s linear infinite;
-}
-
-/* Animated Gradient Border */
 @property --border-angle {
 	inherits: false;
 	initial-value: 0deg;
@@ -52,81 +49,6 @@
 	}
 }
 
-/* Default animation class */
 .animate-border {
 	animation: rotate-border 4s linear infinite;
 }
-
-@theme {
-	--color-primary: #3ba3d3;
-	--color-primary-foreground: #fefefe;
-	--color-secondary: #a4c4cd;
-	--color-secondary-foreground: #28292e;
-	--color-accent: #bbbbbb;
-	--color-accent-foreground: #28292e;
-	--color-background: #fefefe;
-	--color-foreground: #28292e;
-	--color-muted: #a4c4cd;
-	--color-muted-foreground: #28292e;
-	--color-border: #bbbbbb;
-	--color-input: #a4c4cd;
-	--color-ring: #3ba3d3;
-}
-
-:root {
-	/* --color-primary: #3BA3D3; */
-	--color-primary: oklch(71.91% 0.116 230.34);
-	/* --color-primary-foreground: #FEFEFE; */
-	--color-primary-foreground: oklch(99.63% 0.007 274.65);
-	/* Very close to white */
-	/* --color-secondary: #A4C4CD; */
-	--color-secondary: oklch(79.03% 0.021 236.96);
-	/* --color-secondary-foreground: #28292E; */
-	--color-secondary-foreground: oklch(18.27% 0.007 275.05);
-	/* Very close to black */
-	/* --color-accent: #BBBBBB; */
-	--color-accent: oklch(77.9% 0.007 275.05);
-	/* Gray */
-	/* --color-accent-foreground: #28292E; */
-	--color-accent-foreground: oklch(18.27% 0.007 275.05);
-	/* Very close to black */
-	/* --color-background: #FEFEFE; */
-	--color-background: oklch(99.63% 0.007 274.65);
-	/* Very close to white */
-	/* --color-foreground: #28292E; */
-	--color-foreground: oklch(18.27% 0.007 275.05);
-	/* Very close to black */
-	/* --color-muted: #A4C4CD; */
-	--color-muted: oklch(79.03% 0.021 236.96);
-	/* --color-muted-foreground: #28292E; */
-	--color-muted-foreground: oklch(18.27% 0.007 275.05);
-	/* Very close to black */
-	/* --color-border: #BBBBBB; */
-	--color-border: oklch(77.9% 0.007 275.05);
-	/* Gray */
-	/* --color-input: #A4C4CD; */
-	--color-input: oklch(79.03% 0.021 236.96);
-	/* --color-ring: #3BA3D3; */
-	--color-ring: oklch(71.91% 0.116 230.34);
-}
-
-/* @theme {
-  --color-primary: #2E2A39;
-  --color-primary-foreground: #FDFBF7;
-  --color-secondary: #B0CCC4;
-  --color-secondary-foreground: #2E2A39;
-  --color-background: #B0CCC4;
-  --color-gradient-background: #B0CCC4;
-  --color-foreground: #2E2A39;
-  --color-background-contrast: #63998A;
-  --color-shadow: #2E2A39;
-  --color-button: #2E2A39;
-  --color-button-text: #FDFBF7;
-  --color-secondary-button: #B0CCC4;
-  --color-secondary-button-text: #2E2A39;
-  --color-link: #2E2A39;
-  --color-badge-foreground: #2E2A39;
-  --color-badge-background: #B0CCC4;
-  --color-badge-border: #2E2A39;
-  --color-payment-terms-background: #B0CCC4;
-} */
