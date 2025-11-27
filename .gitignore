@@ -23,17 +23,22 @@
 *.min.js
 *.min.css
 
-# config files
+# config files (allow key project configs to be tracked)
+# If you still want a broad ignore, keep it but un-ignore the ones we need.
 *.config.js
 *.config.mjs
 *.config.ts
-tailwind.config.*
-postcss.config.*
-next.config.*
+!postcss.config.js
+!next.config.mjs
+!next.config.ts
+!tailwind.config.js
+!tailwind.config.ts
+!drizzle.config.ts
 
 # env files
 .env*
 .env*.local
+!.env.example
 
 # debug & logs
 npm-debug.log*
@@ -46,10 +51,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# public (if built output)
-public
-!drizzle.config.ts
-
-# allow example env
-!.env.example
-!drizzle.config.ts
+# DO NOT ignore Next.js source assets
+# (remove the old `public` ignore — it breaks icons/manifest/images)
+# public  ← remove this line
