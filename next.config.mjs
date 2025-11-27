@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
 	// Make CI builds pass even if there are TS/ESLint issues
 	typescript: { ignoreBuildErrors: true },

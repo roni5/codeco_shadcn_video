@@ -167,7 +167,7 @@ function ContactsPage() {
 					}}
 				/>
 				<div className="relative bg-background rounded-3xl overflow-hidden shadow-2xl">
-					<div className="bg-gradient-to-br from-primary to-secondary  px-6 py-6 md:px-8 md:py-8 text-center">
+					<div className="bg-linear-to-r  from-primary to-secondary  px-6 py-6 md:px-8 md:py-8 text-center">
 						<h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
 							Contact Us
 						</h1>

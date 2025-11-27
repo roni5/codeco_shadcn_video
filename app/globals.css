@@ -1,77 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-	:root {
-		/* Primary color: #3BA3D3 */
-		--color-primary: 71.91% 0.116 230.34;
-		/* Primary foreground: #FEFEFE */
-		--color-primary-foreground: 99.63% 0.007 274.65;
-		/* Secondary: #A4C4CD */
-		--color-secondary: 79.03% 0.021 236.96;
-		/* Secondary foreground: #28292E */
-		--color-secondary-foreground: 18.27% 0.007 275.05;
-		/* Accent: #BBBBBB */
-		--color-accent: 77.9% 0.007 275.05;
-		/* Accent foreground: #28292E */
-		--color-accent-foreground: 18.27% 0.007 275.05;
-		/* Background: #FEFEFE */
-		--color-background: 99.63% 0.007 274.65;
-		/* Foreground: #28292E */
-		--color-foreground: 18.27% 0.007 275.05;
-		/* Muted: #A4C4CD */
-		--color-muted: 79.03% 0.021 236.96;
-		/* Muted foreground: #28292E */
-		--color-muted-foreground: 18.27% 0.007 275.05;
-		/* Border: #BBBBBB */
-		--color-border: 77.9% 0.007 275.05;
-		/* Input: #A4C4CD */
-		--color-input: 79.03% 0.021 236.96;
-		/* Ring: #3BA3D3 */
-		--color-ring: 71.91% 0.116 230.34;
-		--radius: 0.5rem;
-	}
+/* Define Tailwind v4 tokens */
+@theme {
+  /* Converted your % values to OKLCH decimals */
+  --color-primary: oklch(0.719 0.116 230.34);
+  --color-primary-foreground: oklch(0.996 0.007 274.65);
+
+  --color-secondary: oklch(0.790 0.021 236.96);
+  --color-secondary-foreground: oklch(0.183 0.007 275.05);
+
+  --color-accent: oklch(0.779 0.007 275.05);
+  --color-accent-foreground: oklch(0.183 0.007 275.05);
+
+  --color-background: oklch(0.996 0.007 274.65);
+  --color-foreground: oklch(0.183 0.007 275.05);
+
+  --color-muted: oklch(0.790 0.021 236.96);
+  --color-muted-foreground: oklch(0.183 0.007 275.05);
+
+  --color-border: oklch(0.779 0.007 275.05);
+  --color-input: oklch(0.790 0.021 236.96);
+  --color-ring: oklch(0.719 0.116 230.34);
+
+  --radius: 0.5rem;
 }
 
-@layer utilities {
-	@keyframes parallax {
-		from {
-			transform: translate(0%, -50%);
-		}
-
-		to {
-			transform: translate(0%, 50%);
-		}
-	}
-
-	.animate-parallax {
-		animation: parallax 30s linear infinite;
-	}
+/* Optional: make custom utilities with v4 @utility */
+@utility animate-parallax {
+  animation: parallax 30s linear infinite;
 }
 
 @keyframes parallax {
-	0% {
-		transform: translateY(-50%);
-	}
-
-	100% {
-		transform: translateY(50%);
-	}
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(50%); }
 }
 
 @property --border-angle {
-	inherits: false;
-	initial-value: 0deg;
-	syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
 }
 
 @keyframes rotate-border {
-	to {
-		--border-angle: 360deg;
-	}
+  to { --border-angle: 360deg; }
 }
 
-.animate-border {
-	animation: rotate-border 4s linear infinite;
+@utility animate-border {
+  animation: rotate-border 4s linear infinite;
 }
