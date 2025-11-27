@@ -1,56 +1,65 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules/
-/.pnp
+# ─────────────────────────────────────────────
+# Node / Package managers
+# ─────────────────────────────────────────────
+node_modules/
+.pnp
 .pnp.js
 .yarn/install-state.gz
-
-# production builds
-/build/
-/dist/
-
-# Next.js
-/.next/
-/out/
-/vercel
-
-# testing & coverage
-/coverage/
-/.nyc_output
-
-# minified
-*.min.js
-*.min.css
-
-# config files (allow key project configs to be tracked)
-# If you still want a broad ignore, keep it but un-ignore the ones we need.
-*.config.js
-*.config.mjs
-*.config.ts
-!postcss.config.js
-!next.config.mjs
-!next.config.ts
-!tailwind.config.js
-!tailwind.config.ts
-!drizzle.config.ts
-
-# env files
-.env*
-.env*.local
-!.env.example
-
-# debug & logs
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# misc
+# ─────────────────────────────────────────────
+# Build outputs
+# ─────────────────────────────────────────────
+.next/
+out/
+build/
+dist/
+.vercel/        # Vercel CLI local state/output
+
+# Caches
+.eslintcache
+.turbo/
+.cache/
+
+# ─────────────────────────────────────────────
+# Testing / Coverage
+# ─────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ─────────────────────────────────────────────
+# Environment files (keep examples)
+# ─────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─────────────────────────────────────────────
+# OS / Editor
+# ─────────────────────────────────────────────
 .DS_Store
-*.pem
+Thumbs.db
 *.tsbuildinfo
 next-env.d.ts
+.idea/
+.vscode/
 
-# DO NOT ignore Next.js source assets
-# (remove the old `public` ignore — it breaks icons/manifest/images)
-# public  ← remove this line
+# ─────────────────────────────────────────────
+# Security / Keys
+# ─────────────────────────────────────────────
+*.pem
+
+# ─────────────────────────────────────────────
+# IMPORTANT: Do NOT ignore project configs or public/
+# Tailwind v4 + PostCSS require these to be committed:
+#   postcss.config.js
+#   next.config.(mjs|ts|js)
+#   tailwind.config.(ts|js)  (if present)
+#   drizzle.config.ts        (if present)
+#   public/**                (icons, manifest, images, videos)
+# ─────────────────────────────────────────────
+# (Intentionally no rules here that ignore *.config.* or public/)
