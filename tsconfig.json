@@ -28,6 +28,6 @@
 		"components/daydrop.bac",
 		"components/DropdownPicker.bac",
 		"components/skeleton.bac"
-	],
+, "app/data/servicesData.js"	],
 	"exclude": ["node_modules"]
 }
