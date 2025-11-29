@@ -2,8 +2,8 @@ export default function DarkStats() {
 	return (
 		<div>
 			<section className="dark:bg-gray-50 dark:text-gray-800">
-				<div className="container p-6 mx-auto space-y-8 text-center lg:p-8 lg:space-y-10 mb-4 md:mb-8">
-					<h2 className="text-3xl font-bold">Fully compatible with</h2>
+				<div className="container p-6 mx-auto space-y-6 text-center text-white lg:p-8 lg:space-y-8 mb-4 md:mb-8">
+					<h2 className="text-3xl font-bold text-white">Fully compatible with</h2>
 					<div className="flex flex-wrap justify-center lg:justify-between">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

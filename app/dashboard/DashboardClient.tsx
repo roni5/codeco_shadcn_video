@@ -106,7 +106,7 @@ export default function DashboardClient({
 	);
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-primary to-secondary px-">
+		<div className="min-h-screen bg-linear-to-br from-primary to-secondary px-">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 				{/* Header with User Info */}
 				<motion.div

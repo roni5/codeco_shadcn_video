@@ -2,6 +2,9 @@
 
 import { type ReactNode, useEffect } from "react";
 import "./scrolling.css";
+import { StaggerReveal, StaggerItem } from "@/components/StaggerReveal";
+import { motion } from "framer-motion";
+import ServiceCard from "./ServiceCard";
 
 export default function Service() {
 	useEffect(() => {
@@ -60,12 +63,13 @@ export default function Service() {
 					<ServiceCard
 						title="Refreshing Design"
 						details="We enjoy working with discerning clients, people for whom quality, service, integrity & aesthetics."
+						className="hover:bg-cyan-600/20 hover:border-cyan-500 hover:border-2 hover:text-cyan-300 group-hover:[--icon-color:cyan]"
 						icon={
 							<svg
 								width="36"
 								height="36"
 								viewBox="0 0 36 36"
-								fill="none"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<title>icon</title>
@@ -79,12 +83,13 @@ export default function Service() {
 					<ServiceCard
 						title="Based on Tailwind CSS"
 						details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+						 className="hover:bg-orange-600/20 hover:border-orange-500 hover:border-2 hover:text-orange-300 group-hover:[--icon-color:orange]"
 						icon={
 							<svg
 								width="36"
 								height="36"
 								viewBox="0 0 36 36"
-								fill="none"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<title>icon</title>
@@ -100,12 +105,13 @@ export default function Service() {
 					<ServiceCard
 						title="100+ Components"
 						details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+						 className="hover:bg-blue-600/20 hover:border-blue-500 hover:border-2 hover:text-blue-300 group-hover:[--icon-color:blue]"
 						icon={
 							<svg
 								width="36"
 								height="36"
 								viewBox="0 0 36 36"
-								fill="none"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<title>icon</title>
@@ -131,12 +137,13 @@ export default function Service() {
 					<ServiceCard
 						title="Speed Optimized"
 						details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+						 className="hover:bg-green-600/20 hover:border-green-500 hover:border-2 hover:text-green-300 group-hover:[--icon-color:green]"
 						icon={
 							<svg
 								width="36"
 								height="36"
 								viewBox="0 0 36 36"
-								fill="none"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<title>icon</title>
@@ -154,12 +161,13 @@ export default function Service() {
 					<ServiceCard
 						title="Fully Customizable"
 						details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+							className="hover:bg-cyan-600/20 hover:border-cyan-500 hover:border-2 hover:text-cyan-300 group-hover:[--icon-color:cyan]"
 						icon={
 							<svg
 								width="36"
 								height="36"
 								viewBox="0 0 36 36"
-								fill="none"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<title>icon</title>
@@ -173,12 +181,13 @@ export default function Service() {
 					<ServiceCard
 						title="Regular Updates"
 						details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+						 className="hover:bg-orange-600/20 hover:border-orange-500 hover:border-2 hover:text-orange-300 group-hover:[--icon-color:orange]"
 						icon={
 							<svg
 								width="36"
 								height="36"
 								viewBox="0 0 36 36"
-								fill="none"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<path
@@ -205,25 +214,27 @@ type ServiceCardProps = {
 	details: string;
 };
 
-const ServiceCard = ({ icon, title, details }: ServiceCardProps) => {
-	return (
-		<>
-			<div className="w-full px-4 md:w-1/2 lg:w-1/3">
-				<div className="group mb-9 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-200 p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 backdrop-blur-sm rounded-2xl hover:bg-slate-800/80 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/50">
-					<div className="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-gray-900">
-						{icon}
-					</div>
-					<h4 className="mb-3.5 text-2xl font-semibold text-dark group-hover:text-white transition-colors duration-300">
-						{title}
-					</h4>
-					<p className="text-slate-950 group-hover:text-white transition-colors duration-300">
-						{details}
-					</p>
-				</div>
-			</div>
-		</>
-	);
-};
+
+
+// const ServiceCard = ({ icon, title, details }: ServiceCardProps) => {
+// 	return (
+// 		<>
+// 			<div className="w-full px-4 md:w-1/2 lg:w-1/3">
+// 				<div className="group mb-9 bg-linear-to-r from-gray-100 via-gray-200 to-gray-200 p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 backdrop-blur-sm rounded-2xl hover:bg-slate-800/80 transition-all duration-300 border border-slate-700/50 hover:border-zinc-500/50">
+// 					<div className="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-gray-900">
+// 						{icon}
+// 					</div>
+// 					<h4 className="mb-3.5 text-2xl font-semibold text-dark group-hover:pl-2 group-hover:rounded-sm group-hover:bg-zinc-800 group-hover:text-white transition-colors duration-300">
+// 						{title}
+// 					</h4>
+// 					<p className="text-slate-950 group-hover:pl-2 group-hover:rounded-sm group-hover:bg-zinc-800 group-hover:text-white transition-colors duration-300">
+// 						{details}
+// 					</p>
+// 				</div>
+// 			</div>
+// 		</>
+// 	);
+// };
 
 // const ServiceCard = ({ icon, title, details }) => {
 //   return (
