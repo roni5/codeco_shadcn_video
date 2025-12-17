@@ -12,7 +12,7 @@ export default function SigninBtnCustom({
 	return (
 		<Button
 			variant="outline"
-			className="w-full gap-2 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
+			className="w-full gap-2 bg-linear-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-102"
 			size="lg"
 			onClick={() => signIn(provider.id)}
 		>

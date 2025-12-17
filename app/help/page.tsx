@@ -27,19 +27,19 @@ export default function page() {
 						<Image
 							src="/img/pink-squizzle.svg"
 							alt="Codeco Logo"
-							className="absolute -bottom-2 left-0 w-full h-auto"
+							className="absolute -bottom-2 left-0 w-full h-auto "
 							width={100}
 							height={24}
 							priority
 						/>
 					</span>
 						<Image
-																src="/img/working-on-laptops.jpeg"
-																alt="Get better insights to drive your business."
-																className="w-full rounded-3xl"
-																width={768}
-																height={500}
-															/>
+							src="/img/working-on-laptops.jpeg"
+							alt="Get better insights to drive your business."
+							className="w-full rounded-3xl space-y-12 mb-8 mt-4"
+							width={768}
+							height={500}
+							/>
 				</h2>
 				{/* Reasons List */}
 				<ul className="space-y-6 mb-8">

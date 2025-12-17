@@ -70,7 +70,7 @@ export default async function SignInPage() {
 
 								<div className="p-6 space-y-6">
 									{/* Account Status */}
-									<div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200">
+									<div className="bg-linear-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200">
 										<div className="flex items-center gap-3 mb-3">
 											<Shield className="w-5 h-5 text-purple-600" />
 											<h3 className="font-semibold text-gray-900">

@@ -10,7 +10,7 @@ export default function DarkZigzag() {
 							className="h-80 dark:bg-gray-500 aspect-video"
 						/>
 						<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
-							<span className="text-xs uppercase text-gray-600">
+							<span className="text-xs uppercase text-white-500">
 								Join, it's free
 							</span>
 							<h3 className="text-3xl font-bold">

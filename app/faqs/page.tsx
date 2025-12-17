@@ -52,7 +52,7 @@ export default function GoatFAQ() {
 								Your questions,
 							</span>
 							<span
-								className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-border"
+								className="block bg-linear-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-border"
 								style={{ backgroundSize: "200% 100%" }}
 							>
 								answered
@@ -133,17 +133,17 @@ export default function GoatFAQ() {
 				<div className="mt-12 md:mt-16 lg:mt-20 text-center">
 					<div className="inline-block relative">
 						<div
-							className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur-xl opacity-60 animate-border"
+							className="absolute inset-0 bg-linear-to-r from-primary via-secondary to-accent rounded-2xl blur-xl opacity-60 animate-border"
 							style={{ backgroundSize: "200% 100%" }}
 						/>
 						<div
-							className="relative bg-gradient-to-r from-primary via-secondary to-accent p-0.5 rounded-2xl animate-border"
+							className="relative bg-linear-to-r from-primary via-secondary to-accent p-0.5 rounded-2xl animate-border"
 							style={{ backgroundSize: "200% 100%" }}
 						>
 							<div className="bg-background px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl">
 								<p className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
 									Still have questions?{" "}
-									<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+									<span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
 										Contact our support team
 									</span>
 								</p>
